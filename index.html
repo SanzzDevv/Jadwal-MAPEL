@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Jadwal Pelajaran</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo">📚</div>
+                <div class="school-info">
+                    <h1 class="school-name">SMP NEGERI 24 BANDUNG</h1>
+                    <p class="system-name">Sistem Informasi Jadwal Pelajaran</p>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <nav class="navigation" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#beranda" class="nav-link active" data-section="beranda">
+                        <i class="fas fa-home"></i>
+                        <span>Beranda</span>
+                    </a></li>
+                    <li><a href="#kelas" class="nav-link" data-section="kelas">
+                        <i class="fas fa-users"></i>
+                        <span>Daftar Kelas</span>
+                    </a></li>
+                    <li><a href="#tentang" class="nav-link" data-section="tentang">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Tentang</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <section id="beranda" class="section active-section">
+                <div class="welcome-card">
+                    <h2 class="section-title">Selamat Datang di Sistem Informasi Jadwal Pelajaran</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-bolt"></i></div>
+                            <div class="info-text">
+                                <h3>Akses Cepat</h3>
+                                <p>Lihat informasi jadwal pelajaran dengan mudah dan cepat</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="info-text">
+                                <h3>Jadwal Harian</h3>
+                                <p>Lihat jadwal pelajaran per hari untuk setiap kelas</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fas fa-user-graduate"></i></div>
+                            <div class="info-text">
+                                <h3>Informasi Guru</h3>
+                                <p>Lihat daftar guru pengampu setiap mata pelajaran</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn primary" id="lihatKelasBtn">
+                            <i class="fas fa-eye"></i>
+                            Lihat Daftar Kelas
+                        </button>
+                        <button class="action-btn secondary">
+                            <i class="fas fa-download"></i>
+                            Sistem ini masih tahap pengembangan
+                        </button>
+                    </div>
+                    <div class="status-info">
+                        <p class="status-text">Sistem sekarang mendukung <strong>Kelas 7, 8, dan 9</strong> secara lengkap.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="kelas" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Pilih Kelas</h2>
+                    <button class="back-btn" id="backToHome">
+                        <i class="fas fa-arrow-left"></i>
+                        Kembali ke Beranda
+                    </button>
+                </div>
+                <div class="class-grid">
+                    <div class="class-card active">
+                        <div class="class-header">
+                            <div class="class-icon">7</div>
+                            <div class="class-status active">Tersedia</div>
+                        </div>
+                        <h3 class="class-name">Kelas 7</h3>
+                        <p class="class-description">Akses penuh ke semua kelas 7A sampai 7I</p>
+                        <button class="class-button" id="lihatKelas7">
+                            <span class="button-text">Lihat Kelas 7</span>
+                            <span class="button-icon"><i class="fas fa-eye"></i></span>
+                        </button>
+                    </div>
+
+                    <div class="class-card active">
+                        <div class="class-header">
+                            <div class="class-icon">8</div>
+                            <div class="class-status active">Tersedia</div>
+                        </div>
+                        <h3 class="class-name">Kelas 8</h3>
+                        <p class="class-description">Akses penuh ke semua kelas 8A sampai 8I</p>
+                        <button class="class-button" id="lihatKelas8">
+                            <span class="button-text">Lihat Kelas 8</span>
+                            <span class="button-icon"><i class="fas fa-eye"></i></span>
+                        </button>
+                    </div>
+
+                    <div class="class-card active">
+                        <div class="class-header">
+                            <div class="class-icon">9</div>
+                            <div class="class-status active">Tersedia</div>
+                        </div>
+                        <h3 class="class-name">Kelas 9</h3>
+                        <p class="class-description">Akses penuh ke semua kelas 9A sampai 9I</p>
+                        <button class="class-button" id="lihatKelas9">
+                            <span class="button-text">Lihat Kelas 9</span>
+                            <span class="button-icon"><i class="fas fa-eye"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION KELAS 7 -->
+            <section id="kelas-7" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Kelas 7</h2>
+                    <button class="back-btn" id="backToClasses7">
+                        <i class="fas fa-arrow-left"></i>
+                        Kembali ke Daftar Kelas
+                    </button>
+                </div>
+                
+                <div class="kelas-7-grid">
+                    <!-- Kelas 7A sampai 7I akan diisi oleh JavaScript -->
+                </div>
+            </section>
+
+            <!-- SECTION KELAS 8 -->
+            <section id="kelas-8" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Kelas 8</h2>
+                    <button class="back-btn" id="backToClasses">
+                        <i class="fas fa-arrow-left"></i>
+                        Kembali ke Daftar Kelas
+                    </button>
+                </div>
+                
+                <div class="kelas-8-grid">
+                    <!-- Kelas 8A sampai 8I akan diisi oleh JavaScript -->
+                </div>
+            </section>
+
+            <!-- SECTION KELAS 9 -->
+            <section id="kelas-9" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Kelas 9</h2>
+                    <button class="back-btn" id="backToClasses9">
+                        <i class="fas fa-arrow-left"></i>
+                        Kembali ke Daftar Kelas
+                    </button>
+                </div>
+                
+                <div class="kelas-9-grid">
+                    <!-- Kelas 9A sampai 9I akan diisi oleh JavaScript -->
+                </div>
+            </section>
+
+            <section id="jadwal-pelajaran" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" id="jadwal-title">Jadwal Pelajaran</h2>
+                    <div class="back-buttons">
+                        <button class="back-btn" id="backToKelas7">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali ke Kelas 7
+                        </button>
+                        <button class="back-btn" id="backToKelas8">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali ke Kelas 8
+                        </button>
+                        <button class="back-btn" id="backToKelas9">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali ke Kelas 9
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hari-selector">
+                    <button class="hari-btn active" data-hari="senin">Senin</button>
+                    <button class="hari-btn" data-hari="selasa">Selasa</button>
+                    <button class="hari-btn" data-hari="rabu">Rabu</button>
+                    <button class="hari-btn" data-hari="kamis">Kamis</button>
+                    <button class="hari-btn" data-hari="jumat">Jumat</button>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Scroll ke bawah untuk melihat jadwal lengkap</span>
+                </div>
+                
+                <div class="jadwal-container">
+                    <div class="jadwal-table-container">
+                        <table class="jadwal-table">
+                            <thead>
+                                <tr>
+                                    <th>Waktu</th>
+                                    <th>Mata Pelajaran</th>
+                                    <th>Guru</th>
+                                    <th>Ruang</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jadwal-tbody">
+                                <!-- Data jadwal akan diisi oleh JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="development-notice">
+                    <div class="notice-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="notice-content">
+                        <h3>Informasi Pengembangan Sistem</h3>
+                        <p><strong>Sistem ini masih dalam tahap pengembangan dan hanya dapat diakses secara online.</strong> Jika tidak terhubung ke internet, sistem tidak akan berfungsi. Untuk menyimpan jadwal, silakan screenshot halaman ini dan simpan di galeri perangkat Anda.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tentang" class="section">
+                <div class="about-card">
+                    <h2 class="section-title">Tentang Sistem</h2>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>Sistem Informasi Jadwal Pelajaran dikembangkan untuk memudahkan staf administrasi, guru, dan orang tua dalam mengakses informasi akademik secara terpusat.</p>
+                            
+                            <div class="version-info">
+                                <div class="version-item">
+                                    <span class="version-label">Versi Saat Ini:</span>
+                                    <span class="version-value">2.5.0</span>
+                                </div>
+                                <div class="version-item">
+                                    <span class="version-label">Fokus:</span>
+                                    <span class="version-value">Kelas 7, 8 & 9</span>
+                                </div>
+                                <div class="version-item">
+                                    <span class="version-label">Status:</span>
+                                    <span class="version-value active">Aktif - Semua Kelas</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="development-roadmap">
+                            <h3 class="roadmap-title">Rencana Pengembangan</h3>
+                            <ul class="roadmap-list">
+                                <li class="roadmap-item completed">
+                                    <span class="roadmap-status"><i class="fas fa-check"></i></span>
+                                    <span class="roadmap-text">Implementasi sistem dasar</span>
+                                </li>
+                                <li class="roadmap-item completed">
+                                    <span class="roadmap-status"><i class="fas fa-check"></i></span>
+                                    <span class="roadmap-text">Integrasi data kelas 8</span>
+                                </li>
+                                <li class="roadmap-item completed">
+                                    <span class="roadmap-status"><i class="fas fa-check"></i></span>
+                                    <span class="roadmap-text">Pengembangan modul kelas 7</span>
+                                </li>
+                                <li class="roadmap-item completed">
+                                    <span class="roadmap-status"><i class="fas fa-check"></i></span>
+                                    <span class="roadmap-text">Aktivasi modul kelas 9</span>
+                                </li>
+                                <li class="roadmap-item current">
+                                    <span class="roadmap-status"><i class="fas fa-sync"></i></span>
+                                    <span class="roadmap-text">Optimasi performa sistem</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3 class="contact-title">Kontak Pengembang</h3>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <i class="fas fa-user"></i>
+                                <div class="contact-details">
+                                    <strong>Pengembang</strong>
+                                    <span>Ahmad</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-edit"></i>
+                                <div class="contact-details">
+                                    <strong>Konten</strong>
+                                    <span>Amelia</span>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-details">
+                                    <strong>No</strong>
+                                    <span>087812029190</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Pengembang</h4>
+                    <p class="footer-text">Ahmad H.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Konten</h4>
+                    <p class="footer-text">V. Amelia</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Sekolah</h4>
+                    <p class="footer-text">SMP Negeri 24 Bandung</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Sistem Informasi Jadwal Pelajaran. Hak Cipta Dilindungi.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
