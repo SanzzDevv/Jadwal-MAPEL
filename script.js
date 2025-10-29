@@ -141,7 +141,7 @@ const jadwalKelas7 = {
         { waktu: "10.00-10.40", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "Kelas 7G" },
         { waktu: "10.40-11.20", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7G" },
         { waktu: "12.40-13.20", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7G" },
-        { waktu: "13.20-14.00", mapel: "B. INGGRIS", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" }
+        { waktu: "13.20-14.00", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7G" }
     ],
     jumat: [
     ]
@@ -154,10 +154,7 @@ const jadwalKelas7 = {
     }
 };
 
-// Template jadwal pelajaran UNIK untuk setiap kelas 8
 const jadwalKelas8 = {
-    // KELAS 8A - JADWAL UNIK
-// KELAS 8A - JADWAL SESUNGGUHNYA (Berdasarkan File PDF)
 "8A": {
     senin: [
         { waktu: "07.30 - 08.10", mapel: "MATEMATIKA", guru: "LELA ZULKAEDAH, S.Pd", ruang: "Kelas 8A" },
