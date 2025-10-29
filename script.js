@@ -7,7 +7,7 @@ const dataKelas7 = [
     { id: "7A", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7A" },
     { id: "7B", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7B" },
     { id: "7C", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7C" },
-    { id: "7D", waliKelas: "Pak Bambang, M.Pd", jumlahSiswa: 34, ruang: "Kelas 7D" },
+    { id: "7D", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7D" },
     { id: "7E", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7E" },
     { id: "7F", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7F" },
     { id: "7G", waliKelas: "?", jumlahSiswa: 34, ruang: "Kelas 7G" },
@@ -44,20 +44,112 @@ const dataKelas9 = [
 const jadwalKelas7 = {
     "7A": {
     },
+    
     "7B": {
     },
+    
     "7C": {
     },
+    
     "7D": {
-    },
+        senin: [
+        { waktu: "07.30-08.10", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "08.10-08.50", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "08.50-09.30", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "09.30-10.00", mapel: "B. INDONESIA", guru: "RINI SEPTIANI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.20-10.55", mapel: "B. INDONESIA", guru: "RINI SEPTIANI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.55-11.30", mapel: "B. INDONESIA", guru: "RINI SEPTIANI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S.Pd", ruang: "Kelas 7D" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "08.20-09.00", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "09.00-09.40", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.00-10.40", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.40-11.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "12.40-13.20", mapel: "B. INDONESIA", guru: "RINI SEPTIANI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "13.20-14.00", mapel: "B. INDONESIA", guru: "RINI SEPTIANI, S.Pd", ruang: "Kelas 7D" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "09.00-09.40", mapel: "B.INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7D" },
+        { waktu: "10.00-10.40", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" },
+        { waktu: "12.40-13.20", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" },
+        { waktu: "13.20-14.00", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "08.20-09.00", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "09.00-09.40", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.00-10.40", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "10.40-11.20", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" }
+    ],
+    jumat: [
+    ]
+},
+    
     "7E": {
     },
+    
     "7F": { 
     },
-    "7G": { 
-    },
+    
+"7G": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
+        { waktu: "08.10-08.50", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
+        { waktu: "08.50-09.30", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "09.30-10.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "10.20-10.55", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.55-11.30", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7G" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "08.20-09.00", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "09.00-09.40", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 7G" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "07.40-08.20", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7G/LABKOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7G/LABKOM" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7G" },
+        { waktu: "07.40-08.20", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7G" },
+        { waktu: "08.20-09.00", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
+        { waktu: "09.00-09.40", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
+        { waktu: "10.00-10.40", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "Kelas 7G" },
+        { waktu: "10.40-11.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" }
+    ],
+    jumat: [
+    ]
+},
+    
     "7H": { 
     },
+    
     "7I": { 
     }
 };
@@ -90,10 +182,10 @@ const jadwalKelas8 = {
     rabu: [
         { waktu: "07.00 - 07.40", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd", ruang: "Kelas 8A" },
         { waktu: "07.40 - 08.20", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd", ruang: "Kelas 8A" },
-        { waktu: "08.20 - 09.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8A" },
-        { waktu: "09.00 - 09.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8A" },
+        { waktu: "08.20 - 09.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8A/LABKOM" },
+        { waktu: "09.00 - 09.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8A/LABKOM" },
         { waktu: "10.00 - 10.40", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
-        { waktu: "10.40 - 11.20", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8A" },
+        { waktu: "10.40 - 11.20", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
         { waktu: "12.40 - 13.20", mapel: "MATEMATIKA", guru: "LELA ZULKAEDAH, S.Pd", ruang: "Lapang" },
         { waktu: "13.20 - 14.00", mapel: "MATEMATIKA", guru: "LELA ZULKAEDAH, S.Pd", ruang: "Kelas 8A" },
     ],
@@ -133,8 +225,8 @@ const jadwalKelas8 = {
         { waktu: "13.20 - 14.00", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
     ],
     rabu: [
-        { waktu: "07.00 - 07.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8B" },
-        { waktu: "07.40 - 08.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8B" },
+        { waktu: "07.00 - 07.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8B/LABKOM" },
+        { waktu: "07.40 - 08.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8B/LABKOM" },
         { waktu: "08.20 - 09.00", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8B" },
         { waktu: "09.00 - 09.40", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8B" },
         { waktu: "10.00 - 10.40", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8B" },
@@ -159,8 +251,8 @@ const jadwalKelas8 = {
 // KELAS 8C - JADWAL SESUNGGUHNYA
 "8C": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8C" },
-        { waktu: "08.10-08.50", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8C" },
+        { waktu: "07.30-08.10", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8C/LABKOM" },
+        { waktu: "08.10-08.50", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8C/LABKOM" },
         { waktu: "08.50-09.30", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8C" },
         { waktu: "09.30-10.00", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8C" },
         { waktu: "10.20-10.55", mapel: "B. Inggris", guru: "IWAN SETIAWAN, S.Pd", ruang: "Kelas 8C" },
@@ -214,8 +306,8 @@ const jadwalKelas8 = {
         { waktu: "13.20 - 14.00", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" }
     ],
     selasa: [
-        { waktu: "07.00 - 07.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8D" },
-        { waktu: "07.40 - 08.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8D" },
+        { waktu: "07.00 - 07.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8D/LABKOM" },
+        { waktu: "07.40 - 08.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8D/LABKOM" },
         { waktu: "08.20 - 09.00", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8D" },
         { waktu: "09.00 - 09.40", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8D" },
         { waktu: "10.00 - 10.40", mapel: "MATEMATIKA", guru: "LELA ZULKAEDAH, S.Pd", ruang: "Kelas 8D" },
@@ -253,8 +345,8 @@ const jadwalKelas8 = {
     senin: [
         { waktu: "07.30 - 08.10", mapel: "P.Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8F" },
         { waktu: "08.10 - 08.50", mapel: "P.Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8F" },
-        { waktu: "08.50 - 09.30", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8F" },
-        { waktu: "09.30 - 10.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8F" },
+        { waktu: "08.50 - 09.30", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8F/LABKOM" },
+        { waktu: "09.30 - 10.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8F/LABKOM" },
         { waktu: "10.20 - 10.55", mapel: "MATEMATIKA", guru: "FARHAN BUDIANTO, S.Pd", ruang: "Kelas 8F" },
         { waktu: "10.55 - 11.30", mapel: "MATEMATIKA", guru: "FARHAN BUDIANTO, S.Pd", ruang: "Kelas 8F" },
         { waktu: "12.40 - 13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8F" },
@@ -313,8 +405,8 @@ const jadwalKelas8 = {
         { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8G" },
         { waktu: "10.00-10.40", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
         { waktu: "10.40-11.20", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
-        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8G" },
-        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8G" }
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8G/LABKOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8G/LABKOM" }
     ],
     rabu: [
         { waktu: "07.00-07.40", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 8G" },
@@ -342,8 +434,50 @@ const jadwalKelas8 = {
     "8H": { 
     },
     
-    "8I": { 
-    }
+  "8I": {
+      senin: [
+        { waktu: "07.30-08.10", mapel: "SENPRAK", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8I" },
+        { waktu: "08.10-08.50", mapel: "SENPRAK", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8I" },
+        { waktu: "08.50-09.30", mapel: "MATEMATIKA", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "09.30-10.00", mapel: "MATEMATIKA", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.20-10.55", mapel: "PJOK", guru: "PIPIN FIRMANSYAH, S.Pd", ruang: "Lapang" },
+        { waktu: "10.55-11.30", mapel: "PJOK", guru: "PIPIN FIRMANSYAH, S.Pd", ruang: "Lapang" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8I" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8I" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "09.00-09.40", mapel: "MATEMATIKA", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.00-10.40", mapel: "MATEMATIKA", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "12.40-13.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "13.20-14.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8I" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "07.40-08.20", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8I/LABKOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8I/LABKOM" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 8I" },
+        { waktu: "13.20-14.00", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 8I" },
+    ],
+    jumat: [
+    ]
+}
 };
 
 // jadwal pelajaran UNIK untuk setiap kelas 9
