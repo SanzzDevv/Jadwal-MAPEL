@@ -78,7 +78,7 @@ const jadwalKelas7 = {
         { waktu: "08.20-09.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 7D" },
         { waktu: "09.00-09.40", mapel: "B.INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7D" },
         { waktu: "10.00-10.40", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd", ruang: "Kelas 7D" },
-        { waktu: "10.40-11.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" },
+        { waktu: "10.40-11.20", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd", ruang: "Kelas 7D/LABKOM" },
         { waktu: "12.40-13.20", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" },
         { waktu: "13.20-14.00", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" }
     ],
@@ -335,7 +335,51 @@ const jadwalKelas8 = {
     jumat: [
     ]
 },
-    "8E": { // belum ada jadwal
+
+  // KELAS 8E - JADWAL RESMI
+"8E": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "08.10-08.50", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "08.50-09.30", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "09.30-10.00", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.20-10.55", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.55-11.30", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd", ruang: "Kelas 8E" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "NIDYA EKA PRATIWI, S.Pd" , ruang: "Kelas 8E" },
+        { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.00-10.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8E/LABKOM" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8E/LABKOM" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8E" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "07.40-08.20", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "08.20-09.00", mapel: "Seni Praktek", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8E" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8E" },
+        { waktu: "10.00-10.40", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.40-11.20", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8E" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8E" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "LUTHFI HADIANSYAH, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "09.00-09.40", mapel: "IPS", guru: "LUTHFI HADIANSYAH, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "LUTHFI HADIANSYAH, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" }
+    ],
+    jumat: [
+]
 },
 
 "8F": {
@@ -428,8 +472,52 @@ const jadwalKelas8 = {
     jumat: [
     ]
 },
-    "8H": { 
-    },
+
+// KELAS 8H - JADWAL RESMI
+"8H": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8H/Lapang" },
+        { waktu: "08.10-08.50", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8H/Lapang" },
+        { waktu: "08.50-09.30", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "09.30-10.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "10.20-10.55", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8H" },
+        { waktu: "10.55-11.30", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 8H" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8H" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "Seni Praktek", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8H" },
+        { waktu: "07.40-08.20", mapel: "Seni Praktek", guru: "MEGA HERLIANI, S.Sn", ruang: "Kelas 8H" },
+        { waktu: "08.20-09.00", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8H" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8H" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8H" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "PRAPTI HANDAYANI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "12.40-13.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "13.20-14.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S.Pd", ruang: "Kelas 8H" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8H/LABKOM" },
+        { waktu: "07.40-08.20", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8H/LABKOM" },
+        { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8H" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8H" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" }
+    ],
+    jumat: [
+    ]
+},
     
   "8I": {
       senin: [
@@ -492,9 +580,13 @@ const jadwalKelas9 = {
     },
     
     "9F": { /* ... jadwal sama seperti 9D */ },
+    
     "9G": { /* ... jadwal sama seperti 9D */ },
+    
     "9H": { /* ... jadwal sama seperti 9D */ },
+    
     "9I": { /* ... jadwal sama seperti 9D */ }
+    
 };
 
 // Gabungkan semua jadwal
