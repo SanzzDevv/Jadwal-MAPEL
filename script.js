@@ -226,11 +226,95 @@ const jadwalKelas7 = {
     ]
 },
     
-    "7E": {
-    },
-    
-    "7F": { 
-    },
+"7E": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "08.10-08.50", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "08.50-09.30", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "09.30-10.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "10.20-10.55", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "10.55-11.30", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7E" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "07.40-08.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "10.00-10.40", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S. Pd", ruang: "kelas 7E" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7E" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7E" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7E" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7E" },
+        { waktu: "07.40-08.20", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7E" },
+        { waktu: "08.20-09.00", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "10.00-10.40", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7E" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7E" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" }
+    ],
+    jumat: [
+    ]
+},
+
+"7F": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7F" },
+        { waktu: "08.10-08.50", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7F" },
+        { waktu: "08.50-09.30", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7F" },
+        { waktu: "09.30-10.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.20-10.55", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.55-11.30", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7F" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7F" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7F" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7F" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7F" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7F" },
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7F" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7F" },
+        { waktu: "09.00-09.40", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S. Psi", ruang: "kelas 7F" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" },
+        { waktu: "10.40-11.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7F" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7F" }
+    ],
+    jumat: [
+    ]
+},
     
 "7G": {
     senin: [
@@ -277,11 +361,96 @@ const jadwalKelas7 = {
     ]
 },
     
-    "7H": { 
-    },
-    
-    "7I": { 
-    }
+"7H": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "08.10-08.50", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "08.50-09.30", mapel: "BP-BK", guru: "AI RIKA ISHAMAHANI, S. Psi", ruang: "kelas 7H" },
+        { waktu: "09.30-10.00", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7H" },
+        { waktu: "10.20-10.55", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7H" },
+        { waktu: "10.55-11.30", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7H" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "10.40-11.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7H" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7H" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7H" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7H" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7H" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7H" },
+        { waktu: "10.00-10.40", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7H" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7H" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7H" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7H" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "07.40-08.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
+        { waktu: "08.20-09.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7H" },
+        { waktu: "09.00-09.40", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7H" },
+        { waktu: "10.00-10.40", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7H" },
+        { waktu: "10.40-11.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7H" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" }
+    ],
+    jumat: [
+    ]
+},
+
+"7I": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7I" },
+        { waktu: "08.10-08.50", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7I" },
+        { waktu: "08.50-09.30", mapel: "IPS", guru: "ANDRI SUNANTO, S. Pd., M. Pd", ruang: "kelas 7I" },
+        { waktu: "09.30-10.00", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "10.20-10.55", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "10.55-11.30", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7I" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7I" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "ENDAH NURJANAH, S. Pd", ruang: "kelas 7I" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "08.20-09.00", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "10.00-10.40", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7I" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7I" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
+        { waktu: "08.20-09.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
+        { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "07.40-08.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7I" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
+        { waktu: "13.20-14.00", mapel: "BP-BK", guru: "AI RIKA ISHAMAHANI, S. Psi", ruang: "kelas 7I" }
+    ],
+    jumat: [
+    ]
+},
+
 };
 
 const jadwalKelas8 = {
