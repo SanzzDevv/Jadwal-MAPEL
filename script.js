@@ -567,25 +567,451 @@ const jadwalKelas8 = {
 
 // jadwal pelajaran UNIK untuk setiap kelas 9
 const jadwalKelas9 = {
-    // KELAS 9A - JADWAL UNIK
-    "9A": {
-    },
+// KELAS 9A - JADWAL RESMI
+"9A": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9A" },
+        { waktu: "08.10-08.50", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9A" },
+        { waktu: "08.50-09.30", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "09.30-10.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "10.20-10.55", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "kelas 9A" },
+        { waktu: "10.55-11.30", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "12.40-13.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "13.20-14.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9A" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "kelas 9A" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "kelas 9A" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "kelas 9A" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9A" },
+        { waktu: "10.00-10.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9A" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9A" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9A" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9A" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9A" },
+        { waktu: "07.40-08.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9A" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "10.40-11.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9A" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "kelas 9A" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "kelas 9A" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "9A/lab Komputer" },
+        { waktu: "07.40-08.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "9A/lab Komputer" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "kelas 9A/Lapang" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "kelas 9A/Lapang" },
+        { waktu: "10.00-10.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9A" },
+        { waktu: "10.40-11.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9A" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" }
+    ]
+},
     
-    // KELAS 9B - JADWAL BERBEDA
-    "9B": {
-    },
+// KELAS 9B - JADWAL RESMI
+"9B": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "08.10-08.50", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "08.50-09.30", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "09.30-10.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "10.20-10.55", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "10.55-11.30", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" }
+    ],
+    selasa: [
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "10.00-10.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" }
+    ],
+    jumat: [
+    ]
+},
     
-    // KELAS 9C - JADWAL BERBEDA LAGI
-    "9C": {
-    },
+"9B": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "08.10-08.50", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "08.50-09.30", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9B" },
+        { waktu: "09.30-10.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9B" },
+        { waktu: "10.20-10.55", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.55-11.30", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9B" }
+    ],
+    selasa: [
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "10.40-11.20", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "kelas 9B" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9B" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9B" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9B" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9B" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9B" },
+        { waktu: "10.00-10.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9B" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "kelas 9B" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "kelas 9B" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9B" },
+        { waktu: "07.40-08.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9B" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.00-10.40", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "10.40-11.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9B" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9B" }
+    ]
+},
+
+// KELAS 9C - JADWAL RESMI
+"9C": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "08.10-08.50", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "08.50-09.30", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "09.30-10.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "10.20-10.55", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "10.55-11.30", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9C" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9C" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9C" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "07.40-08.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "08.20-09.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "09.00-09.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.00-10.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9C" },
+        { waktu: "10.40-11.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9C" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9C" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9C" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "kelas 9C" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9C" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9C" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9C" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9C" },
+        { waktu: "07.40-08.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9C" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9C" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9C" },
+        { waktu: "10.00-10.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9C" },
+        { waktu: "10.40-11.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9C" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9C" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9C" }
+    ]
+},
     
-    "9F": { /* ... jadwal sama seperti 9D */ },
+"9D": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "08.10-08.50", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "08.50-09.30", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9D" },
+        { waktu: "09.30-10.00", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9D" },
+        { waktu: "10.20-10.55", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9D" },
+        { waktu: "10.55-11.30", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9D" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9D" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9D" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9D" },
+        { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9D" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9D" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9D" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "07.40-08.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "08.20-09.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "12.40-13.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9D" },
+        { waktu: "13.20-14.00", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "kelas 9D" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9D" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S.Pd", ruang: "kelas 9D" },
+        { waktu: "08.20-09.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9D" },
+        { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9D" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9D" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9D" }
+    ]
+},
+
+// KELAS 9E - JADWAL RESMI
+"9E": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "08.10-08.50", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "08.50-09.30", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "09.30-10.00", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
+        { waktu: "10.20-10.55", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.55-11.30", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "kelas 9E" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9E" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "kelas 9E" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9E" },
+        { waktu: "07.40-08.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "kelas 9E" },
+        { waktu: "08.20-09.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "13.20-14.00", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "kelas 9E" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.00-10.40", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "10.40-11.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
+        { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9E" },
+        { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9E" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd", ruang: "kelas 9E" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9E" },
+        { waktu: "12.40-13.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9E" },
+        { waktu: "13.20-14.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd", ruang: "kelas 9E" }
+    ]
+},
     
-    "9G": { /* ... jadwal sama seperti 9D */ },
+// KELAS 9F - JADWAL RESMI
+"9F": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "08.10-08.50", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "08.50-09.30", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "09.30-10.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "10.20-10.55", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "10.55-11.30", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "07.40-08.20", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "10.00-10.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "IKA KURNIA, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" }
+    ],
+    jumat: [
+    ]
+},
     
-    "9H": { /* ... jadwal sama seperti 9D */ },
+// KELAS 9G - JADWAL RESMI
+"9G": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "08.10-08.50", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "08.50-09.30", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "09.30-10.00", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "10.20-10.55", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "10.55-11.30", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "07.40-08.20", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "08.20-09.00", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi" },
+        { waktu: "09.00-09.40", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "13.20-14.00", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "07.40-08.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "08.20-09.00", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "09.00-09.40", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" }
+    ],
+    jumat: [
+    ]
+},
     
-    "9I": { /* ... jadwal sama seperti 9D */ }
+// KELAS 9H - JADWAL RESMI
+"9H": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "08.10-08.50", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "08.50-09.30", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "09.30-10.00", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi" },
+        { waktu: "10.20-10.55", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "10.55-11.30", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+        { waktu: "12.40-13.20", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd" },
+        { waktu: "07.40-08.20", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd" },
+        { waktu: "08.20-09.00", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd" },
+        { waktu: "09.00-09.40", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
+        { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "08.20-09.00", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" },
+        { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si" },
+        { waktu: "08.20-09.00", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "09.00-09.40", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
+        { waktu: "12.40-13.20", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" },
+        { waktu: "13.20-14.00", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM" }
+    ],
+    jumat: [
+    ]
+},
+    
+// KELAS 9I - JADWAL RESMI
+"9I": {
+    senin: [
+        { waktu: "07.30-08.10", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 9I" },
+        { waktu: "08.10-08.50", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 9I" },
+        { waktu: "08.50-09.30", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "09.30-10.00", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "10.20-10.55", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "10.55-11.30", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "13.20-14.00", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi", ruang: "Kelas 9I" }
+    ],
+    selasa: [
+        { waktu: "07.00-07.40", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 9I" },
+        { waktu: "07.40-08.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 9I" },
+        { waktu: "08.20-09.00", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "Kelas 9I/LABKOM" },
+        { waktu: "09.00-09.40", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "Kelas 9I/LABKOM" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Kelas 9I/Lapang" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd", ruang: "Kelas 9I/Lapang" },
+        { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "Kelas 9I" }
+    ],
+    rabu: [
+        { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "08.20-09.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 9I" },
+        { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S", ruang: "Kelas 9I" },
+        { waktu: "10.00-10.40", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "10.40-11.20", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "Kelas 9I" },
+        { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "AHMAD RAHMAT, S.Sn, M.Pd", ruang: "Kelas 9I" }
+    ],
+    kamis: [
+        { waktu: "07.00-07.40", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "07.40-08.20", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "08.20-09.00", mapel: "B. Inggris", guru: "MUH. ZAENAL ARIPIN, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "09.00-09.40", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 9I" },
+        { waktu: "10.00-10.40", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 9I" },
+        { waktu: "10.40-11.20", mapel: "IPS", guru: "ANDRI SUNANTO, S.Pd., M.Pd", ruang: "Kelas 9I" },
+        { waktu: "12.40-13.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "Kelas 9I" },
+        { waktu: "13.20-14.00", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "Kelas 9I" }
+    ],
+    jumat: [
+    ]
+}
     
 };
 
