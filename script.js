@@ -30,13 +30,13 @@ const dataKelas8 = [
 
 // Data kelas 9 (diaktifkan)
 const dataKelas9 = [
-    { id: "9A", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9A" },
-    { id: "9B", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9B" },
+    { id: "9A", waliKelas: "IIS PRIATINI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9A" },
+    { id: "9B", waliKelas: "ELLI KEMALAWATI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9B" },
     { id: "9C", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9C" },
     { id: "9D", waliKelas: "EHA JULAEHA, S.S", jumlahSiswa: 34, ruang: "Kelas 9D" },
     { id: "9E", waliKelas: "IKA KURNIA, S.Pd.", jumlahSiswa: 34, ruang: "Kelas 9E" },
     { id: "9F", waliKelas: "RONI RAHMANSYAH, S.KOM", jumlahSiswa: 34, ruang: "Kelas 9F" },
-    { id: "9G", waliKelas: "LANI MUSTIKASARI ,S.Pd", jumlahSiswa: 34, ruang: "Kelas 9G" },
+    { id: "9G", waliKelas: "LANI MUSTIKASARI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9G" },
     { id: "9H", waliKelas: "LIA PRAMURTYA, S.Si", jumlahSiswa: 34, ruang: "Kelas 9H" },
     { id: "9I", waliKelas: "M. NOOR FENDI SAEFULOH, S.Pd.", jumlahSiswa: 34, ruang: "Kelas 9I" }
 ];
@@ -926,7 +926,7 @@ const jadwalKelas9 = {
         { waktu: "07.40-08.20", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
         { waktu: "08.20-09.00", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
         { waktu: "09.00-09.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" },
-        { waktu: "10.00-10.40", mapel: "IPS", guru: "IIS PRIATINI, S.Pd" },
+        { waktu: "10.00-10.40", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd" },
         { waktu: "10.40-11.20", mapel: "BP-BK", guru: "AI RIKA ISMAHANI, S.Psi" },
         { waktu: "12.40-13.20", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" },
         { waktu: "13.20-14.00", mapel: "Matematika", guru: "ELLI KEMALAWATI, S.Pd" }
