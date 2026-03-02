@@ -1,4 +1,14 @@
 // ===============================
+// DARK MODE
+// ===============================
+(function () {
+    const saved = localStorage.getItem('sijap-theme');
+    if (saved === 'dark') {
+        document.body.classList.add('dark');
+    }
+})();
+
+// ===============================
 // KONFIGURASI DATA YANG MUDAH DIUBAH
 // ===============================
 
@@ -71,8 +81,8 @@ const jadwalKelas7 = {
         { waktu: "09.00-09.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7A" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7A" },
         { waktu: "10.40-11.20", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S. Pd", ruang: "kelas 7A" },
-        { waktu: "12.40-13.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "13.20-14.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" }
+        { waktu: "12.40-13.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "13.20-14.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" }
     ],
     kamis: [
         { waktu: "07.00-07.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S. Pd", ruang: "lab IPA" },
@@ -107,8 +117,8 @@ const jadwalKelas7 = {
         { waktu: "09.00-09.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S. Pd", ruang: "lab IPA" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7B" },
         { waktu: "10.40-11.20", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7B" },
-        { waktu: "12.40-13.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "13.20-14.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" }
+        { waktu: "12.40-13.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "13.20-14.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" }
     ],
     rabu: [
         { waktu: "07.00-07.40", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7B" },
@@ -171,8 +181,8 @@ const jadwalKelas7 = {
         { waktu: "07.40-08.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
         { waktu: "08.20-09.00", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7C" },
         { waktu: "09.00-09.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7C" },
-        { waktu: "10.00-10.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "10.40-11.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
         { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" },
         { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" }
     ],
@@ -213,8 +223,8 @@ const jadwalKelas7 = {
         { waktu: "13.20-14.00", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
-        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
         { waktu: "08.20-09.00", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
         { waktu: "09.00-09.40", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
         { waktu: "10.00-10.40", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
@@ -260,8 +270,8 @@ const jadwalKelas7 = {
     kamis: [
         { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
         { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
-        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
         { waktu: "10.00-10.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "10.40-11.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" },
@@ -295,8 +305,8 @@ const jadwalKelas7 = {
     rabu: [
         { waktu: "07.00-07.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "07.40-08.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
-        { waktu: "08.20-09.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "09.00-09.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
         { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
         { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
         { waktu: "12.40-13.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" },
@@ -320,8 +330,8 @@ const jadwalKelas7 = {
     senin: [
         { waktu: "07.30-08.10", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
         { waktu: "08.10-08.50", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
-        { waktu: "08.50-09.30", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
-        { waktu: "09.30-10.00", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M.Pd", ruang: "Lapang" },
+        { waktu: "08.50-09.30", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
+        { waktu: "09.30-10.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
         { waktu: "10.20-10.55", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
         { waktu: "10.55-11.30", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
         { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7G" },
@@ -373,8 +383,8 @@ const jadwalKelas7 = {
         { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "07.40-08.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
         { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
         { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
@@ -432,8 +442,8 @@ const jadwalKelas7 = {
         { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
         { waktu: "08.20-09.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
         { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
-        { waktu: "10.00-10.40", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
-        { waktu: "10.40-11.20", mapel: "PJOK", guru: "Drs. ASEP SUTARDI, M. Pd", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
         { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" },
         { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" }
     ],
@@ -1315,342 +1325,202 @@ const jadwalKelas = {
 };
 
 // ===============================
-// FUNGSI UTAMA
+// STATE
+// ===============================
+let currentKelas = null;
+let currentKelasLevel = null;
+
+// ===============================
+// RENDER FUNCTIONS
 // ===============================
 
-// Variabel global untuk menyimpan kelas yang sedang dipilih
-let currentKelas = "";
-let currentKelasLevel = ""; // '7', '8', atau '9'
+function renderKelasGrid(containerSelector, dataKelas) {
+    const grid = document.querySelector(containerSelector);
+    if (!grid) return;
+    grid.innerHTML = '';
 
-// Fungsi untuk merender daftar kelas 7
-function renderKelas7() {
-    const kelas7Grid = document.querySelector('.kelas-7-grid');
-    if (!kelas7Grid) return;
-    
-    kelas7Grid.innerHTML = '';
-
-    dataKelas7.forEach(kelas => {
-        const kelasCard = document.createElement('div');
-        kelasCard.className = 'kelas-card';
-        
-        kelasCard.innerHTML = `
-            <div class="kelas-header">
-                <h3 class="kelas-name">Kelas ${kelas.id}</h3>
-                <span class="kelas-status active">Aktif</span>
+    dataKelas.forEach(kelas => {
+        const card = document.createElement('div');
+        card.className = 'kelas-card';
+        card.innerHTML = `
+            <div class="kelas-card-header">
+                <h3>${kelas.id}</h3>
+                <span class="kelas-badge">Aktif</span>
             </div>
-            <div class="kelas-info">
-                <div class="info-row">
-                    <i class="fas fa-user"></i>
-                    <span>Wali Kelas: ${kelas.waliKelas}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-users"></i>
-                    <span>Jumlah Siswa: ${kelas.jumlahSiswa}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-door-open"></i>
-                    <span>Ruang: ${kelas.ruang}</span>
-                </div>
+            <div class="kelas-meta">
+                <span class="label">WALI KELAS</span>
+                <span>${kelas.waliKelas}</span>
+                <span class="label" style="margin-top:6px">RUANG</span>
+                <span>${kelas.ruang}</span>
             </div>
             <button class="kelas-button" data-kelas="${kelas.id}">
-                <i class="fas fa-calendar-alt"></i>
-                Lihat Jadwal
+                Lihat Jadwal →
             </button>
         `;
-        
-        kelas7Grid.appendChild(kelasCard);
+        grid.appendChild(card);
     });
 }
 
-// Fungsi untuk merender daftar kelas 8
-function renderKelas8() {
-    const kelas8Grid = document.querySelector('.kelas-8-grid');
-    if (!kelas8Grid) return;
-    
-    kelas8Grid.innerHTML = '';
+function renderKelas7() { renderKelasGrid('.kelas-7-grid', dataKelas7); }
+function renderKelas8() { renderKelasGrid('.kelas-8-grid', dataKelas8); }
+function renderKelas9() { renderKelasGrid('.kelas-9-grid', dataKelas9); }
 
-    dataKelas8.forEach(kelas => {
-        const kelasCard = document.createElement('div');
-        kelasCard.className = 'kelas-card';
-        
-        kelasCard.innerHTML = `
-            <div class="kelas-header">
-                <h3 class="kelas-name">Kelas ${kelas.id}</h3>
-                <span class="kelas-status active">Aktif</span>
-            </div>
-            <div class="kelas-info">
-                <div class="info-row">
-                    <i class="fas fa-user"></i>
-                    <span>Wali Kelas: ${kelas.waliKelas}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-users"></i>
-                    <span>Jumlah Siswa: ${kelas.jumlahSiswa}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-door-open"></i>
-                    <span>Ruang: ${kelas.ruang}</span>
-                </div>
-            </div>
-            <button class="kelas-button" data-kelas="${kelas.id}">
-                <i class="fas fa-calendar-alt"></i>
-                Lihat Jadwal
-            </button>
-        `;
-        
-        kelas8Grid.appendChild(kelasCard);
-    });
-}
-
-// Fungsi untuk merender daftar kelas 9
-function renderKelas9() {
-    const kelas9Grid = document.querySelector('.kelas-9-grid');
-    if (!kelas9Grid) return;
-    
-    kelas9Grid.innerHTML = '';
-
-    dataKelas9.forEach(kelas => {
-        const kelasCard = document.createElement('div');
-        kelasCard.className = 'kelas-card';
-        
-        kelasCard.innerHTML = `
-            <div class="kelas-header">
-                <h3 class="kelas-name">Kelas ${kelas.id}</h3>
-                <span class="kelas-status active">Aktif</span>
-            </div>
-            <div class="kelas-info">
-                <div class="info-row">
-                    <i class="fas fa-user"></i>
-                    <span>Wali Kelas: ${kelas.waliKelas}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-users"></i>
-                    <span>Jumlah Siswa: ${kelas.jumlahSiswa}</span>
-                </div>
-                <div class="info-row">
-                    <i class="fas fa-door-open"></i>
-                    <span>Ruang: ${kelas.ruang}</span>
-                </div>
-            </div>
-            <button class="kelas-button" data-kelas="${kelas.id}">
-                <i class="fas fa-calendar-alt"></i>
-                Lihat Jadwal
-            </button>
-        `;
-        
-        kelas9Grid.appendChild(kelasCard);
-    });
-}
-
-// Fungsi untuk menampilkan jadwal pelajaran berdasarkan hari
 function renderJadwalHari(hari) {
-    const jadwalTbody = document.getElementById('jadwal-tbody');
-    jadwalTbody.innerHTML = '';
+    const tbody = document.getElementById('jadwal-tbody');
+    tbody.innerHTML = '';
 
     if (!currentKelas || !jadwalKelas[currentKelas] || !jadwalKelas[currentKelas][hari]) {
-        jadwalTbody.innerHTML = '<tr><td colspan="4" class="no-data">Tidak ada jadwal pelajaran untuk hari ini.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Tidak ada jadwal untuk hari ini.</td></tr>';
         return;
     }
 
-    const jadwalHari = jadwalKelas[currentKelas][hari];
-    
-    // Cek jika jadwal kosong
-    if (jadwalHari.length === 0) {
-        jadwalTbody.innerHTML = '<tr><td colspan="4" class="no-data">Jadwal belum diisi. Silakan hubungi administrator.</td></tr>';
+    const jadwal = jadwalKelas[currentKelas][hari];
+    if (!jadwal.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Jadwal belum diisi.</td></tr>';
         return;
     }
-    
-    jadwalHari.forEach(item => {
-        const row = document.createElement('tr');
-        
-        row.innerHTML = `
+
+    jadwal.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
             <td>${item.waktu}</td>
             <td>${item.mapel}</td>
-            <td>${item.guru}</td>
+            <td>${item.guru || '—'}</td>
             <td>${item.ruang}</td>
         `;
-        
-        jadwalTbody.appendChild(row);
+        tbody.appendChild(tr);
     });
 }
 
-// Fungsi untuk mengganti section aktif
-function showSection(sectionId) {
-    // Sembunyikan semua section
-    document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active-section');
-    });
-    
-    // Tampilkan section yang dipilih
-    document.getElementById(sectionId).classList.add('active-section');
-    
-    // Update navigasi aktif
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    const navLink = document.querySelector(`.nav-link[data-section="${sectionId}"]`);
-    if (navLink) {
-        navLink.classList.add('active');
-    }
-    
-    // Jika section jadwal-pelajaran, set hari aktif ke Senin
-    if (sectionId === 'jadwal-pelajaran') {
+// ===============================
+// NAVIGATION
+// ===============================
+
+function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
+    const target = document.getElementById(id);
+    if (target) target.classList.add('active-section');
+
+    // Update nav active
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const navLink = document.querySelector(`.nav-link[data-section="${id}"]`);
+    if (navLink) navLink.classList.add('active');
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // If jadwal section, reset to monday
+    if (id === 'jadwal-pelajaran') {
         setHariAktif('senin');
         renderJadwalHari('senin');
     }
 }
 
-// Fungsi untuk mengatur hari aktif
 function setHariAktif(hari) {
-    // Hapus class active dari semua tombol hari
-    document.querySelectorAll('.hari-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    
-    // Tambah class active ke tombol hari yang dipilih
-    const targetBtn = document.querySelector(`.hari-btn[data-hari="${hari}"]`);
-    if (targetBtn) {
-        targetBtn.classList.add('active');
-    }
+    document.querySelectorAll('.hari-btn').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.hari-btn[data-hari="${hari}"]`);
+    if (btn) btn.classList.add('active');
 }
 
-// Fungsi untuk mengatur tombol kembali yang ditampilkan
 function updateBackButtons() {
-    const backToKelas7 = document.getElementById('backToKelas7');
-    const backToKelas8 = document.getElementById('backToKelas8');
-    const backToKelas9 = document.getElementById('backToKelas9');
-    
-    // Sembunyikan semua tombol kembali
-    backToKelas7.style.display = 'none';
-    backToKelas8.style.display = 'none';
-    backToKelas9.style.display = 'none';
-    
-    // Tampilkan tombol kembali sesuai dengan level kelas
-    if (currentKelasLevel === '7') {
-        backToKelas7.style.display = 'flex';
-    } else if (currentKelasLevel === '8') {
-        backToKelas8.style.display = 'flex';
-    } else if (currentKelasLevel === '9') {
-        backToKelas9.style.display = 'flex';
-    }
+    document.getElementById('backToKelas7').style.display = 'none';
+    document.getElementById('backToKelas8').style.display = 'none';
+    document.getElementById('backToKelas9').style.display = 'none';
+
+    if (currentKelasLevel === '7') document.getElementById('backToKelas7').style.display = '';
+    else if (currentKelasLevel === '8') document.getElementById('backToKelas8').style.display = '';
+    else if (currentKelasLevel === '9') document.getElementById('backToKelas9').style.display = '';
 }
 
 // ===============================
-// EVENT LISTENERS
+// INIT
 // ===============================
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi data
+document.addEventListener('DOMContentLoaded', function () {
     renderKelas7();
     renderKelas8();
     renderKelas9();
-    
-    // Navigasi menu
+
+    // DARK MODE TOGGLE
+    const darkToggle = document.getElementById('darkToggle');
+    if (darkToggle) {
+        darkToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('sijap-theme', isDark ? 'dark' : 'light');
+        });
+    }
+
+    // NAV LINKS
     document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
-            const sectionId = this.getAttribute('data-section');
-            showSection(sectionId);
-            
-            // Tutup menu mobile jika terbuka
-            document.getElementById('mainNav').classList.remove('active');
+            showSection(this.getAttribute('data-section'));
+            document.getElementById('mainNav').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
         });
     });
-    
-    // Tombol lihat kelas dari beranda
-    document.getElementById('lihatKelasBtn').addEventListener('click', function() {
-        showSection('kelas');
+
+    // HAMBURGER
+    document.getElementById('hamburger').addEventListener('click', function () {
+        this.classList.toggle('open');
+        document.getElementById('mainNav').classList.toggle('open');
     });
-    
-    // Tombol lihat kelas 7
-    document.getElementById('lihatKelas7').addEventListener('click', function() {
-        showSection('kelas-7');
-    });
-    
-    // Tombol lihat kelas 8
-    document.getElementById('lihatKelas8').addEventListener('click', function() {
-        showSection('kelas-8');
-    });
-    
-    // Tombol lihat kelas 9
-    document.getElementById('lihatKelas9').addEventListener('click', function() {
-        showSection('kelas-9');
-    });
-    
-    // Tombol kembali ke beranda
-    document.getElementById('backToHome').addEventListener('click', function() {
-        showSection('beranda');
-    });
-    
-    // Tombol kembali ke daftar kelas dari kelas 7
-    document.getElementById('backToClasses7').addEventListener('click', function() {
-        showSection('kelas');
-    });
-    
-    // Tombol kembali ke daftar kelas dari kelas 8
-    document.getElementById('backToClasses').addEventListener('click', function() {
-        showSection('kelas');
-    });
-    
-    // Tombol kembali ke daftar kelas dari kelas 9
-    document.getElementById('backToClasses9').addEventListener('click', function() {
-        showSection('kelas');
-    });
-    
-    // Tombol kembali ke kelas 7
-    document.getElementById('backToKelas7').addEventListener('click', function() {
-        showSection('kelas-7');
-    });
-    
-    // Tombol kembali ke kelas 8
-    document.getElementById('backToKelas8').addEventListener('click', function() {
-        showSection('kelas-8');
-    });
-    
-    // Tombol kembali ke kelas 9
-    document.getElementById('backToKelas9').addEventListener('click', function() {
-        showSection('kelas-9');
-    });
-    
-    // Tombol lihat jadwal untuk setiap kelas
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.kelas-button')) {
-            const button = e.target.closest('.kelas-button');
-            currentKelas = button.getAttribute('data-kelas');
-            currentKelasLevel = currentKelas.charAt(0); // Ambil angka pertama (7, 8, atau 9)
-            
-            document.getElementById('jadwal-title').textContent = `Jadwal Pelajaran Kelas ${currentKelas}`;
-            showSection('jadwal-pelajaran');
-            updateBackButtons();
+
+    // Close nav on outside click
+    document.addEventListener('click', function (e) {
+        const nav = document.getElementById('mainNav');
+        const ham = document.getElementById('hamburger');
+        if (!nav.contains(e.target) && !ham.contains(e.target)) {
+            nav.classList.remove('open');
+            ham.classList.remove('open');
         }
     });
-    
-    // Tombol hari
-    document.querySelectorAll('.hari-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const hari = this.getAttribute('data-hari');
-            setHariAktif(hari);
-            renderJadwalHari(hari);
+
+    // HERO BUTTONS
+    document.getElementById('lihatKelasBtn').addEventListener('click', () => showSection('kelas'));
+
+    // GRADE LEVEL BUTTONS
+    document.getElementById('lihatKelas7').addEventListener('click', () => showSection('kelas-7'));
+    document.getElementById('lihatKelas8').addEventListener('click', () => showSection('kelas-8'));
+    document.getElementById('lihatKelas9').addEventListener('click', () => showSection('kelas-9'));
+
+    // BACK BUTTONS
+    document.getElementById('backToHome').addEventListener('click', () => showSection('beranda'));
+    document.getElementById('backToClasses7').addEventListener('click', () => showSection('kelas'));
+    document.getElementById('backToClasses').addEventListener('click', () => showSection('kelas'));
+    document.getElementById('backToClasses9').addEventListener('click', () => showSection('kelas'));
+    document.getElementById('backToKelas7').addEventListener('click', () => showSection('kelas-7'));
+    document.getElementById('backToKelas8').addEventListener('click', () => showSection('kelas-8'));
+    document.getElementById('backToKelas9').addEventListener('click', () => showSection('kelas-9'));
+
+    // KELAS CARDS (delegated)
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.kelas-button');
+        if (!btn) return;
+        currentKelas = btn.getAttribute('data-kelas');
+        currentKelasLevel = currentKelas.charAt(0);
+        document.getElementById('jadwal-title').textContent = `Kelas ${currentKelas}`;
+        document.getElementById('jadwal-badge').textContent = `JADWAL · ${currentKelas}`;
+        showSection('jadwal-pelajaran');
+        updateBackButtons();
+    });
+
+    // HARI BUTTONS
+    document.querySelectorAll('.hari-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            setHariAktif(this.getAttribute('data-hari'));
+            renderJadwalHari(this.getAttribute('data-hari'));
         });
     });
-    
-    // Menu mobile
-    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-        const nav = document.getElementById('mainNav');
-        nav.classList.toggle('active');
-    });
-    
-    // Tutup menu mobile saat mengklik di luar
-    document.addEventListener('click', function(e) {
-        const nav = document.getElementById('mainNav');
-        const menuBtn = document.getElementById('mobileMenuBtn');
-        
-        if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
-            nav.classList.remove('active');
+
+    // SCROLL: add class to header when scrolled
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('mainHeader');
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
         }
     });
-    
-    // Inisialisasi tombol kembali
-    updateBackButtons();
 });
