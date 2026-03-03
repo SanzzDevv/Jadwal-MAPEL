@@ -81,8 +81,8 @@ const jadwalKelas7 = {
         { waktu: "09.00-09.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7A" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7A" },
         { waktu: "10.40-11.20", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S. Pd", ruang: "kelas 7A" },
-        { waktu: "12.40-13.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "13.20-14.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" }
+        { waktu: "12.40-13.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "13.20-14.00", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" }
     ],
     kamis: [
         { waktu: "07.00-07.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S. Pd", ruang: "lab IPA" },
@@ -117,8 +117,8 @@ const jadwalKelas7 = {
         { waktu: "09.00-09.40", mapel: "IPA", guru: "QISTI SEPTIA W. A, S. Pd", ruang: "lab IPA" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7B" },
         { waktu: "10.40-11.20", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7B" },
-        { waktu: "12.40-13.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "13.20-14.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" }
+        { waktu: "12.40-13.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "13.20-14.00", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" }
     ],
     rabu: [
         { waktu: "07.00-07.40", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7B" },
@@ -181,8 +181,8 @@ const jadwalKelas7 = {
         { waktu: "07.40-08.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" },
         { waktu: "08.20-09.00", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7C" },
         { waktu: "09.00-09.40", mapel: "Matematika", guru: "ARI NUGRAHA, S. Pd", ruang: "kelas 7C" },
-        { waktu: "10.00-10.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "10.40-11.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
         { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" },
         { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" }
     ],
@@ -223,8 +223,8 @@ const jadwalKelas7 = {
         { waktu: "13.20-14.00", mapel: "SENPRAK", guru: "DIAH SOEPLIAH, S.Sos", ruang: "Kelas 7D" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
-        { waktu: "07.40-08.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapang" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapang" },
         { waktu: "08.20-09.00", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
         { waktu: "09.00-09.40", mapel: "P.Pancasila", guru: "DIAN RAHMAWATI, S.Pd", ruang: "Kelas 7D" },
         { waktu: "10.00-10.40", mapel: "MATEMATIKA", guru: "ARI NUGRAHA, S.Pd", ruang: "Kelas 7D" },
@@ -270,8 +270,8 @@ const jadwalKelas7 = {
     kamis: [
         { waktu: "07.00-07.40", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
         { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7E" },
-        { waktu: "08.20-09.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "09.00-09.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
         { waktu: "10.00-10.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "10.40-11.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" },
@@ -305,8 +305,8 @@ const jadwalKelas7 = {
     rabu: [
         { waktu: "07.00-07.40", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "07.40-08.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
-        { waktu: "08.20-09.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "09.00-09.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "08.20-09.00", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "09.00-09.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
         { waktu: "10.00-10.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
         { waktu: "10.40-11.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7F" },
         { waktu: "12.40-13.20", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7F" },
@@ -330,8 +330,8 @@ const jadwalKelas7 = {
     senin: [
         { waktu: "07.30-08.10", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
         { waktu: "08.10-08.50", mapel: "MATEMATIKA", guru: "FIRDA PUTRI UTAMI,S.Pd", ruang: "Kelas 7G" },
-        { waktu: "08.50-09.30", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
-        { waktu: "09.30-10.00", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapang" },
+        { waktu: "08.50-09.30", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapang" },
+        { waktu: "09.30-10.00", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapang" },
         { waktu: "10.20-10.55", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
         { waktu: "10.55-11.30", mapel: "IPA", guru: "INNA NURAINI SUJANA, S.Pd", ruang: "Kelas 7G" },
         { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 7G" },
@@ -383,8 +383,8 @@ const jadwalKelas7 = {
         { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S. KOM", ruang: "lab Komputer" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "07.40-08.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "07.00-07.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "07.40-08.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
         { waktu: "08.20-09.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
         { waktu: "09.00-09.40", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7H" },
         { waktu: "10.00-10.40", mapel: "Matematika", guru: "FIRDA PUTRI UTAMI, S. Pd", ruang: "kelas 7H" },
@@ -442,8 +442,8 @@ const jadwalKelas7 = {
         { waktu: "07.40-08.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
         { waktu: "08.20-09.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
         { waktu: "09.00-09.40", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S. Pd", ruang: "kelas 7I" },
-        { waktu: "10.00-10.40", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
-        { waktu: "10.40-11.20", mapel: "PJOK", guru: "NURILLAH EL ZAHRA, S.Pd.Gr", ruang: "Lapangan" },
+        { waktu: "10.00-10.40", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
+        { waktu: "10.40-11.20", mapel: "PJOK", guru: "SARIYA DEWI SARASWATI, S. Pd", ruang: "Lapangan" },
         { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" },
         { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7I" }
     ],
