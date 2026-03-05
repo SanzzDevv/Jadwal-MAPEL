@@ -1,4 +1,10 @@
 // ===============================
+// KONFIGURASI STATUS SITUS
+// Ganti "on" menjadi "off" untuk mengaktifkan halaman maintenance
+// ===============================
+const siteStatus = "on";
+
+// ===============================
 // DARK MODE
 // ===============================
 (function () {
@@ -9,10 +15,53 @@
 })();
 
 // ===============================
-// KONFIGURASI DATA YANG MUDAH DIUBAH
+// LOADING SCREEN
+// ===============================
+(function () {
+    document.body.classList.add('loading');
+
+    const steps = [
+        { pct: 20, msg: 'Memuat sistem...' },
+        { pct: 55, msg: 'Menyiapkan data jadwal...' },
+        { pct: 80, msg: 'Menginisialisasi antarmuka...' },
+        { pct: 100, msg: 'Selesai!' }
+    ];
+
+    let i = 0;
+    const bar    = document.getElementById('loadingBar');
+    const status = document.getElementById('loadingStatus');
+
+    function nextStep() {
+        if (i >= steps.length) return;
+        const s = steps[i++];
+        if (bar)    bar.style.width = s.pct + '%';
+        if (status) status.textContent = s.msg;
+        if (i < steps.length) {
+            setTimeout(nextStep, 280 + Math.random() * 150);
+        }
+    }
+
+    setTimeout(nextStep, 120);
+
+    window.addEventListener('load', function () {
+        setTimeout(function () {
+            const screen = document.getElementById('loadingScreen');
+            if (screen) {
+                screen.classList.add('hide');
+                setTimeout(function () {
+                    screen.style.display = 'none';
+                    document.body.classList.remove('loading');
+                    triggerReveal();
+                }, 520);
+            }
+        }, 900);
+    });
+})();
+
+// ===============================
+// DATA KELAS
 // ===============================
 
-// Data kelas 7 (mudah ditambah/diubah) - SEKARANG SAMPAI 7I
 const dataKelas7 = [
     { id: "7A", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7A" },
     { id: "7B", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7B" },
@@ -25,7 +74,6 @@ const dataKelas7 = [
     { id: "7I", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7I" }
 ];
 
-// Data kelas 8 (mudah ditambah/diubah)
 const dataKelas8 = [
     { id: "8A", waliKelas: "SETIA NUR PARIDAH, S.Pd", jumlahSiswa: 34, ruang: "Kelas 8A" },
     { id: "8B", waliKelas: "DWI PRIHANTO, K S.Pd", jumlahSiswa: 34, ruang: "Kelas 8B" },
@@ -38,7 +86,6 @@ const dataKelas8 = [
     { id: "8I", waliKelas: "Alda Aldila Riyadi, S. Pd", jumlahSiswa: 34, ruang: "Kelas 8I" }
 ];
 
-// Data kelas 9 (diaktifkan)
 const dataKelas9 = [
     { id: "9A", waliKelas: "IIS PRIATINI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9A" },
     { id: "9B", waliKelas: "ELLI KEMALAWATI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9B" },
@@ -49,6 +96,77 @@ const dataKelas9 = [
     { id: "9G", waliKelas: "LANI MUSTIKASARI, S.Pd", jumlahSiswa: 34, ruang: "Kelas 9G" },
     { id: "9H", waliKelas: "LIA PRAMURTYA, S.Si", jumlahSiswa: 34, ruang: "Kelas 9H" },
     { id: "9I", waliKelas: "M. NOOR FENDI SAEFULOH, S.Pd.", jumlahSiswa: 34, ruang: "Kelas 9I" }
+];
+
+// ===============================
+// DATA GURU
+// Tambahkan guru di sini. Nama harus sama persis dengan yang ada di jadwal.
+// tingkat: "7", "8", "9", atau "semua" jika mengajar lintas tingkat
+// ===============================
+const dataGuru = [
+    { id: "guru-001", nama: "A. SUTISNA, S.Pd",                    mapel: "P. Pancasila",  waliKelas: "—", tingkat: "9" },
+    { id: "guru-002", nama: "AHMAD RAHMAT, S.Sn, M.Pd",            mapel: "Seni Praktek",  waliKelas: "—", tingkat: "9" },
+    { id: "guru-003", nama: "AI RIKA ISMAHANI, S.Psi",             mapel: "BP-BK",         waliKelas: "—", tingkat: "9" },
+    { id: "guru-004", nama: "ALDA ALDILA RIYADI, S.Pd",            mapel: "PAI",           waliKelas: "8I", tingkat: "8" },
+    { id: "guru-005", nama: "ANDRI SUNANTO, S. Pd., M. Pd",        mapel: "IPS",           waliKelas: "—", tingkat: "7" },
+    { id: "guru-006", nama: "ANDRI SUNANTO, S.Pd., M.Pd",          mapel: "IPS",           waliKelas: "—", tingkat: "9" },
+    { id: "guru-007", nama: "ANNISA HAELWANI, S. KOM",             mapel: "Informatika",   waliKelas: "—", tingkat: "7" },
+    { id: "guru-008", nama: "ARI NUGRAHA, S. Pd",                  mapel: "Matematika",    waliKelas: "—", tingkat: "7" },
+    { id: "guru-009", nama: "ARIF MAULANA GUNAWAN, S.T",           mapel: "Informatika",   waliKelas: "8H", tingkat: "8" },
+    { id: "guru-010", nama: "CANDITA REKSA RIYADI, S. Pd",         mapel: "IPS",           waliKelas: "—", tingkat: "7" },
+    { id: "guru-011", nama: "DEDEN KURNIA S, S. Pd",               mapel: "B. Indonesia",  waliKelas: "—", tingkat: "7" },
+    { id: "guru-012", nama: "DEDEN KURNIA S, S.Pd",                mapel: "B. Indonesia",  waliKelas: "—", tingkat: "9" },
+    { id: "guru-013", nama: "DIAH SOEPLIAH, S. Sos",               mapel: "Seni Praktek",  waliKelas: "—", tingkat: "7" },
+    { id: "guru-014", nama: "DIAN RAHMAWATI, S. Pd",               mapel: "P. Pancasila",  waliKelas: "—", tingkat: "7" },
+    { id: "guru-015", nama: "Drs. AGUS MASRUQ, M.Pd",              mapel: "PJOK",          waliKelas: "—", tingkat: "9" },
+    { id: "guru-016", nama: "DWI PRIHANTO K, S.Pd",                mapel: "P. Pancasila",  waliKelas: "8B", tingkat: "8" },
+    { id: "guru-017", nama: "EHA JULAEHA, S.S",                    mapel: "B. Sunda",      waliKelas: "9D", tingkat: "9" },
+    { id: "guru-018", nama: "ELLI KEMALAWATI, S.Pd",               mapel: "Matematika",    waliKelas: "9B", tingkat: "9" },
+    { id: "guru-019", nama: "ENDAH NURJANAH, S. Pd",               mapel: "B. Inggris",    waliKelas: "—", tingkat: "7" },
+    { id: "guru-020", nama: "FAIJUL ARIFIN, S.Pd",                 mapel: "PAI",           waliKelas: "—", tingkat: "9" },
+    { id: "guru-021", nama: "FARHAN BUDIARTO, S.Pd",               mapel: "Matematika",    waliKelas: "8E", tingkat: "8" },
+    { id: "guru-022", nama: "FIRDA PUTRI UTAMI, S. Pd",            mapel: "Matematika",    waliKelas: "—", tingkat: "7" },
+    { id: "guru-023", nama: "FITRIA AGUSTINI, S.Pd",               mapel: "B. Indonesia",  waliKelas: "8F", tingkat: "8" },
+    { id: "guru-024", nama: "HENDRA SAPUTRA, S.Pd",                mapel: "IPA",           waliKelas: "—", tingkat: "8" },
+    { id: "guru-025", nama: "IIS PRIATINI, S.Pd",                  mapel: "IPS",           waliKelas: "9A", tingkat: "9" },
+    { id: "guru-026", nama: "IKA KURNIA, S.Pd",                    mapel: "B. Inggris",    waliKelas: "9E", tingkat: "9" },
+    { id: "guru-027", nama: "IMAM ADI PRASETYO, S. Pd",            mapel: "PAI",           waliKelas: "—", tingkat: "7" },
+    { id: "guru-028", nama: "INNA NURAINI SUJANA, S. Pd",          mapel: "IPA",           waliKelas: "—", tingkat: "7" },
+    { id: "guru-029", nama: "IWAN SETIAWAN, S.Pd",                 mapel: "B. Inggris",    waliKelas: "—", tingkat: "8" },
+    { id: "guru-030", nama: "LANI MUSTIKASARI, S.Pd",              mapel: "B. Indonesia",  waliKelas: "9G", tingkat: "9" },
+    { id: "guru-031", nama: "LELA ZULKAEDAH, S.Pd",                mapel: "Matematika",    waliKelas: "—", tingkat: "8" },
+    { id: "guru-032", nama: "LIA PRAMURTYA, S.Si",                 mapel: "IPA",           waliKelas: "9H", tingkat: "9" },
+    { id: "guru-033", nama: "LUTHFI HADIANSYAH, S.Pd",             mapel: "IPS",           waliKelas: "—", tingkat: "8" },
+    { id: "guru-034", nama: "M. NOOR FENDI SAEFULOH, S.Pd",        mapel: "Matematika",    waliKelas: "9I", tingkat: "9" },
+    { id: "guru-035", nama: "MEGA HERLIANI, S.Sn",                 mapel: "Seni Praktek",  waliKelas: "8D", tingkat: "8" },
+    { id: "guru-036", nama: "MUH. ZAENAL ARIPIN, S. Pd",           mapel: "B. Inggris",    waliKelas: "—", tingkat: "7" },
+    { id: "guru-037", nama: "MUH. ZAENAL ARIPIN, S.Pd",            mapel: "B. Inggris",    waliKelas: "—", tingkat: "9" },
+    { id: "guru-038", nama: "NIDYA EKA PRATIWI, S.Pd",             mapel: "IPA",           waliKelas: "8C", tingkat: "8" },
+    { id: "guru-039", nama: "PIPIN FIRMANSYAH N, S.Pd",            mapel: "PJOK",          waliKelas: "8G", tingkat: "8" },
+    { id: "guru-040", nama: "PRAPTI HANDAYANI, S.Pd",              mapel: "B. Inggris",    waliKelas: "—", tingkat: "8" },
+    { id: "guru-041", nama: "QISTI SEPTIA W. A, S. Pd",            mapel: "IPA",           waliKelas: "—", tingkat: "7" },
+    { id: "guru-042", nama: "RAHMASARI AULIA KHOTIMAH, S. Pd",     mapel: "B. Sunda",      waliKelas: "—", tingkat: "7" },
+    { id: "guru-043", nama: "Rd. SRI REJEKI, S.Pd",                mapel: "IPA",           waliKelas: "—", tingkat: "9" },
+    { id: "guru-044", nama: "RINI SEPTIANI, S. Pd",                mapel: "B. Indonesia",  waliKelas: "—", tingkat: "7" },
+    { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "Informatika",   waliKelas: "9F", tingkat: "9" },
+    { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "PJOK",          waliKelas: "—", tingkat: "7" },
+    { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "B. Indonesia",  waliKelas: "8A", tingkat: "8" },
+    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "BP-BK",         waliKelas: "—", tingkat: "7" },
+    { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "B. Indonesia",  waliKelas: "—", tingkat: "8" }
+];
+
+// ===============================
+// JADWAL JUMAT (berlaku untuk semua kelas)
+// ===============================
+const jadwalJumat = [
+    { waktu: "07.00-07.20", mapel: "Persiapan Sholat Dhuha", guru: "", ruang: "Masjid" },
+    { waktu: "07.20-07.40", mapel: "Sholat Dhuha",           guru: "", ruang: "Masjid" },
+    { waktu: "07.40-07.50", mapel: "Baca Doa",               guru: "", ruang: "Masjid" },
+    { waktu: "07.50-08.20", mapel: "Baca Surah Al Kahf",     guru: "", ruang: "Masjid" },
+    { waktu: "08.20-08.40", mapel: "Baca Surah Pendek",      guru: "", ruang: "Masjid" },
+    { waktu: "08.40-09.00", mapel: "Ceramah",                guru: "", ruang: "Masjid" },
+    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "Lapangan" },
+    { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "—" }
 ];
 
 const jadwalKelas7 = {
@@ -94,9 +212,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S. Pd", ruang: "kelas 7A" },
         { waktu: "13.20-14.00", mapel: "IPS", guru: "CANDITA REKSA RIYADI, S. Pd", ruang: "kelas 7A" }
     ],
-    jumat: [
-        { waktu: "08.00-08.40", mapel: "Olah Raga", guru: "", ruang: "Lapangan" }
-    ]
+    jumat: jadwalJumat
 },
 
 "7B": {
@@ -140,9 +256,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7B" },
         { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "RINI SEPTIANI, S. Pd", ruang: "kelas 7B" }
     ],
-    jumat: [
-        { waktu: "08.00-08.40", mapel: "Olah Raga", guru: "", ruang: "Lapangan" }
-    ]
+    jumat: jadwalJumat
 },
 
 "7C": {
@@ -186,9 +300,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" },
         { waktu: "13.20-14.00", mapel: "P. Pancasila", guru: "DIAN RAHMAWATI, S. Pd", ruang: "kelas 7C" }
     ],
-    jumat: [
-        { waktu: "08.00-08.40", mapel: "Olah Raga", guru: "", ruang: "Lapangan" }
-    ]
+    jumat: jadwalJumat
 },
     
     "7D": {
@@ -232,8 +344,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" },
         { waktu: "13.20-14.00", mapel: "Informatika", guru: "ANNISA HAELWANI, S.Kom", ruang: "Kelas 7D/LABKOM" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "7E": {
@@ -277,8 +388,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" },
         { waktu: "13.20-14.00", mapel: "PAI", guru: "IMAM ADI PRASETYO, S. Pd", ruang: "kelas 7E" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
 "7F": {
@@ -322,8 +432,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7F" },
         { waktu: "13.20-14.00", mapel: "Seni Praktek", guru: "DIAH SOEPLIAH, S. Sos", ruang: "kelas 7F" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "7G": {
@@ -367,8 +476,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7G" },
         { waktu: "13.20-14.00", mapel: "B. INGGRIS", guru: "ENDAH NURJANAH, S.Pd.", ruang: "Kelas 7G" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "7H": {
@@ -412,8 +520,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" },
         { waktu: "13.20-14.00", mapel: "IPA", guru: "INNA NURAINI SUJANA, S. Pd", ruang: "lab IPA" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
 "7I": {
@@ -457,8 +564,7 @@ const jadwalKelas7 = {
         { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "DEDEN KURNIA S, S. Pd", ruang: "kelas 7I" },
         { waktu: "13.20-14.00", mapel: "BP-BK", guru: "AI RIKA ISHAMAHANI, S. Psi", ruang: "kelas 7I" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
 };
@@ -505,8 +611,7 @@ const jadwalKelas8 = {
         { waktu: "12.40 - 13.20", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 8A" },
         { waktu: "13.20 - 14.00", mapel: "B. Sunda", guru: "RAHMASARI AULIA KHOTIMAH, S.Pd", ruang: "Kelas 8A" },
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "8B": {
@@ -550,11 +655,9 @@ const jadwalKelas8 = {
         { waktu: "12.40 - 13.20", mapel: "P.Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8B" },
         { waktu: "13.20 - 14.00", mapel: "P.Pancasila", guru: "DWI PRIHANTO K, S.Pd", ruang: "Kelas 8B" },
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
-// KELAS 8C - JADWAL SESUNGGUHNYA
 "8C": {
     senin: [
         { waktu: "07.30-08.10", mapel: "Informatika", guru: "ARIF MAULANA GUNAWAN, S.T", ruang: "Kelas 8C/LABKOM" },
@@ -596,8 +699,7 @@ const jadwalKelas8 = {
         { waktu: "12.40-13.20", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8C" },
         { waktu: "13.20-14.00", mapel: "PAI", guru: "ALDA ALDILA RIYADI, S.Pd", ruang: "Kelas 8C" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "8D": {
@@ -641,8 +743,7 @@ const jadwalKelas8 = {
         { waktu: "12.40 - 13.20", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "Kelas 8D" },
         { waktu: "13.20 - 14.00", mapel: "B. Indonesia", guru: "SETIA NUR PARIDAH, S.Pd", ruang: "Kelas 8D" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
   // KELAS 8E - JADWAL RESMI
@@ -687,8 +788,7 @@ const jadwalKelas8 = {
         { waktu: "12.40-13.20", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" },
         { waktu: "13.20-14.00", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8E" }
     ],
-    jumat: [
-]
+    jumat: jadwalJumat
 },
 
 "8F": {
@@ -732,11 +832,9 @@ const jadwalKelas8 = {
         { waktu: "12.40 - 13.20", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" },
         { waktu: "13.20 - 14.00", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Lapang" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
-// KELAS 8G - JADWAL RESMI
 "8G": {
     senin: [
         { waktu: "07.30-08.10", mapel: "B. Indonesia", guru: "FITRIA AGUSTINI, S.Pd", ruang: "Kelas 8G" },
@@ -778,11 +876,9 @@ const jadwalKelas8 = {
         { waktu: "12.40-13.20", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8G" },
         { waktu: "13.20-14.00", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 8G" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
 
-// KELAS 8H - JADWAL RESMI
 "8H": {
     senin: [
         { waktu: "07.30-08.10", mapel: "PJOK", guru: "PIPIN FIRMANSYAH N, S.Pd", ruang: "Kelas 8H/Lapang" },
@@ -824,8 +920,7 @@ const jadwalKelas8 = {
         { waktu: "12.40-13.20", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" },
         { waktu: "13.20-14.00", mapel: "Matematika", guru: "FARHAN BUDIARTO, S.Pd", ruang: "Kelas 8H" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
   "8I": {
@@ -869,14 +964,11 @@ const jadwalKelas8 = {
         { waktu: "12.40-13.20", mapel: "IPA", guru: "QISTI SEPTIA W. A, S.Pd", ruang: "Kelas 8I" },
         { waktu: "13.20-14.00", mapel: "BP-BK", guru: "SILFA AGISNI SALMA, S.Pd", ruang: "Kelas 8I" },
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 }
 };
 
-// jadwal pelajaran UNIK untuk setiap kelas 9
 const jadwalKelas9 = {
-// KELAS 9A - JADWAL RESMI
 "9A": {
     senin: [
         { waktu: "07.30-08.10", mapel: "P. Pancasila", guru: "A. SUTISNA, S.Pd", ruang: "kelas 9A" },
@@ -920,7 +1012,6 @@ const jadwalKelas9 = {
     ]
 },
     
-// KELAS 9B - JADWAL RESMI
 "9B": {
     senin: [
         { waktu: "07.30-08.10", mapel: "PJOK", guru: "Drs. AGUS MASRUQ, M.Pd" },
@@ -961,8 +1052,7 @@ const jadwalKelas9 = {
         { waktu: "12.40-13.20", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" },
         { waktu: "13.20-14.00", mapel: "B. Sunda", guru: "EHA JULAEHA, S.S" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 },
     
 "9B": {
@@ -1007,7 +1097,6 @@ const jadwalKelas9 = {
     ]
 },
 
-// KELAS 9C - JADWAL RESMI
 "9C": {
     senin: [
         { waktu: "07.30-08.10", mapel: "Informatika", guru: "RONI RAHMANSYAH, S.KOM", ruang: "lab Komputer" },
@@ -1094,7 +1183,6 @@ const jadwalKelas9 = {
     ]
 },
 
-// KELAS 9E - JADWAL RESMI
 "9E": {
     senin: [
         { waktu: "07.30-08.10", mapel: "IPA", guru: "Rd. SRI REJEKI, S.Pd", ruang: "lab IPA" },
@@ -1181,7 +1269,6 @@ const jadwalKelas9 = {
     ]
 },
 
-// KELAS 9G - JADWAL RESMI
 "9G": {
     senin: [
         { waktu: "07.30-08.10", mapel: "Matematika", guru: "M. NOOR FENDI SAEFULOH, S.Pd", ruang: "kelas 9G" },
@@ -1225,7 +1312,6 @@ const jadwalKelas9 = {
     ]
 },
 
-// KELAS 9H - JADWAL RESMI
 "9H": {
     senin: [
         { waktu: "07.30-08.10", mapel: "B. Indonesia", guru: "LANI MUSTIKASARI, S.Pd", ruang: "kelas 9H" },
@@ -1269,7 +1355,6 @@ const jadwalKelas9 = {
     ]
 },
     
-// KELAS 9I - JADWAL RESMI
 "9I": {
     senin: [
         { waktu: "07.30-08.10", mapel: "IPA", guru: "LIA PRAMURTYA, S.Si", ruang: "Kelas 9I" },
@@ -1311,13 +1396,11 @@ const jadwalKelas9 = {
         { waktu: "12.40-13.20", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "Kelas 9I" },
         { waktu: "13.20-14.00", mapel: "PAI", guru: "FAIJUL ARIFIN, S.Pd", ruang: "Kelas 9I" }
     ],
-    jumat: [
-    ]
+    jumat: jadwalJumat
 }
     
 };
 
-// Gabungkan semua jadwal
 const jadwalKelas = {
     ...jadwalKelas7,
     ...jadwalKelas8,
@@ -1329,6 +1412,101 @@ const jadwalKelas = {
 // ===============================
 let currentKelas = null;
 let currentKelasLevel = null;
+let currentGuruId  = null;
+let currentGuruHari = 'senin';
+
+// ===============================
+// SCROLL REVEAL
+// ===============================
+function triggerReveal() {
+    document.querySelectorAll('.reveal-item:not(.revealed)').forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight - 40) {
+            el.classList.add('revealed');
+        }
+    });
+}
+
+// ===============================
+// RENDER GURU
+// ===============================
+let filterGuru = 'semua';
+
+function renderGuru() {
+    const grid = document.querySelector('.guru-grid');
+    if (!grid) return;
+
+    const filtered = dataGuru
+        .filter(function (g) { return filterGuru === 'semua' || g.tingkat === filterGuru; })
+        .sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id'); });
+
+    grid.innerHTML = '';
+
+    if (!filtered.length) {
+        grid.innerHTML = '<p class="no-data" style="padding:24px">Tidak ada guru untuk kategori ini.</p>';
+        return;
+    }
+
+    filtered.forEach(function (guru) {
+        const card = document.createElement('div');
+        card.className = 'guru-card reveal-item';
+        card.innerHTML =
+            '<div class="guru-card-inner">' +
+                '<div class="guru-avatar">' +
+                    '<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">' +
+                        '<circle cx="40" cy="30" r="18" fill="#94a3b8"/>' +
+                        '<ellipse cx="40" cy="70" rx="26" ry="18" fill="#94a3b8"/>' +
+                    '</svg>' +
+                '</div>' +
+                '<div class="guru-info">' +
+                    '<h3 class="guru-nama">' + guru.nama + '</h3>' +
+                    '<span class="guru-mapel">' + guru.mapel + '</span>' +
+                    (guru.waliKelas !== '—' ? '<span class="guru-wali"> Wali Kelas: ' + guru.waliKelas + '</span>' : '') +
+                '</div>' +
+            '</div>' +
+            '<button class="guru-jadwal-btn" data-guru-id="' + guru.id + '">LIHAT JADWAL GURU</button>';
+        grid.appendChild(card);
+    });
+
+    setTimeout(triggerReveal, 50);
+}
+
+// ===============================
+// CARI & RENDER JADWAL GURU
+// ===============================
+function cariJadwalGuru(namaGuru) {
+    const semuaJadwal = { ...jadwalKelas7, ...jadwalKelas8, ...jadwalKelas9 };
+    const hasil = { senin: [], selasa: [], rabu: [], kamis: [], jumat: [] };
+    Object.keys(semuaJadwal).forEach(function (kelasId) {
+        const jadwalKelas = semuaJadwal[kelasId];
+        ['senin','selasa','rabu','kamis','jumat'].forEach(function (hari) {
+            (jadwalKelas[hari] || []).forEach(function (item) {
+                if (item.guru && item.guru.trim() === namaGuru.trim()) {
+                    hasil[hari].push({ kelas: kelasId, waktu: item.waktu, mapel: item.mapel, ruang: item.ruang || '—' });
+                }
+            });
+        });
+    });
+    return hasil;
+}
+
+function renderJadwalGuru(hari) {
+    const tbody = document.getElementById('guru-jadwal-tbody');
+    if (!tbody) return;
+    tbody.innerHTML = '';
+    const guru = dataGuru.find(function (g) { return g.id === currentGuruId; });
+    if (!guru) return;
+    const jadwal = cariJadwalGuru(guru.nama);
+    const rows = jadwal[hari] || [];
+    if (!rows.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Tidak ada jadwal untuk hari ini.</td></tr>';
+        return;
+    }
+    rows.forEach(function (item) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${item.waktu}</td><td>${item.kelas}</td><td>${item.mapel}</td><td>${item.ruang}</td>`;
+        tbody.appendChild(tr);
+    });
+}
 
 // ===============================
 // RENDER FUNCTIONS
@@ -1414,11 +1592,20 @@ function showSection(id) {
         setHariAktif('senin');
         renderJadwalHari('senin');
     }
+
+    // Trigger reveal animasi setelah section tampil
+    setTimeout(triggerReveal, 80);
 }
 
 function setHariAktif(hari) {
     document.querySelectorAll('.hari-btn').forEach(b => b.classList.remove('active'));
     const btn = document.querySelector(`.hari-btn[data-hari="${hari}"]`);
+    if (btn) btn.classList.add('active');
+}
+
+function setGuruHariAktif(hari) {
+    document.querySelectorAll('.guru-jadwal-tabs .hari-btn').forEach(function (b) { b.classList.remove('active'); });
+    const btn = document.querySelector('.guru-jadwal-tabs .hari-btn[data-hari="' + hari + '"]');
     if (btn) btn.classList.add('active');
 }
 
@@ -1437,9 +1624,25 @@ function updateBackButtons() {
 // ===============================
 
 document.addEventListener('DOMContentLoaded', function () {
+
+    // MAINTENANCE MODE
+    if (siteStatus === 'off') {
+        document.getElementById('mainHeader').style.display = 'none';
+        document.querySelector('.main').style.display = 'none';
+        document.querySelector('.footer').style.display = 'none';
+        const m = document.getElementById('maintenancePage');
+        if (m) m.style.display = 'flex';
+        return;
+    }
+
     renderKelas7();
     renderKelas8();
     renderKelas9();
+    renderGuru();
+
+    // Scroll reveal
+    window.addEventListener('scroll', triggerReveal, { passive: true });
+    setTimeout(triggerReveal, 200);
 
     // DARK MODE TOGGLE
     const darkToggle = document.getElementById('darkToggle');
@@ -1452,7 +1655,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // NAV LINKS
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link').forEach(function (link) {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             showSection(this.getAttribute('data-section'));
@@ -1465,6 +1668,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('hamburger').addEventListener('click', function () {
         this.classList.toggle('open');
         document.getElementById('mainNav').classList.toggle('open');
+        this.setAttribute('aria-expanded', this.classList.contains('open') ? 'true' : 'false');
     });
 
     // Close nav on outside click
@@ -1477,22 +1681,25 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // HERO BUTTONS
-    document.getElementById('lihatKelasBtn').addEventListener('click', () => showSection('kelas'));
+    // HERO BUTTON
+    document.getElementById('lihatKelasBtn').addEventListener('click', function () { showSection('kelas'); });
 
     // GRADE LEVEL BUTTONS
-    document.getElementById('lihatKelas7').addEventListener('click', () => showSection('kelas-7'));
-    document.getElementById('lihatKelas8').addEventListener('click', () => showSection('kelas-8'));
-    document.getElementById('lihatKelas9').addEventListener('click', () => showSection('kelas-9'));
+    document.getElementById('lihatKelas7').addEventListener('click', function () { showSection('kelas-7'); });
+    document.getElementById('lihatKelas8').addEventListener('click', function () { showSection('kelas-8'); });
+    document.getElementById('lihatKelas9').addEventListener('click', function () { showSection('kelas-9'); });
 
     // BACK BUTTONS
-    document.getElementById('backToHome').addEventListener('click', () => showSection('beranda'));
-    document.getElementById('backToClasses7').addEventListener('click', () => showSection('kelas'));
-    document.getElementById('backToClasses').addEventListener('click', () => showSection('kelas'));
-    document.getElementById('backToClasses9').addEventListener('click', () => showSection('kelas'));
-    document.getElementById('backToKelas7').addEventListener('click', () => showSection('kelas-7'));
-    document.getElementById('backToKelas8').addEventListener('click', () => showSection('kelas-8'));
-    document.getElementById('backToKelas9').addEventListener('click', () => showSection('kelas-9'));
+    document.getElementById('backToHome').addEventListener('click',     function () { showSection('beranda'); });
+    document.getElementById('backToClasses7').addEventListener('click', function () { showSection('kelas'); });
+    document.getElementById('backToClasses').addEventListener('click',  function () { showSection('kelas'); });
+    document.getElementById('backToClasses9').addEventListener('click', function () { showSection('kelas'); });
+    document.getElementById('backToKelas7').addEventListener('click',   function () { showSection('kelas-7'); });
+    document.getElementById('backToKelas8').addEventListener('click',   function () { showSection('kelas-8'); });
+    document.getElementById('backToKelas9').addEventListener('click',   function () { showSection('kelas-9'); });
+
+    const backToGuruBtn = document.getElementById('backToGuru');
+    if (backToGuruBtn) backToGuruBtn.addEventListener('click', function () { showSection('guru'); });
 
     // KELAS CARDS (delegated)
     document.addEventListener('click', function (e) {
@@ -1500,27 +1707,61 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!btn) return;
         currentKelas = btn.getAttribute('data-kelas');
         currentKelasLevel = currentKelas.charAt(0);
-        document.getElementById('jadwal-title').textContent = `Kelas ${currentKelas}`;
-        document.getElementById('jadwal-badge').textContent = `JADWAL · ${currentKelas}`;
+        document.getElementById('jadwal-title').textContent = 'Kelas ' + currentKelas;
+        document.getElementById('jadwal-badge').textContent = 'JADWAL \u00b7 ' + currentKelas;
         showSection('jadwal-pelajaran');
         updateBackButtons();
     });
 
-    // HARI BUTTONS
-    document.querySelectorAll('.hari-btn').forEach(btn => {
+    // HARI BUTTONS (jadwal kelas)
+    document.querySelectorAll('#jadwal-pelajaran .hari-btn').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            setHariAktif(this.getAttribute('data-hari'));
+            document.querySelectorAll('#jadwal-pelajaran .hari-btn').forEach(function (b) { b.classList.remove('active'); });
+            this.classList.add('active');
             renderJadwalHari(this.getAttribute('data-hari'));
         });
     });
 
-    // SCROLL: add class to header when scrolled
-    window.addEventListener('scroll', function () {
-        const header = document.getElementById('mainHeader');
-        if (window.scrollY > 10) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    // GURU FILTER TABS
+    document.querySelectorAll('.guru-filter-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            document.querySelectorAll('.guru-filter-btn').forEach(function (b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            filterGuru = this.getAttribute('data-filter');
+            renderGuru();
+        });
     });
+
+    // GURU — tombol lihat jadwal (delegated)
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.guru-jadwal-btn');
+        if (!btn) return;
+        currentGuruId = btn.getAttribute('data-guru-id');
+        const guru = dataGuru.find(function (g) { return g.id === currentGuruId; });
+        if (!guru) return;
+        const titleEl = document.getElementById('jadwal-guru-title');
+        if (titleEl) titleEl.textContent = guru.nama;
+        currentGuruHari = 'senin';
+        setGuruHariAktif('senin');
+        showSection('jadwal-guru');
+        renderJadwalGuru('senin');
+    });
+
+    // GURU — tab hari
+    const guruTabs = document.querySelector('.guru-jadwal-tabs');
+    if (guruTabs) {
+        guruTabs.addEventListener('click', function (e) {
+            const btn = e.target.closest('.hari-btn');
+            if (!btn) return;
+            const hari = btn.getAttribute('data-hari');
+            currentGuruHari = hari;
+            setGuruHariAktif(hari);
+            renderJadwalGuru(hari);
+        });
+    }
+
+    // SCROLL: header shadow
+    window.addEventListener('scroll', function () {
+        document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
 });

@@ -8,6 +8,34 @@
 </head>
 <body>
 
+<!-- ===== MAINTENANCE PAGE ===== -->
+<div id="maintenancePage" style="display:none; position:fixed; inset:0; z-index:9999; background:var(--bg,#f8fafc); align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:32px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px;color:#94a3b8;margin-bottom:20px">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:10px;color:var(--text,#0f172a)">Website Sedang Maintenance</h2>
+    <p style="color:var(--text-muted,#64748b);max-width:360px;line-height:1.6">Website sedang dalam pemeliharaan. Silakan kembali lagi nanti. Terima kasih atas kesabaran Anda.</p>
+</div>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loadingScreen" class="loading-screen">
+    <div class="loading-inner">
+        <div class="loading-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
+            </svg>
+        </div>
+        <div class="loading-brand">SIJAP</div>
+        <div class="loading-sub">SMP Negeri 24 Bandung</div>
+        <div class="loading-bar-wrap">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <div class="loading-status" id="loadingStatus">Memuat sistem...</div>
+    </div>
+</div>
+
 <!-- ===== HEADER / NAV ===== -->
 <header class="header" id="mainHeader">
     <div class="header-inner">
@@ -31,6 +59,10 @@
             <a href="#" class="nav-link" data-section="kelas">
                 <span class="nav-icon">⊞</span>
                 <span>Kelas</span>
+            </a>
+            <a href="#" class="nav-link" data-section="guru">
+                <span class="nav-icon">◈</span>
+                <span>Guru</span>
             </a>
             <a href="#" class="nav-link" data-section="tentang">
                 <span class="nav-icon">◎</span>
@@ -69,21 +101,21 @@
     <!-- BERANDA -->
     <section id="beranda" class="section active-section" aria-label="Halaman Beranda">
         <div class="hero">
-            <div class="hero-badge">
+            <div class="hero-badge reveal-item">
                 <span class="badge-dot"></span>
                 Sistem Aktif — Semua Kelas Tersedia
             </div>
 
-            <h1 class="hero-title">
+            <h1 class="hero-title reveal-item">
                 Jadwal Pelajaran
                 <span class="hero-accent">SMP Negeri 24 Bandung</span>
             </h1>
 
-            <p class="hero-desc">
+            <p class="hero-desc reveal-item">
                 Akses jadwal pelajaran kelas 7, 8, dan 9 secara lengkap. Informasi guru dan ruang kelas tersedia untuk setiap hari.
             </p>
 
-            <div class="hero-actions">
+            <div class="hero-actions reveal-item">
                 <button class="btn-primary" id="lihatKelasBtn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
@@ -100,7 +132,7 @@
                 </div>
             </div>
 
-            <div class="hero-stats" role="list" aria-label="Statistik sekolah">
+            <div class="hero-stats reveal-item" role="list" aria-label="Statistik sekolah">
                 <div class="stat-card" role="listitem">
                     <div class="stat-num">27</div>
                     <div class="stat-label">Kelas Aktif</div>
@@ -119,7 +151,7 @@
         </div>
 
         <div class="feature-grid">
-            <div class="feature-card">
+            <div class="feature-card reveal-item">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
@@ -128,7 +160,7 @@
                 <h3>Akses Instan</h3>
                 <p>Buka jadwal tanpa login. Langsung pilih kelas dan hari yang diinginkan dengan cepat.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card reveal-item">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                         <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
@@ -138,7 +170,7 @@
                 <h3>Jadwal Lengkap</h3>
                 <p>Data jadwal harian Senin–Jumat, dilengkapi dengan informasi guru dan ruang kelas.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card reveal-item">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
                         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -166,7 +198,7 @@
         </div>
 
         <div class="grade-grid">
-            <div class="grade-card">
+            <div class="grade-card reveal-item">
                 <div class="grade-number">7</div>
                 <div class="grade-info">
                     <h3>Kelas Tujuh</h3>
@@ -178,7 +210,7 @@
                 <button class="grade-btn" id="lihatKelas7">Buka Kelas 7 →</button>
             </div>
 
-            <div class="grade-card">
+            <div class="grade-card reveal-item">
                 <div class="grade-number">8</div>
                 <div class="grade-info">
                     <h3>Kelas Delapan</h3>
@@ -190,7 +222,7 @@
                 <button class="grade-btn" id="lihatKelas8">Buka Kelas 8 →</button>
             </div>
 
-            <div class="grade-card">
+            <div class="grade-card reveal-item">
                 <div class="grade-number">9</div>
                 <div class="grade-info">
                     <h3>Kelas Sembilan</h3>
@@ -301,7 +333,71 @@
                 <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
                 <line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
-            <p>Jadwal dapat berubah sewaktu-waktu. Jika ada kesalahan, hubungi pengembang di 087812029190.</p>
+            <p>Jadwal dapat berubah sewaktu-waktu. Jika ada kesalahan, hubungi pengembang di ahmadhasanekram@gmail.com.</p>
+        </div>
+    </section>
+
+    <!-- ===== SECTION GURU ===== -->
+    <section id="guru" class="section" aria-label="Daftar Guru">
+        <div class="section-topbar">
+            <div class="section-heading">
+                <div class="section-label">Tenaga Pendidik</div>
+                <h2>Daftar Guru</h2>
+            </div>
+        </div>
+
+        <div class="guru-filter-tabs reveal-item" role="tablist" aria-label="Filter guru">
+            <button class="guru-filter-btn active" data-filter="semua" role="tab">Semua Guru</button>
+            <button class="guru-filter-btn" data-filter="7" role="tab">Kelas 7</button>
+            <button class="guru-filter-btn" data-filter="8" role="tab">Kelas 8</button>
+            <button class="guru-filter-btn" data-filter="9" role="tab">Kelas 9</button>
+        </div>
+
+        <div class="guru-grid" id="guruGrid">
+        </div>
+    </section>
+
+    <!-- JADWAL GURU (detail per guru) -->
+    <section id="jadwal-guru" class="section" aria-label="Jadwal Guru">
+        <div class="section-topbar">
+            <div class="section-heading">
+                <div class="section-label">Jadwal Mengajar</div>
+                <h2 id="jadwal-guru-title">Nama Guru</h2>
+            </div>
+            <button class="back-btn" id="backToGuru">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                Daftar Guru
+            </button>
+        </div>
+
+        <div class="guru-jadwal-tabs" role="tablist">
+            <button class="hari-btn active" data-hari="senin" role="tab">Senin</button>
+            <button class="hari-btn" data-hari="selasa" role="tab">Selasa</button>
+            <button class="hari-btn" data-hari="rabu" role="tab">Rabu</button>
+            <button class="hari-btn" data-hari="kamis" role="tab">Kamis</button>
+            <button class="hari-btn" data-hari="jumat" role="tab">Jumat</button>
+        </div>
+
+        <div class="jadwal-wrapper" style="margin-top:16px;">
+            <table class="jadwal-table" aria-label="Jadwal guru">
+                <thead>
+                    <tr>
+                        <th scope="col">Waktu</th>
+                        <th scope="col">Kelas</th>
+                        <th scope="col">Mata Pelajaran</th>
+                        <th scope="col">Ruang</th>
+                    </tr>
+                </thead>
+                <tbody id="guru-jadwal-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="notice" role="note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p>Jadwal mengajar dapat berubah sewaktu-waktu. Data diambil dari jadwal kelas yang tersedia.</p>
         </div>
     </section>
 
@@ -315,7 +411,7 @@
         </div>
 
         <div class="about-layout">
-            <div class="about-main">
+            <div class="about-main reveal-item">
                 <p class="about-desc">Sistem Informasi Jadwal Pelajaran (SIJAP) dikembangkan untuk memudahkan akses informasi akademik secara terpusat bagi siswa, guru, dan orang tua SMP Negeri 24 Bandung.</p>
 
                 <div class="version-grid">
@@ -340,12 +436,13 @@
                         <li class="done"><span class="rmark">✓</span> Integrasi data kelas 8</li>
                         <li class="done"><span class="rmark">✓</span> Pengembangan modul kelas 7</li>
                         <li class="done"><span class="rmark">✓</span> Aktivasi modul kelas 9</li>
+                        <li class="done"><span class="rmark">✓</span> Profil & Jadwal Guru</li>
                         <li class="current"><span class="rmark spin">⟳</span> Optimasi performa sistem</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="about-sidebar">
+            <div class="about-sidebar reveal-item">
                 <h3 class="sidebar-title">Tim Pengembang</h3>
                 <div class="team-card">
                     <div class="team-role">Developer</div>
@@ -357,7 +454,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-role">Kontak</div>
-                    <div class="team-name">087812029190</div>
+                    <div class="team-name">ahmadhasanekram@gmail.com</div>
                 </div>
             </div>
         </div>
