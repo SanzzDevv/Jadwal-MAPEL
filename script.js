@@ -2,7 +2,7 @@
 // KONFIGURASI STATUS SITUS
 // Ganti "on" menjadi "off" untuk mengaktifkan halaman maintenance
 // ===============================
-const siteStatus = "on";
+const siteStatus = "off";
 
 // ===============================
 // DARK MODE
