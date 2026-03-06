@@ -1495,3 +1495,48 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     border-color: var(--primary);
     color: #fff;
 }
+
+/* Search Bar */
+.search-bar-wrap {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.search-bar-wrap svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--text-3);
+    pointer-events: none;
+}
+
+.jadwal-search {
+    width: 100%;
+    padding: 10px 14px 10px 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    color: var(--text);
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+    box-sizing: border-box;
+}
+
+.jadwal-search::placeholder {
+    color: var(--text-3);
+}
+
+.jadwal-search:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+.dark .jadwal-search {
+    background: var(--bg-secondary);
+    color: var(--text);
+}

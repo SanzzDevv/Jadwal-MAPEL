@@ -151,7 +151,7 @@ const dataGuru = [
     { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "Informatika",   waliKelas: "9F", tingkat: "9" },
     { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "PJOK",          waliKelas: "—", tingkat: "7" },
     { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "B. Indonesia",  waliKelas: "8A", tingkat: "8" },
-    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "BP-BK",         waliKelas: "—", tingkat: "7" },
+    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "BP-BK",         waliKelas: "—", tingkat: ["7","8"] },
     { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "B. Indonesia",  waliKelas: "—", tingkat: "8" }
 ];
 
@@ -165,7 +165,7 @@ const jadwalJumat = [
     { waktu: "07.50-08.20", mapel: "Baca Surah Al Kahf",     guru: "", ruang: "Masjid" },
     { waktu: "08.20-08.40", mapel: "Baca Surah Pendek",      guru: "", ruang: "Masjid" },
     { waktu: "08.40-09.00", mapel: "Ceramah",                guru: "", ruang: "Masjid" },
-    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "Lapangan" },
+    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "-" },
     { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "—" }
 ];
 
@@ -1430,13 +1430,17 @@ function triggerReveal() {
 // RENDER GURU
 // ===============================
 let filterGuru = 'semua';
+let searchQuery = '';
 
 function renderGuru() {
     const grid = document.querySelector('.guru-grid');
     if (!grid) return;
 
     const filtered = dataGuru
-        .filter(function (g) { return filterGuru === 'semua' || g.tingkat === filterGuru; })
+        .filter(function (g) {
+            if (filterGuru === 'semua') return true;
+            return Array.isArray(g.tingkat) ? g.tingkat.includes(filterGuru) : g.tingkat === filterGuru;
+        })
         .sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id'); });
 
     grid.innerHTML = '';
@@ -1552,9 +1556,23 @@ function renderJadwalHari(hari) {
         return;
     }
 
-    const jadwal = jadwalKelas[currentKelas][hari];
+    let jadwal = jadwalKelas[currentKelas][hari];
     if (!jadwal.length) {
         tbody.innerHTML = '<tr><td colspan="4" class="no-data">Jadwal belum diisi.</td></tr>';
+        return;
+    }
+
+    const q = searchQuery.toLowerCase().trim();
+    if (q) {
+        jadwal = jadwal.filter(function (item) {
+            return (item.guru || '').toLowerCase().includes(q) ||
+                   (item.mapel || '').toLowerCase().includes(q) ||
+                   (currentKelas || '').toLowerCase().includes(q);
+        });
+    }
+
+    if (!jadwal.length) {
+        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Data tidak ditemukan</td></tr>';
         return;
     }
 
@@ -1589,6 +1607,9 @@ function showSection(id) {
 
     // If jadwal section, reset to monday
     if (id === 'jadwal-pelajaran') {
+        searchQuery = '';
+        const el = document.getElementById('jadwalSearch');
+        if (el) el.value = '';
         setHariAktif('senin');
         renderJadwalHari('senin');
     }
@@ -1764,4 +1785,14 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+
+    // SEARCH
+    const jadwalSearchEl = document.getElementById('jadwalSearch');
+    if (jadwalSearchEl) {
+        jadwalSearchEl.addEventListener('input', function () {
+            searchQuery = this.value;
+            const activeHari = document.querySelector('#jadwal-pelajaran .hari-btn.active');
+            if (activeHari) renderJadwalHari(activeHari.getAttribute('data-hari'));
+        });
+    }
 });
