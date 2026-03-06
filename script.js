@@ -2,7 +2,7 @@
 // KONFIGURASI STATUS SITUS
 // Ganti "on" menjadi "off" untuk mengaktifkan halaman maintenance
 // ===============================
-const siteStatus = "off";
+const siteStatus = "on";
 
 // ===============================
 // DARK MODE
@@ -43,7 +43,7 @@ const siteStatus = "off";
 
     setTimeout(nextStep, 120);
 
-    window.addEventListener('load', function () {
+    function hideLoading() {
         setTimeout(function () {
             const screen = document.getElementById('loadingScreen');
             if (screen) {
@@ -51,11 +51,17 @@ const siteStatus = "off";
                 setTimeout(function () {
                     screen.style.display = 'none';
                     document.body.classList.remove('loading');
-                    triggerReveal();
+                    if (typeof triggerReveal === 'function') triggerReveal();
                 }, 520);
             }
         }, 900);
-    });
+    }
+
+    if (document.readyState === 'complete') {
+        hideLoading();
+    } else {
+        window.addEventListener('load', hideLoading);
+    }
 })();
 
 // ===============================
