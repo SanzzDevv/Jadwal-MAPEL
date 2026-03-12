@@ -1496,47 +1496,463 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     color: #fff;
 }
 
-/* Search Bar */
-.search-bar-wrap {
-    position: relative;
-    margin-bottom: 14px;
+/* ============================================
+   LOGIN & AUTH SYSTEM
+   ============================================ */
+
+#loginOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px;
 }
 
-.search-bar-wrap svg {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    color: var(--text-3);
-    pointer-events: none;
-}
-
-.jadwal-search {
+.login-box {
     width: 100%;
-    padding: 10px 14px 10px 40px;
-    background: var(--bg-secondary);
+    max-width: 400px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-lg);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-header .brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--navy-dim);
+    border-radius: var(--radius-md);
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.login-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+}
+
+.login-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.login-error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark .login-error {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: rgba(220, 38, 38, 0.4);
+    color: #f87171;
+}
+
+.login-locked {
+    background: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark .login-locked {
+    background: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+}
+
+.login-form .form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text-2);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    font-size: 0.875rem;
+    background: var(--bg);
     color: var(--text);
-    font-family: inherit;
-    outline: none;
+    font-size: 0.92rem;
+    font-family: var(--sans);
     transition: var(--transition);
-    box-sizing: border-box;
+    outline: none;
 }
 
-.jadwal-search::placeholder {
-    color: var(--text-3);
+.form-input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px var(--navy-dim2);
 }
 
-.jadwal-search:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+.form-input[readonly] {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.dark .jadwal-search {
-    background: var(--bg-secondary);
+select.form-input {
+    cursor: pointer;
+}
+
+.form-textarea {
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 4px;
+}
+
+.btn-login:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.login-hint {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.login-hint code {
+    background: var(--navy-dim);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--navy);
+}
+
+/* ============================================
+   USER BAR
+   ============================================ */
+
+.user-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    background: var(--navy);
+    border-top: 1px solid var(--navy-mid);
+}
+
+.user-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.user-bar-label {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ============================================
+   NAV LOGIN BUTTON
+   ============================================ */
+
+.nav-login-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--navy-dim);
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 7px 14px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-login-btn:hover {
+    background: var(--navy-dim2);
+    border-color: var(--navy);
+}
+
+/* ============================================
+   HOMEWORK FORM (TEACHER DASHBOARD)
+   ============================================ */
+
+.hw-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hw-form-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
 }
+
+.hw-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.hw-desc-group {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+    .hw-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hw-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+}
+
+/* ============================================
+   HOMEWORK LIST
+   ============================================ */
+
+.hw-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.hw-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeInUp 0.25s ease;
+}
+
+@keyframes fadeInUp {
+    from { opacity:0; transform:translateY(8px); }
+    to   { opacity:1; transform:translateY(0); }
+}
+
+.hw-item-mapel-badge {
+    background: var(--navy-dim);
+    color: var(--navy);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.hw-item-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.hw-item-desc {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.hw-item-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hw-item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.hw-item-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.hw-action-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.hw-edit-btn {
+    background: var(--navy-dim);
+    color: var(--navy);
+    border-color: var(--border);
+}
+
+.hw-edit-btn:hover {
+    background: var(--navy-dim2);
+}
+
+.hw-delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
+}
+
+body.dark .hw-delete-btn {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: rgba(220, 38, 38, 0.3);
+    color: #f87171;
+}
+
+.hw-delete-btn:hover {
+    background: #fca5a5;
+}
+
+.hw-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+}
+
+/* ============================================
+   TODAY'S SCHEDULE — homework column highlight
+   ============================================ */
+
+.hw-badge-in-table {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body.dark .hw-badge-in-table {
+    background: rgba(251, 191, 36, 0.12);
+    border-color: rgba(251, 191, 36, 0.3);
+    color: #fbbf24;
+}
+
+.no-hw-badge {
+    color: var(--text-3);
+    font-size: 0.8rem;
+}
+
+/* body padding when user-bar is visible */
+body.has-userbar main,
+body.has-userbar .footer {
+    padding-bottom: 48px;
+}
+

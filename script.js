@@ -43,7 +43,7 @@ const siteStatus = "on";
 
     setTimeout(nextStep, 120);
 
-    function hideLoading() {
+    window.addEventListener('load', function () {
         setTimeout(function () {
             const screen = document.getElementById('loadingScreen');
             if (screen) {
@@ -51,17 +51,11 @@ const siteStatus = "on";
                 setTimeout(function () {
                     screen.style.display = 'none';
                     document.body.classList.remove('loading');
-                    if (typeof triggerReveal === 'function') triggerReveal();
+                    triggerReveal();
                 }, 520);
             }
         }, 900);
-    }
-
-    if (document.readyState === 'complete') {
-        hideLoading();
-    } else {
-        window.addEventListener('load', hideLoading);
-    }
+    });
 })();
 
 // ===============================
@@ -157,7 +151,7 @@ const dataGuru = [
     { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "Informatika",   waliKelas: "9F", tingkat: "9" },
     { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "PJOK",          waliKelas: "—", tingkat: "7" },
     { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "B. Indonesia",  waliKelas: "8A", tingkat: "8" },
-    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "BP-BK",         waliKelas: "—", tingkat: ["7","8"] },
+    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "BP-BK",         waliKelas: "—", tingkat: "7" },
     { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "B. Indonesia",  waliKelas: "—", tingkat: "8" }
 ];
 
@@ -171,7 +165,7 @@ const jadwalJumat = [
     { waktu: "07.50-08.20", mapel: "Baca Surah Al Kahf",     guru: "", ruang: "Masjid" },
     { waktu: "08.20-08.40", mapel: "Baca Surah Pendek",      guru: "", ruang: "Masjid" },
     { waktu: "08.40-09.00", mapel: "Ceramah",                guru: "", ruang: "Masjid" },
-    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "-" },
+    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "Lapangan" },
     { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "—" }
 ];
 
@@ -1436,17 +1430,13 @@ function triggerReveal() {
 // RENDER GURU
 // ===============================
 let filterGuru = 'semua';
-let searchQuery = '';
 
 function renderGuru() {
     const grid = document.querySelector('.guru-grid');
     if (!grid) return;
 
     const filtered = dataGuru
-        .filter(function (g) {
-            if (filterGuru === 'semua') return true;
-            return Array.isArray(g.tingkat) ? g.tingkat.includes(filterGuru) : g.tingkat === filterGuru;
-        })
+        .filter(function (g) { return filterGuru === 'semua' || g.tingkat === filterGuru; })
         .sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id'); });
 
     grid.innerHTML = '';
@@ -1562,23 +1552,9 @@ function renderJadwalHari(hari) {
         return;
     }
 
-    let jadwal = jadwalKelas[currentKelas][hari];
+    const jadwal = jadwalKelas[currentKelas][hari];
     if (!jadwal.length) {
         tbody.innerHTML = '<tr><td colspan="4" class="no-data">Jadwal belum diisi.</td></tr>';
-        return;
-    }
-
-    const q = searchQuery.toLowerCase().trim();
-    if (q) {
-        jadwal = jadwal.filter(function (item) {
-            return (item.guru || '').toLowerCase().includes(q) ||
-                   (item.mapel || '').toLowerCase().includes(q) ||
-                   (currentKelas || '').toLowerCase().includes(q);
-        });
-    }
-
-    if (!jadwal.length) {
-        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Data tidak ditemukan</td></tr>';
         return;
     }
 
@@ -1613,9 +1589,6 @@ function showSection(id) {
 
     // If jadwal section, reset to monday
     if (id === 'jadwal-pelajaran') {
-        searchQuery = '';
-        const el = document.getElementById('jadwalSearch');
-        if (el) el.value = '';
         setHariAktif('senin');
         renderJadwalHari('senin');
     }
@@ -1791,14 +1764,608 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+});
 
-    // SEARCH
-    const jadwalSearchEl = document.getElementById('jadwalSearch');
-    if (jadwalSearchEl) {
-        jadwalSearchEl.addEventListener('input', function () {
-            searchQuery = this.value;
-            const activeHari = document.querySelector('#jadwal-pelajaran .hari-btn.active');
-            if (activeHari) renderJadwalHari(activeHari.getAttribute('data-hari'));
+// ===================================================
+// LOGIN & HOMEWORK SYSTEM
+// ===================================================
+
+// ---- ACCOUNTS ----
+// Generated automatically. Do NOT edit manually.
+// For the full credential list see: accounts.txt
+var ACCOUNTS = {
+    "a_sutisna": { password: "f5sbLJIj", role: "guru",  label: "A. SUTISNA, S.Pd", namaGuru: "A. SUTISNA, S.Pd" },
+    "ahmad_rahmat": { password: "ZneWCs8T", role: "guru",  label: "AHMAD RAHMAT, S.Sn, M.Pd", namaGuru: "AHMAD RAHMAT, S.Sn, M.Pd" },
+    "ai_rika": { password: "E87fp8Wa", role: "guru",  label: "AI RIKA ISMAHANI, S.Psi", namaGuru: "AI RIKA ISMAHANI, S.Psi" },
+    "alda_aldila": { password: "EVavb2XN", role: "guru",  label: "ALDA ALDILA RIYADI, S.Pd", namaGuru: "ALDA ALDILA RIYADI, S.Pd" },
+    "andri_sunanto": { password: "11AEWaYW", role: "guru",  label: "ANDRI SUNANTO, S. Pd., M. Pd", namaGuru: "ANDRI SUNANTO, S. Pd., M. Pd" },
+    "annisa_haelwani": { password: "a3AypPwy", role: "guru",  label: "ANNISA HAELWANI, S. KOM", namaGuru: "ANNISA HAELWANI, S. KOM" },
+    "ari_nugraha": { password: "MYhnqki9", role: "guru",  label: "ARI NUGRAHA, S. Pd", namaGuru: "ARI NUGRAHA, S. Pd" },
+    "arif_maulana": { password: "bq9FZtqQ", role: "guru",  label: "ARIF MAULANA GUNAWAN, S.T", namaGuru: "ARIF MAULANA GUNAWAN, S.T" },
+    "candita_reksa": { password: "6PRJRMWi", role: "guru",  label: "CANDITA REKSA RIYADI, S. Pd", namaGuru: "CANDITA REKSA RIYADI, S. Pd" },
+    "deden_kurnia": { password: "kAUEg4W8", role: "guru",  label: "DEDEN KURNIA S, S. Pd", namaGuru: "DEDEN KURNIA S, S. Pd" },
+    "diah_soepliah": { password: "L6lYRWda", role: "guru",  label: "DIAH SOEPLIAH, S. Sos", namaGuru: "DIAH SOEPLIAH, S. Sos" },
+    "dian_rahmawati": { password: "PGLxye6R", role: "guru",  label: "DIAN RAHMAWATI, S. Pd", namaGuru: "DIAN RAHMAWATI, S. Pd" },
+    "agus_masruq": { password: "i981iEXo", role: "guru",  label: "Drs. AGUS MASRUQ, M.Pd", namaGuru: "Drs. AGUS MASRUQ, M.Pd" },
+    "dwi_prihanto": { password: "1W11wt8D", role: "guru",  label: "DWI PRIHANTO K, S.Pd", namaGuru: "DWI PRIHANTO K, S.Pd" },
+    "eha_julaeha": { password: "pukXfqc7", role: "guru",  label: "EHA JULAEHA, S.S", namaGuru: "EHA JULAEHA, S.S" },
+    "elli_kemalawati": { password: "m4peOVV9", role: "guru",  label: "ELLI KEMALAWATI, S.Pd", namaGuru: "ELLI KEMALAWATI, S.Pd" },
+    "endah_nurjanah": { password: "GY0NhhwX", role: "guru",  label: "ENDAH NURJANAH, S. Pd", namaGuru: "ENDAH NURJANAH, S. Pd" },
+    "faijul_arifin": { password: "vH8SiZQx", role: "guru",  label: "FAIJUL ARIFIN, S.Pd", namaGuru: "FAIJUL ARIFIN, S.Pd" },
+    "farhan_budiarto": { password: "8ZXs112q", role: "guru",  label: "FARHAN BUDIARTO, S.Pd", namaGuru: "FARHAN BUDIARTO, S.Pd" },
+    "firda_putri": { password: "A6UyUwlh", role: "guru",  label: "FIRDA PUTRI UTAMI, S. Pd", namaGuru: "FIRDA PUTRI UTAMI, S. Pd" },
+    "fitria_agustini": { password: "EavNOQA2", role: "guru",  label: "FITRIA AGUSTINI, S.Pd", namaGuru: "FITRIA AGUSTINI, S.Pd" },
+    "hendra_saputra": { password: "amA8nlWB", role: "guru",  label: "HENDRA SAPUTRA, S.Pd", namaGuru: "HENDRA SAPUTRA, S.Pd" },
+    "iis_priatini": { password: "h5MZh0lC", role: "guru",  label: "IIS PRIATINI, S.Pd", namaGuru: "IIS PRIATINI, S.Pd" },
+    "ika_kurnia": { password: "rGUjTb78", role: "guru",  label: "IKA KURNIA, S.Pd", namaGuru: "IKA KURNIA, S.Pd" },
+    "imam_adi": { password: "arvXUfu7", role: "guru",  label: "IMAM ADI PRASETYO, S. Pd", namaGuru: "IMAM ADI PRASETYO, S. Pd" },
+    "inna_nuraini": { password: "I2R08GbV", role: "guru",  label: "INNA NURAINI SUJANA, S. Pd", namaGuru: "INNA NURAINI SUJANA, S. Pd" },
+    "iwan_setiawan": { password: "EcGBD5Xe", role: "guru",  label: "IWAN SETIAWAN, S.Pd", namaGuru: "IWAN SETIAWAN, S.Pd" },
+    "lani_mustikasari": { password: "3morcDtq", role: "guru",  label: "LANI MUSTIKASARI, S.Pd", namaGuru: "LANI MUSTIKASARI, S.Pd" },
+    "lela_zulkaedah": { password: "k8QAem08", role: "guru",  label: "LELA ZULKAEDAH, S.Pd", namaGuru: "LELA ZULKAEDAH, S.Pd" },
+    "lia_pramurtya": { password: "o1MHyOKH", role: "guru",  label: "LIA PRAMURTYA, S.Si", namaGuru: "LIA PRAMURTYA, S.Si" },
+    "luthfi_hadiansyah": { password: "X4IjJZeo", role: "guru",  label: "LUTHFI HADIANSYAH, S.Pd", namaGuru: "LUTHFI HADIANSYAH, S.Pd" },
+    "noor_fendi": { password: "Vv0iEHey", role: "guru",  label: "M. NOOR FENDI SAEFULOH, S.Pd", namaGuru: "M. NOOR FENDI SAEFULOH, S.Pd" },
+    "mega_herliani": { password: "vtSb2eDs", role: "guru",  label: "MEGA HERLIANI, S.Sn", namaGuru: "MEGA HERLIANI, S.Sn" },
+    "muh_zaenal": { password: "nQVZmsg9", role: "guru",  label: "MUH. ZAENAL ARIPIN, S. Pd", namaGuru: "MUH. ZAENAL ARIPIN, S. Pd" },
+    "nidya_eka": { password: "EyVCTb9v", role: "guru",  label: "NIDYA EKA PRATIWI, S.Pd", namaGuru: "NIDYA EKA PRATIWI, S.Pd" },
+    "pipin_firmansyah": { password: "rWE31IwE", role: "guru",  label: "PIPIN FIRMANSYAH N, S.Pd", namaGuru: "PIPIN FIRMANSYAH N, S.Pd" },
+    "prapti_handayani": { password: "LM4sxagH", role: "guru",  label: "PRAPTI HANDAYANI, S.Pd", namaGuru: "PRAPTI HANDAYANI, S.Pd" },
+    "qisti_septia": { password: "Y7JGedaO", role: "guru",  label: "QISTI SEPTIA W. A, S. Pd", namaGuru: "QISTI SEPTIA W. A, S. Pd" },
+    "rahmasari_aulia": { password: "KV8Kd619", role: "guru",  label: "RAHMASARI AULIA KHOTIMAH, S. Pd", namaGuru: "RAHMASARI AULIA KHOTIMAH, S. Pd" },
+    "rd_sri": { password: "gics4Bwb", role: "guru",  label: "Rd. SRI REJEKI, S.Pd", namaGuru: "Rd. SRI REJEKI, S.Pd" },
+    "rini_septiani": { password: "xdiliI4o", role: "guru",  label: "RINI SEPTIANI, S. Pd", namaGuru: "RINI SEPTIANI, S. Pd" },
+    "roni_rahmansyah": { password: "aVSK8MwP", role: "guru",  label: "RONI RAHMANSYAH, S.KOM", namaGuru: "RONI RAHMANSYAH, S.KOM" },
+    "sariya_dewi": { password: "g0f91JKh", role: "guru",  label: "SARIYA DEWI SARASWATI, S. Pd", namaGuru: "SARIYA DEWI SARASWATI, S. Pd" },
+    "setia_nur": { password: "h7otJycq", role: "guru",  label: "SETIA NUR PARIDAH, S.Pd", namaGuru: "SETIA NUR PARIDAH, S.Pd" },
+    "silfa_agisni": { password: "qa14vrFd", role: "guru",  label: "SILFA AGISNI SALMA, S. Pd", namaGuru: "SILFA AGISNI SALMA, S. Pd" },
+    "tata_nurhayati": { password: "BuPyCw2Z", role: "guru",  label: "TATA NURHAYATI, S.Pd", namaGuru: "TATA NURHAYATI, S.Pd" },
+    "kelas7": { password: "Bjl15rCR", role: "siswa", label: "Siswa Kelas 7", kelasLevel: "7" },
+    "kelas8": { password: "7UWFfTnF", role: "siswa", label: "Siswa Kelas 8", kelasLevel: "8" },
+    "kelas9": { password: "cw8Q72A7", role: "siswa", label: "Siswa Kelas 9", kelasLevel: "9" }
+};
+
+// ---- SESSION ----
+var currentUser = null;  // { username, role, label }
+
+// ---- BRUTE-FORCE PROTECTION ----
+var MAX_ATTEMPTS  = 3;
+var LOCKOUT_MS    = 2 * 60 * 1000; // 2 minutes
+var LOGIN_STORAGE = 'sijap-login-attempts';
+
+function getLoginAttempts() {
+    try {
+        var raw = localStorage.getItem(LOGIN_STORAGE);
+        if (!raw) return { count: 0, lockedUntil: 0 };
+        return JSON.parse(raw);
+    } catch(e) {
+        return { count: 0, lockedUntil: 0 };
+    }
+}
+
+function saveLoginAttempts(data) {
+    localStorage.setItem(LOGIN_STORAGE, JSON.stringify(data));
+}
+
+function resetLoginAttempts() {
+    localStorage.removeItem(LOGIN_STORAGE);
+}
+
+function isLockedOut() {
+    var d = getLoginAttempts();
+    if (d.lockedUntil && Date.now() < d.lockedUntil) return d.lockedUntil;
+    return false;
+}
+
+function recordFailedAttempt() {
+    var d = getLoginAttempts();
+    d.count = (d.count || 0) + 1;
+    if (d.count >= MAX_ATTEMPTS) {
+        d.lockedUntil = Date.now() + LOCKOUT_MS;
+    }
+    saveLoginAttempts(d);
+    return d;
+}
+
+// ---- LOGIN UI ----
+function showLoginOverlay() {
+    var overlay = document.getElementById('loginOverlay');
+    overlay.style.display = 'flex';
+    // clear inputs
+    document.getElementById('loginUsername').value = '';
+    document.getElementById('loginPassword').value = '';
+    document.getElementById('loginError').style.display = 'none';
+    checkLockStatus();
+}
+
+function hideLoginOverlay() {
+    document.getElementById('loginOverlay').style.display = 'none';
+}
+
+function checkLockStatus() {
+    var lockedUntil = isLockedOut();
+    var lockEl = document.getElementById('loginLocked');
+    var btnEl  = document.getElementById('loginBtn');
+    if (lockedUntil) {
+        lockEl.style.display = 'flex';
+        btnEl.disabled = true;
+        var remaining = Math.ceil((lockedUntil - Date.now()) / 1000);
+        document.getElementById('loginLockedMsg').textContent =
+            'Terlalu banyak percobaan. Tunggu ' + remaining + ' detik lagi.';
+        setTimeout(checkLockStatus, 1000);
+    } else {
+        lockEl.style.display = 'none';
+        btnEl.disabled = false;
+    }
+}
+
+function doLogin() {
+    if (isLockedOut()) {
+        checkLockStatus();
+        return;
+    }
+
+    var username = document.getElementById('loginUsername').value.trim().toLowerCase();
+    var password = document.getElementById('loginPassword').value;
+    var errEl = document.getElementById('loginError');
+
+    if (!username || !password) {
+        errEl.textContent = 'Username dan password harus diisi.';
+        errEl.style.display = 'flex';
+        return;
+    }
+
+    var account = ACCOUNTS[username];
+    if (!account || account.password !== password) {
+        var d = recordFailedAttempt();
+        var remaining = MAX_ATTEMPTS - d.count;
+        if (d.count >= MAX_ATTEMPTS) {
+            errEl.style.display = 'none';
+            checkLockStatus();
+        } else {
+            errEl.textContent = 'Username atau password salah. Sisa percobaan: ' + remaining;
+            errEl.style.display = 'flex';
+        }
+        return;
+    }
+
+    // Success
+    resetLoginAttempts();
+    currentUser = {
+        username:   username,
+        role:       account.role,
+        label:      account.label,
+        namaGuru:   account.namaGuru   || null,
+        kelasLevel: account.kelasLevel || null
+    };
+    hideLoginOverlay();
+    onLoginSuccess();
+}
+
+function doLogout() {
+    currentUser = null;
+    updateAuthUI();
+    showSection('beranda');
+}
+
+function onLoginSuccess() {
+    updateAuthUI();
+    if (currentUser.role === 'guru') {
+        renderDashboardNav();
+        showSection('dashboard-guru');
+        renderHwListGuru();
+    } else {
+        // Student — show today's schedule.
+        // kelasLevel determines which class group they belong to (7 / 8 / 9).
+        // Today's schedule section currently shows 8F as the pilot class.
+        renderTodaySchedule();
+        showSection('jadwal-hari-ini');
+        renderHwListSiswa();
+    }
+}
+
+function updateAuthUI() {
+    var navLoginBtn = document.getElementById('navLoginBtn');
+    var userBar     = document.getElementById('userBar');
+    var userBarLbl  = document.getElementById('userBarLabel');
+
+    if (currentUser) {
+        // Build a short label for the nav button
+        var shortLabel = currentUser.role === 'guru'
+            ? (currentUser.namaGuru || currentUser.label)
+            : currentUser.label;
+
+        // Truncate if very long for nav button
+        var displayLabel = shortLabel.length > 28 ? shortLabel.substring(0, 26) + '…' : shortLabel;
+        navLoginBtn.textContent = displayLabel;
+
+        var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : '📚 Siswa';
+        userBar.style.display = 'block';
+        userBarLbl.textContent = roleTag + ' — ' + shortLabel;
+        document.body.classList.add('has-userbar');
+    } else {
+        navLoginBtn.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
+            '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>' +
+            '<polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Login';
+        userBar.style.display = 'none';
+        document.body.classList.remove('has-userbar');
+        var dashNav = document.getElementById('dashboardNavLink');
+        if (dashNav) dashNav.remove();
+    }
+}
+
+function renderDashboardNav() {
+    if (document.getElementById('dashboardNavLink')) return;
+    var nav = document.getElementById('mainNav');
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'nav-link';
+    link.id = 'dashboardNavLink';
+    link.setAttribute('data-section', 'dashboard-guru');
+    link.innerHTML = '<span class="nav-icon">⊕</span><span>Dashboard</span>';
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        showSection('dashboard-guru');
+        renderHwListGuru();
+        nav.classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+    });
+    nav.appendChild(link);
+}
+
+// ===================================================
+// HOMEWORK STORAGE
+// ===================================================
+
+var HW_STORAGE = 'sijap-homework-8f';
+
+function getHomework() {
+    try {
+        var raw = localStorage.getItem(HW_STORAGE);
+        if (!raw) return [];
+        return JSON.parse(raw);
+    } catch(e) {
+        return [];
+    }
+}
+
+function saveHomework(list) {
+    localStorage.setItem(HW_STORAGE, JSON.stringify(list));
+}
+
+function addHomework(item) {
+    var list = getHomework();
+    item.id = 'hw-' + Date.now();
+    item.createdAt = new Date().toISOString();
+    list.unshift(item);
+    saveHomework(list);
+}
+
+function deleteHomework(id) {
+    var list = getHomework().filter(function(h) { return h.id !== id; });
+    saveHomework(list);
+}
+
+function updateHomework(id, updated) {
+    var list = getHomework().map(function(h) {
+        return h.id === id ? Object.assign({}, h, updated) : h;
+    });
+    saveHomework(list);
+}
+
+// ---- FORMAT DATE ----
+function formatTanggal(isoStr) {
+    if (!isoStr) return '—';
+    var d = new Date(isoStr + 'T00:00:00');
+    var days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    return days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+// ===================================================
+// RENDER HOMEWORK LIST — GURU
+// ===================================================
+
+function renderHwListGuru() {
+    var container = document.getElementById('hwListGuru');
+    if (!container) return;
+    var list = getHomework();
+
+    if (!list.length) {
+        container.innerHTML = '<div class="hw-empty">Belum ada tugas yang ditambahkan.</div>';
+        return;
+    }
+
+    container.innerHTML = '';
+    list.forEach(function(hw) {
+        var item = document.createElement('div');
+        item.className = 'hw-item';
+        item.innerHTML =
+            '<div class="hw-item-mapel-badge">' + escapeHtml(hw.mapel) + '</div>' +
+            '<div class="hw-item-body">' +
+                '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
+                '<div class="hw-item-meta">' +
+                    '<span>📅 Dikumpul: ' + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>🏫 Kelas: ' + escapeHtml(hw.kelas) + '</span>' +
+                '</div>' +
+            '</div>' +
+            '<div class="hw-item-actions">' +
+                '<button class="hw-action-btn hw-edit-btn" data-hw-id="' + hw.id + '">Edit</button>' +
+                '<button class="hw-action-btn hw-delete-btn" data-hw-del-id="' + hw.id + '">Hapus</button>' +
+            '</div>';
+        container.appendChild(item);
+    });
+}
+
+// ===================================================
+// RENDER HOMEWORK LIST — SISWA
+// ===================================================
+
+function renderHwListSiswa() {
+    var container = document.getElementById('hwListSiswa');
+    if (!container) return;
+    var list = getHomework();
+
+    if (!list.length) {
+        container.innerHTML = '<div class="hw-empty">Tidak ada PR / Tugas saat ini. 🎉</div>';
+        return;
+    }
+
+    container.innerHTML = '';
+    list.forEach(function(hw) {
+        var item = document.createElement('div');
+        item.className = 'hw-item';
+        item.innerHTML =
+            '<div class="hw-item-mapel-badge">' + escapeHtml(hw.mapel) + '</div>' +
+            '<div class="hw-item-body">' +
+                '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
+                '<div class="hw-item-meta">' +
+                    '<span>📅 Dikumpul: ' + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>🏫 Kelas: ' + escapeHtml(hw.kelas) + '</span>' +
+                '</div>' +
+            '</div>';
+        container.appendChild(item);
+    });
+}
+
+// ===================================================
+// TODAY'S SCHEDULE — 8F
+// ===================================================
+
+function getTodayHariKey() {
+    var day = new Date().getDay(); // 0=Sun, 1=Mon, ... 6=Sat
+    var map = { 1: 'senin', 2: 'selasa', 3: 'rabu', 4: 'kamis', 5: 'jumat' };
+    return map[day] || null;
+}
+
+function renderTodaySchedule() {
+    var tbody    = document.getElementById('today-tbody');
+    var labelEl  = document.getElementById('todayDateLabel');
+    if (!tbody) return;
+
+    var today = new Date();
+    var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
+    if (labelEl) {
+        labelEl.textContent = days[today.getDay()] + ', ' + today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
+    }
+
+    var hariKey = getTodayHariKey();
+    tbody.innerHTML = '';
+
+    if (!hariKey) {
+        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Hari ini libur — tidak ada jadwal pelajaran.</td></tr>';
+        return;
+    }
+
+    var jadwal8F = jadwalKelas['8F'];
+    if (!jadwal8F || !jadwal8F[hariKey]) {
+        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Jadwal belum tersedia.</td></tr>';
+        return;
+    }
+
+    var schedule = jadwal8F[hariKey];
+    var homeworkList = getHomework();
+
+    // Build mapel → homework map (case-insensitive)
+    var hwMap = {};
+    homeworkList.forEach(function(hw) {
+        var key = hw.mapel.toLowerCase().trim();
+        if (!hwMap[key]) hwMap[key] = [];
+        hwMap[key].push(hw);
+    });
+
+    schedule.forEach(function(item) {
+        var tr = document.createElement('tr');
+        var mapelKey = item.mapel.toLowerCase().trim();
+        var hwItems  = hwMap[mapelKey] || [];
+
+        var hwCell = '';
+        if (hwItems.length) {
+            hwItems.forEach(function(hw) {
+                hwCell += '<span class="hw-badge-in-table" title="' + escapeHtml(hw.deskripsi) + '">' +
+                    escapeHtml(hw.deskripsi.substring(0, 30)) + (hw.deskripsi.length > 30 ? '…' : '') +
+                    '</span> ';
+            });
+        } else {
+            hwCell = '<span class="no-hw-badge">—</span>';
+        }
+
+        tr.innerHTML =
+            '<td>' + escapeHtml(item.waktu) + '</td>' +
+            '<td>' + escapeHtml(item.mapel) + '</td>' +
+            '<td>' + escapeHtml(item.guru || '—') + '</td>' +
+            '<td>' + escapeHtml(item.ruang) + '</td>' +
+            '<td>' + hwCell + '</td>';
+        tbody.appendChild(tr);
+    });
+}
+
+// ===================================================
+// HELPERS
+// ===================================================
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+// ===================================================
+// HOMEWORK FORM SUBMIT (TEACHER)
+// ===================================================
+
+function initHomeworkForm() {
+    var submitBtn = document.getElementById('hwSubmitBtn');
+    if (!submitBtn) return;
+
+    // Set default date to today
+    var todayVal = new Date().toISOString().substring(0, 10);
+    document.getElementById('hwTanggal').value = todayVal;
+
+    submitBtn.addEventListener('click', function() {
+        var mapel     = document.getElementById('hwMapel').value.trim();
+        var deskripsi = document.getElementById('hwDeskripsi').value.trim();
+        var tanggal   = document.getElementById('hwTanggal').value;
+        var errEl     = document.getElementById('hwFormError');
+        var successEl = document.getElementById('hwSuccessMsg');
+
+        errEl.style.display = 'none';
+
+        if (!mapel) {
+            errEl.textContent = 'Pilih mata pelajaran terlebih dahulu.';
+            errEl.style.display = 'flex';
+            return;
+        }
+        if (!deskripsi) {
+            errEl.textContent = 'Deskripsi tugas tidak boleh kosong.';
+            errEl.style.display = 'flex';
+            return;
+        }
+        if (!tanggal) {
+            errEl.textContent = 'Tanggal pengumpulan harus diisi.';
+            errEl.style.display = 'flex';
+            return;
+        }
+
+        // Check if editing
+        var editId = submitBtn.getAttribute('data-edit-id');
+        if (editId) {
+            updateHomework(editId, { mapel: mapel, deskripsi: deskripsi, tanggal: tanggal });
+            submitBtn.removeAttribute('data-edit-id');
+            submitBtn.innerHTML =
+                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
+                '<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Simpan Tugas';
+        } else {
+            addHomework({ kelas: '8F', mapel: mapel, deskripsi: deskripsi, tanggal: tanggal });
+        }
+
+        // Reset form
+        document.getElementById('hwMapel').value = '';
+        document.getElementById('hwDeskripsi').value = '';
+        document.getElementById('hwTanggal').value = new Date().toISOString().substring(0, 10);
+
+        // Show success briefly
+        successEl.style.display = 'inline';
+        setTimeout(function() { successEl.style.display = 'none'; }, 2500);
+
+        renderHwListGuru();
+    });
+
+    // Delegated delete/edit
+    var hwListGuru = document.getElementById('hwListGuru');
+    if (hwListGuru) {
+        hwListGuru.addEventListener('click', function(e) {
+            var delBtn  = e.target.closest('[data-hw-del-id]');
+            var editBtn = e.target.closest('[data-hw-id]');
+
+            if (delBtn) {
+                var id = delBtn.getAttribute('data-hw-del-id');
+                if (confirm('Hapus tugas ini?')) {
+                    deleteHomework(id);
+                    renderHwListGuru();
+                }
+                return;
+            }
+
+            if (editBtn) {
+                var id = editBtn.getAttribute('data-hw-id');
+                var list = getHomework();
+                var hw = list.find(function(h) { return h.id === id; });
+                if (!hw) return;
+
+                // Populate form
+                document.getElementById('hwMapel').value = hw.mapel;
+                document.getElementById('hwDeskripsi').value = hw.deskripsi;
+                document.getElementById('hwTanggal').value = hw.tanggal;
+                var btn = document.getElementById('hwSubmitBtn');
+                btn.setAttribute('data-edit-id', id);
+                btn.innerHTML =
+                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
+                    '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>' +
+                    '<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Update Tugas';
+                // Scroll to form
+                document.querySelector('.hw-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     }
+}
+
+// ===================================================
+// INIT AUTH EVENTS (called after DOMContentLoaded)
+// ===================================================
+
+function initAuthSystem() {
+    // Nav login button
+    document.getElementById('navLoginBtn').addEventListener('click', function() {
+        if (currentUser) {
+            // If already logged in, show dashboard or schedule
+            if (currentUser.role === 'guru') {
+                showSection('dashboard-guru');
+                renderHwListGuru();
+            } else {
+                renderTodaySchedule();
+                showSection('jadwal-hari-ini');
+                renderHwListSiswa();
+            }
+        } else {
+            showLoginOverlay();
+        }
+    });
+
+    // Login form events
+    document.getElementById('loginBtn').addEventListener('click', doLogin);
+    document.getElementById('loginPassword').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doLogin();
+    });
+    document.getElementById('loginUsername').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') document.getElementById('loginPassword').focus();
+    });
+
+    // Logout
+    document.getElementById('logoutBtn').addEventListener('click', doLogout);
+
+    // Back button on today's schedule
+    var backBtn = document.getElementById('backFromTodayBtn');
+    if (backBtn) {
+        backBtn.addEventListener('click', function() {
+            showSection('beranda');
+        });
+    }
+
+    // Init homework form
+    initHomeworkForm();
+}
+
+// ===================================================
+// HOOK INTO EXISTING DOMContentLoaded
+// ===================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    initAuthSystem();
 });
+
