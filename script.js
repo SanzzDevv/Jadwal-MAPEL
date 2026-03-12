@@ -1943,6 +1943,15 @@ function doLogin() {
 }
 
 function doLogout() {
+    // Stop all real-time listeners
+    if (hwUnsubscribeGuru) {
+        hwUnsubscribeGuru();
+        hwUnsubscribeGuru = null;
+    }
+    if (hwUnsubscribeSiswa) {
+        hwUnsubscribeSiswa();
+        hwUnsubscribeSiswa = null;
+    }
     currentUser = null;
     updateAuthUI();
     showSection('beranda');
@@ -1952,15 +1961,19 @@ function onLoginSuccess() {
     updateAuthUI();
     if (currentUser.role === 'guru') {
         renderDashboardNav();
+        // Update dashboard title
+        var titleEl = document.getElementById('dashboardTitle');
+        if (titleEl) titleEl.textContent = 'Dashboard — ' + (currentUser.namaGuru || currentUser.label);
         showSection('dashboard-guru');
-        renderHwListGuru();
+        // Start real-time listener for all homework (teacher sees everything)
+        subscribeHwGuru('');
     } else {
-        // Student — show today's schedule.
-        // kelasLevel determines which class group they belong to (7 / 8 / 9).
-        // Today's schedule section currently shows 8F as the pilot class.
+        // Student: start real-time listener filtered to their grade
         renderTodaySchedule();
         showSection('jadwal-hari-ini');
-        renderHwListSiswa();
+        var titleEl2 = document.getElementById('todayScheduleTitle');
+        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini — Kelas ' + currentUser.kelasLevel;
+        subscribeHwSiswa(currentUser.kelasLevel);
     }
 }
 
@@ -2015,65 +2028,268 @@ function renderDashboardNav() {
 }
 
 // ===================================================
-// HOMEWORK STORAGE
+// FIREBASE CONFIGURATION
+// ===================================================
+// ⚠️  REPLACE THE VALUES BELOW WITH YOUR OWN CONFIG
+//     From: Firebase Console → Your Project → Project Settings → Your Apps → SDK setup
+// ===================================================
+var FIREBASE_CONFIG = {
+    apiKey:            "AIzaSyBbOyHHcsFv7dB6vINYOqhkGvz-synfY78",
+    authDomain:        "sijap-smpn24.firebaseapp.com",
+    projectId:         "sijap-smpn24",
+    storageBucket:     "sijap-smpn24.firebasestorage.app",
+    messagingSenderId: "44069478574",
+    appId:             "1:44069478574:web:6af07c1bc334fcbc5e8d3f"
+};
+
+// ===================================================
+// FIREBASE INIT
 // ===================================================
 
-var HW_STORAGE = 'sijap-homework-8f';
+var db = null;              // Firestore instance (set after init)
+var fbReady = false;        // true once Firebase has initialised successfully
+var fbError = false;        // true if Firebase failed to connect
+var hwUnsubscribeGuru   = null;   // real-time listener handle for teacher view
+var hwUnsubscribeSiswa  = null;   // real-time listener handle for student view
 
-function getHomework() {
+function initFirebase() {
     try {
-        var raw = localStorage.getItem(HW_STORAGE);
-        if (!raw) return [];
-        return JSON.parse(raw);
-    } catch(e) {
-        return [];
+        // Guard: only init once
+        if (!firebase.apps.length) {
+            firebase.initializeApp(FIREBASE_CONFIG);
+        }
+        db = firebase.firestore();
+        fbReady = true;
+        showFbStatus('connected');
+    } catch (err) {
+        fbReady = false;
+        fbError = true;
+        showFbStatus('error', err.message);
+        console.error('[SIJAP] Firebase init error:', err);
     }
 }
 
-function saveHomework(list) {
-    localStorage.setItem(HW_STORAGE, JSON.stringify(list));
+// ── Firebase status bar (only visible in teacher dashboard) ──────────
+function showFbStatus(state, msg) {
+    var bar = document.getElementById('fbStatusBar');
+    if (!bar) return;
+    if (state === 'connected') {
+        bar.style.display = 'flex';
+        bar.className = 'fb-status-bar fb-status-ok';
+        bar.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l1.27-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
+            '<span>Firebase terhubung — Data real-time aktif ✓</span>';
+    } else {
+        bar.style.display = 'flex';
+        bar.className = 'fb-status-bar fb-status-error';
+        bar.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+            '<span>Firebase error: ' + escapeHtml(msg || 'Tidak dapat terhubung') +
+            ' — Periksa konfigurasi di script.js</span>';
+    }
 }
 
-function addHomework(item) {
-    var list = getHomework();
-    item.id = 'hw-' + Date.now();
-    item.createdAt = new Date().toISOString();
-    list.unshift(item);
-    saveHomework(list);
+// ===================================================
+// HELPERS
+// ===================================================
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
 }
 
-function deleteHomework(id) {
-    var list = getHomework().filter(function(h) { return h.id !== id; });
-    saveHomework(list);
-}
-
-function updateHomework(id, updated) {
-    var list = getHomework().map(function(h) {
-        return h.id === id ? Object.assign({}, h, updated) : h;
-    });
-    saveHomework(list);
-}
-
-// ---- FORMAT DATE ----
 function formatTanggal(isoStr) {
     if (!isoStr) return '—';
     var d = new Date(isoStr + 'T00:00:00');
-    var days = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+    var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
     var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
     return days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
 }
 
 // ===================================================
-// RENDER HOMEWORK LIST — GURU
+// FIREBASE — ADD HOMEWORK
 // ===================================================
 
-function renderHwListGuru() {
+function addHomeworkToFirebase(data, onSuccess, onError) {
+    if (!fbReady || !db) {
+        onError('Firebase belum siap. Coba refresh halaman.');
+        return;
+    }
+    db.collection('homeworks').add({
+        class:       data.kelas,
+        subject:     data.mapel,
+        teacher:     data.namaGuru,
+        description: data.deskripsi,
+        date:        data.tanggal,
+        timestamp:   firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(function() { onSuccess(); })
+    .catch(function(err) { onError(err.message); });
+}
+
+// ===================================================
+// FIREBASE — UPDATE HOMEWORK
+// ===================================================
+
+function updateHomeworkInFirebase(docId, data, onSuccess, onError) {
+    if (!fbReady || !db) {
+        onError('Firebase belum siap.');
+        return;
+    }
+    db.collection('homeworks').doc(docId).update({
+        class:       data.kelas,
+        subject:     data.mapel,
+        description: data.deskripsi,
+        date:        data.tanggal
+    })
+    .then(function() { onSuccess(); })
+    .catch(function(err) { onError(err.message); });
+}
+
+// ===================================================
+// FIREBASE — DELETE HOMEWORK
+// ===================================================
+
+function deleteHomeworkFromFirebase(docId, onSuccess, onError) {
+    if (!fbReady || !db) {
+        onError('Firebase belum siap.');
+        return;
+    }
+    db.collection('homeworks').doc(docId).delete()
+    .then(function() { onSuccess(); })
+    .catch(function(err) { onError(err.message); });
+}
+
+// ===================================================
+// FIREBASE — REAL-TIME LISTENER: TEACHER (all classes)
+// ===================================================
+
+function subscribeHwGuru(filterKelas) {
+    // Unsubscribe from any existing listener first
+    if (hwUnsubscribeGuru) {
+        hwUnsubscribeGuru();
+        hwUnsubscribeGuru = null;
+    }
+
+    if (!fbReady || !db) {
+        renderHwListGuruData([], true);
+        return;
+    }
+
+    var container = document.getElementById('hwListGuru');
+    if (container) {
+        container.innerHTML =
+            '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat data...</span></div>';
+    }
+
+    var query = db.collection('homeworks').orderBy('timestamp', 'desc');
+    if (filterKelas && filterKelas !== '') {
+        query = query.where('class', '==', filterKelas);
+    }
+
+    hwUnsubscribeGuru = query.onSnapshot(function(snapshot) {
+        var list = [];
+        snapshot.forEach(function(doc) {
+            var d = doc.data();
+            list.push({
+                id:        doc.id,
+                kelas:     d.class       || '',
+                mapel:     d.subject     || '',
+                namaGuru:  d.teacher     || '',
+                deskripsi: d.description || '',
+                tanggal:   d.date        || '',
+                timestamp: d.timestamp
+            });
+        });
+        renderHwListGuruData(list, false);
+    }, function(err) {
+        console.error('[SIJAP] Firestore listener error (guru):', err);
+        renderHwListGuruData([], true, err.message);
+    });
+}
+
+// ===================================================
+// FIREBASE — REAL-TIME LISTENER: STUDENT (filtered by class)
+// ===================================================
+
+function subscribeHwSiswa(kelasFilter) {
+    // Unsubscribe from previous listener
+    if (hwUnsubscribeSiswa) {
+        hwUnsubscribeSiswa();
+        hwUnsubscribeSiswa = null;
+    }
+
+    if (!fbReady || !db) {
+        renderHwListSiswaData([], kelasFilter, true);
+        return;
+    }
+
+    var container = document.getElementById('hwListSiswa');
+    if (container) {
+        container.innerHTML =
+            '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat tugas...</span></div>';
+    }
+
+    // Build class filter list.
+    // kelas7 → all 7A-7I, kelas8 → all 8A-8I, kelas9 → all 9A-9I
+    var classesToQuery = buildClassFilterList(kelasFilter);
+
+    // Firestore 'in' operator supports max 10 values — we have max 9 per grade, so it's fine.
+    var query = db.collection('homeworks')
+        .where('class', 'in', classesToQuery)
+        .orderBy('timestamp', 'desc');
+
+    hwUnsubscribeSiswa = query.onSnapshot(function(snapshot) {
+        var list = [];
+        snapshot.forEach(function(doc) {
+            var d = doc.data();
+            list.push({
+                id:        doc.id,
+                kelas:     d.class       || '',
+                mapel:     d.subject     || '',
+                namaGuru:  d.teacher     || '',
+                deskripsi: d.description || '',
+                tanggal:   d.date        || '',
+                timestamp: d.timestamp
+            });
+        });
+        renderHwListSiswaData(list, kelasFilter, false);
+        // Also re-render today's schedule table so homework column updates
+        renderTodaySchedule(list);
+    }, function(err) {
+        console.error('[SIJAP] Firestore listener error (siswa):', err);
+        renderHwListSiswaData([], kelasFilter, true, err.message);
+    });
+}
+
+function buildClassFilterList(kelasLevel) {
+    var suffix = ['A','B','C','D','E','F','G','H','I'];
+    return suffix.map(function(s) { return kelasLevel + s; });
+}
+
+// ===================================================
+// RENDER — TEACHER HOMEWORK LIST
+// ===================================================
+
+function renderHwListGuruData(list, hasError, errMsg) {
     var container = document.getElementById('hwListGuru');
     if (!container) return;
-    var list = getHomework();
+
+    if (hasError) {
+        container.innerHTML =
+            '<div class="hw-empty" style="color:#dc2626;">' +
+            '⚠️ Gagal memuat data.' +
+            (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') +
+            ' Periksa konfigurasi Firebase di script.js.</div>';
+        return;
+    }
 
     if (!list.length) {
-        container.innerHTML = '<div class="hw-empty">Belum ada tugas yang ditambahkan.</div>';
+        container.innerHTML = '<div class="hw-empty">Belum ada tugas yang dikirim.</div>';
         return;
     }
 
@@ -2086,12 +2302,17 @@ function renderHwListGuru() {
             '<div class="hw-item-body">' +
                 '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
                 '<div class="hw-item-meta">' +
-                    '<span>📅 Dikumpul: ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas: ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
                 '</div>' +
             '</div>' +
             '<div class="hw-item-actions">' +
-                '<button class="hw-action-btn hw-edit-btn" data-hw-id="' + hw.id + '">Edit</button>' +
+                '<button class="hw-action-btn hw-edit-btn" data-hw-id="' + hw.id + '" ' +
+                    'data-hw-kelas="' + escapeHtml(hw.kelas) + '" ' +
+                    'data-hw-mapel="' + escapeHtml(hw.mapel) + '" ' +
+                    'data-hw-desc="'  + escapeHtml(hw.deskripsi) + '" ' +
+                    'data-hw-date="'  + escapeHtml(hw.tanggal) + '">Edit</button>' +
                 '<button class="hw-action-btn hw-delete-btn" data-hw-del-id="' + hw.id + '">Hapus</button>' +
             '</div>';
         container.appendChild(item);
@@ -2099,13 +2320,23 @@ function renderHwListGuru() {
 }
 
 // ===================================================
-// RENDER HOMEWORK LIST — SISWA
+// RENDER — STUDENT HOMEWORK LIST
 // ===================================================
 
-function renderHwListSiswa() {
+function renderHwListSiswaData(list, kelasLevel, hasError, errMsg) {
     var container = document.getElementById('hwListSiswa');
     if (!container) return;
-    var list = getHomework();
+
+    var titleEl = document.getElementById('hwSiswaTitle');
+    if (titleEl) titleEl.textContent = 'Semua PR & Tugas Kelas ' + kelasLevel;
+
+    if (hasError) {
+        container.innerHTML =
+            '<div class="hw-empty" style="color:#dc2626;">' +
+            '⚠️ Gagal memuat tugas.' +
+            (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') + '</div>';
+        return;
+    }
 
     if (!list.length) {
         container.innerHTML = '<div class="hw-empty">Tidak ada PR / Tugas saat ini. 🎉</div>';
@@ -2121,8 +2352,9 @@ function renderHwListSiswa() {
             '<div class="hw-item-body">' +
                 '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
                 '<div class="hw-item-meta">' +
-                    '<span>📅 Dikumpul: ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas: ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
                 '</div>' +
             '</div>';
         container.appendChild(item);
@@ -2130,25 +2362,41 @@ function renderHwListSiswa() {
 }
 
 // ===================================================
-// TODAY'S SCHEDULE — 8F
+// TODAY'S SCHEDULE
 // ===================================================
 
 function getTodayHariKey() {
-    var day = new Date().getDay(); // 0=Sun, 1=Mon, ... 6=Sat
+    var day = new Date().getDay();
     var map = { 1: 'senin', 2: 'selasa', 3: 'rabu', 4: 'kamis', 5: 'jumat' };
     return map[day] || null;
 }
 
-function renderTodaySchedule() {
-    var tbody    = document.getElementById('today-tbody');
-    var labelEl  = document.getElementById('todayDateLabel');
+// kelasId: e.g. "8F"  |  homeworkList: array from Firebase snapshot (optional)
+function renderTodaySchedule(homeworkList) {
+    var tbody   = document.getElementById('today-tbody');
+    var labelEl = document.getElementById('todayDateLabel');
+    var titleEl = document.getElementById('todayScheduleTitle');
     if (!tbody) return;
 
-    var today = new Date();
+    // Determine which class to show based on logged-in student's kelasLevel
+    // For now the today-schedule is keyed to 8F as the pilot; the full
+    // per-class schedule would need the student to pick a specific class (7A-7I etc).
+    // We default to 8F for kelas8 students and show a note for others.
+    var displayKelas = '8F';
+    if (currentUser && currentUser.kelasLevel) {
+        // Default representative class per grade for the schedule preview
+        var gradeDefaults = { '7': '7A', '8': '8F', '9': '9A' };
+        displayKelas = gradeDefaults[currentUser.kelasLevel] || '8F';
+    }
+
+    var today  = new Date();
     var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
     var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
     if (labelEl) {
         labelEl.textContent = days[today.getDay()] + ', ' + today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
+    }
+    if (titleEl) {
+        titleEl.textContent = 'Jadwal Hari Ini — Kelas ' + displayKelas;
     }
 
     var hariKey = getTodayHariKey();
@@ -2159,22 +2407,25 @@ function renderTodaySchedule() {
         return;
     }
 
-    var jadwal8F = jadwalKelas['8F'];
-    if (!jadwal8F || !jadwal8F[hariKey]) {
-        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Jadwal belum tersedia.</td></tr>';
+    var jadwalKls = jadwalKelas[displayKelas];
+    if (!jadwalKls || !jadwalKls[hariKey]) {
+        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Jadwal belum tersedia untuk kelas ' + escapeHtml(displayKelas) + '.</td></tr>';
         return;
     }
 
-    var schedule = jadwal8F[hariKey];
-    var homeworkList = getHomework();
+    var schedule = jadwalKls[hariKey];
 
-    // Build mapel → homework map (case-insensitive)
+    // Build subject → homework map from the passed list (or empty)
     var hwMap = {};
-    homeworkList.forEach(function(hw) {
-        var key = hw.mapel.toLowerCase().trim();
-        if (!hwMap[key]) hwMap[key] = [];
-        hwMap[key].push(hw);
-    });
+    if (homeworkList && homeworkList.length) {
+        homeworkList.forEach(function(hw) {
+            if (hw.kelas === displayKelas) {
+                var key = hw.mapel.toLowerCase().trim();
+                if (!hwMap[key]) hwMap[key] = [];
+                hwMap[key].push(hw);
+            }
+        });
+    }
 
     schedule.forEach(function(item) {
         var tr = document.createElement('tr');
@@ -2193,26 +2444,13 @@ function renderTodaySchedule() {
         }
 
         tr.innerHTML =
-            '<td>' + escapeHtml(item.waktu) + '</td>' +
-            '<td>' + escapeHtml(item.mapel) + '</td>' +
+            '<td>' + escapeHtml(item.waktu)       + '</td>' +
+            '<td>' + escapeHtml(item.mapel)       + '</td>' +
             '<td>' + escapeHtml(item.guru || '—') + '</td>' +
-            '<td>' + escapeHtml(item.ruang) + '</td>' +
-            '<td>' + hwCell + '</td>';
+            '<td>' + escapeHtml(item.ruang)       + '</td>' +
+            '<td>' + hwCell                        + '</td>';
         tbody.appendChild(tr);
     });
-}
-
-// ===================================================
-// HELPERS
-// ===================================================
-
-function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
 }
 
 // ===================================================
@@ -2220,63 +2458,102 @@ function escapeHtml(str) {
 // ===================================================
 
 function initHomeworkForm() {
-    var submitBtn = document.getElementById('hwSubmitBtn');
+    var submitBtn     = document.getElementById('hwSubmitBtn');
+    var cancelEditBtn = document.getElementById('hwCancelEditBtn');
     if (!submitBtn) return;
 
     // Set default date to today
-    var todayVal = new Date().toISOString().substring(0, 10);
-    document.getElementById('hwTanggal').value = todayVal;
+    document.getElementById('hwTanggal').value = new Date().toISOString().substring(0, 10);
 
+    // ── Cancel edit button ─────────────────────────────
+    if (cancelEditBtn) {
+        cancelEditBtn.addEventListener('click', function() {
+            resetHwForm();
+        });
+    }
+
+    // ── Submit / Update ────────────────────────────────
     submitBtn.addEventListener('click', function() {
+        var kelas     = document.getElementById('hwKelas').value.trim();
         var mapel     = document.getElementById('hwMapel').value.trim();
         var deskripsi = document.getElementById('hwDeskripsi').value.trim();
         var tanggal   = document.getElementById('hwTanggal').value;
         var errEl     = document.getElementById('hwFormError');
         var successEl = document.getElementById('hwSuccessMsg');
+        var savingEl  = document.getElementById('hwSavingMsg');
 
         errEl.style.display = 'none';
 
+        if (!kelas) {
+            errEl.textContent = 'Pilih kelas tujuan terlebih dahulu.';
+            errEl.style.display = 'flex'; return;
+        }
         if (!mapel) {
             errEl.textContent = 'Pilih mata pelajaran terlebih dahulu.';
-            errEl.style.display = 'flex';
-            return;
+            errEl.style.display = 'flex'; return;
         }
         if (!deskripsi) {
             errEl.textContent = 'Deskripsi tugas tidak boleh kosong.';
-            errEl.style.display = 'flex';
-            return;
+            errEl.style.display = 'flex'; return;
         }
         if (!tanggal) {
             errEl.textContent = 'Tanggal pengumpulan harus diisi.';
-            errEl.style.display = 'flex';
-            return;
+            errEl.style.display = 'flex'; return;
+        }
+        if (!fbReady) {
+            errEl.textContent = 'Firebase belum terhubung. Periksa konfigurasi.';
+            errEl.style.display = 'flex'; return;
         }
 
-        // Check if editing
-        var editId = submitBtn.getAttribute('data-edit-id');
+        var editId   = submitBtn.getAttribute('data-edit-id');
+        var namaGuru = (currentUser && currentUser.namaGuru) ? currentUser.namaGuru : 'Guru';
+
+        submitBtn.disabled = true;
+        savingEl.style.display = 'inline';
+
+        var payload = { kelas: kelas, mapel: mapel, deskripsi: deskripsi, tanggal: tanggal, namaGuru: namaGuru };
+
         if (editId) {
-            updateHomework(editId, { mapel: mapel, deskripsi: deskripsi, tanggal: tanggal });
-            submitBtn.removeAttribute('data-edit-id');
-            submitBtn.innerHTML =
-                '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
-                '<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Simpan Tugas';
+            // UPDATE existing document
+            updateHomeworkInFirebase(editId, payload,
+                function() {
+                    submitBtn.disabled = false;
+                    savingEl.style.display = 'none';
+                    successEl.textContent = '✓ Tugas berhasil diperbarui!';
+                    successEl.style.display = 'inline';
+                    setTimeout(function() { successEl.style.display = 'none'; }, 2500);
+                    resetHwForm();
+                },
+                function(errMsg) {
+                    submitBtn.disabled = false;
+                    savingEl.style.display = 'none';
+                    errEl.textContent = 'Gagal update: ' + errMsg;
+                    errEl.style.display = 'flex';
+                }
+            );
         } else {
-            addHomework({ kelas: '8F', mapel: mapel, deskripsi: deskripsi, tanggal: tanggal });
+            // ADD new document
+            addHomeworkToFirebase(payload,
+                function() {
+                    submitBtn.disabled = false;
+                    savingEl.style.display = 'none';
+                    successEl.textContent = '✓ Tugas berhasil disimpan ke Firebase!';
+                    successEl.style.display = 'inline';
+                    setTimeout(function() { successEl.style.display = 'none'; }, 2500);
+                    resetHwForm();
+                    // Real-time listener will auto-update the list — no manual refresh needed
+                },
+                function(errMsg) {
+                    submitBtn.disabled = false;
+                    savingEl.style.display = 'none';
+                    errEl.textContent = 'Gagal simpan: ' + errMsg;
+                    errEl.style.display = 'flex';
+                }
+            );
         }
-
-        // Reset form
-        document.getElementById('hwMapel').value = '';
-        document.getElementById('hwDeskripsi').value = '';
-        document.getElementById('hwTanggal').value = new Date().toISOString().substring(0, 10);
-
-        // Show success briefly
-        successEl.style.display = 'inline';
-        setTimeout(function() { successEl.style.display = 'none'; }, 2500);
-
-        renderHwListGuru();
     });
 
-    // Delegated delete/edit
+    // ── Delegated delete / edit on hw list ────────────
     var hwListGuru = document.getElementById('hwListGuru');
     if (hwListGuru) {
         hwListGuru.addEventListener('click', function(e) {
@@ -2284,35 +2561,70 @@ function initHomeworkForm() {
             var editBtn = e.target.closest('[data-hw-id]');
 
             if (delBtn) {
-                var id = delBtn.getAttribute('data-hw-del-id');
-                if (confirm('Hapus tugas ini?')) {
-                    deleteHomework(id);
-                    renderHwListGuru();
-                }
+                var docId = delBtn.getAttribute('data-hw-del-id');
+                if (!confirm('Hapus tugas ini dari Firebase?')) return;
+                deleteHomeworkFromFirebase(docId,
+                    function() { /* listener auto-updates UI */ },
+                    function(err) { alert('Gagal hapus: ' + err); }
+                );
                 return;
             }
 
             if (editBtn) {
-                var id = editBtn.getAttribute('data-hw-id');
-                var list = getHomework();
-                var hw = list.find(function(h) { return h.id === id; });
-                if (!hw) return;
+                // Populate form with data stored as data-* attributes (no extra Firestore read needed)
+                var docId    = editBtn.getAttribute('data-hw-id');
+                var hwKelas  = editBtn.getAttribute('data-hw-kelas');
+                var hwMapel  = editBtn.getAttribute('data-hw-mapel');
+                var hwDesc   = editBtn.getAttribute('data-hw-desc');
+                var hwDate   = editBtn.getAttribute('data-hw-date');
 
-                // Populate form
-                document.getElementById('hwMapel').value = hw.mapel;
-                document.getElementById('hwDeskripsi').value = hw.deskripsi;
-                document.getElementById('hwTanggal').value = hw.tanggal;
+                document.getElementById('hwKelas').value     = hwKelas;
+                document.getElementById('hwMapel').value     = hwMapel;
+                document.getElementById('hwDeskripsi').value = hwDesc;
+                document.getElementById('hwTanggal').value   = hwDate;
+
                 var btn = document.getElementById('hwSubmitBtn');
-                btn.setAttribute('data-edit-id', id);
+                btn.setAttribute('data-edit-id', docId);
                 btn.innerHTML =
                     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
                     '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>' +
                     '<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Update Tugas';
-                // Scroll to form
+
+                var cancelBtn = document.getElementById('hwCancelEditBtn');
+                if (cancelBtn) cancelBtn.style.display = 'inline-flex';
+
                 document.querySelector('.hw-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     }
+
+    // ── Filter kelas dropdown (teacher) ───────────────
+    var filterSelect = document.getElementById('hwFilterKelas');
+    if (filterSelect) {
+        filterSelect.addEventListener('change', function() {
+            subscribeHwGuru(this.value);
+        });
+    }
+}
+
+function resetHwForm() {
+    document.getElementById('hwKelas').value     = '';
+    document.getElementById('hwMapel').value     = '';
+    document.getElementById('hwDeskripsi').value = '';
+    document.getElementById('hwTanggal').value   = new Date().toISOString().substring(0, 10);
+
+    var btn = document.getElementById('hwSubmitBtn');
+    btn.removeAttribute('data-edit-id');
+    btn.disabled = false;
+    btn.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
+        '<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Simpan Tugas';
+
+    var cancelBtn = document.getElementById('hwCancelEditBtn');
+    if (cancelBtn) cancelBtn.style.display = 'none';
+
+    var errEl = document.getElementById('hwFormError');
+    if (errEl) errEl.style.display = 'none';
 }
 
 // ===================================================
@@ -2323,14 +2635,11 @@ function initAuthSystem() {
     // Nav login button
     document.getElementById('navLoginBtn').addEventListener('click', function() {
         if (currentUser) {
-            // If already logged in, show dashboard or schedule
             if (currentUser.role === 'guru') {
                 showSection('dashboard-guru');
-                renderHwListGuru();
             } else {
                 renderTodaySchedule();
                 showSection('jadwal-hari-ini');
-                renderHwListSiswa();
             }
         } else {
             showLoginOverlay();
@@ -2353,6 +2662,11 @@ function initAuthSystem() {
     var backBtn = document.getElementById('backFromTodayBtn');
     if (backBtn) {
         backBtn.addEventListener('click', function() {
+            // Clean up student listener when leaving
+            if (hwUnsubscribeSiswa) {
+                hwUnsubscribeSiswa();
+                hwUnsubscribeSiswa = null;
+            }
             showSection('beranda');
         });
     }
@@ -2366,6 +2680,6 @@ function initAuthSystem() {
 // ===================================================
 
 document.addEventListener('DOMContentLoaded', function() {
+    initFirebase();   // must be first
     initAuthSystem();
 });
-

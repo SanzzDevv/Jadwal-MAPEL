@@ -521,9 +521,12 @@
         <div class="section-topbar">
             <div class="section-heading">
                 <div class="section-label">Panel Guru</div>
-                <h2>Dashboard Guru — Kelas 8F</h2>
+                <h2 id="dashboardTitle">Dashboard Guru</h2>
             </div>
         </div>
+
+        <!-- Firebase status indicator -->
+        <div id="fbStatusBar" class="fb-status-bar" style="display:none;"></div>
 
         <!-- Homework Form -->
         <div class="hw-form-card reveal-item">
@@ -536,8 +539,31 @@
             </div>
             <div class="hw-form-grid">
                 <div class="form-group">
-                    <label class="form-label">Kelas</label>
-                    <input type="text" id="hwKelas" class="form-input" value="8F" readonly>
+                    <label class="form-label">Tujuan Kelas</label>
+                    <select id="hwKelas" class="form-input">
+                        <option value="">-- Pilih Kelas --</option>
+                        <optgroup label="Kelas 7">
+                            <option value="7A">7A</option><option value="7B">7B</option>
+                            <option value="7C">7C</option><option value="7D">7D</option>
+                            <option value="7E">7E</option><option value="7F">7F</option>
+                            <option value="7G">7G</option><option value="7H">7H</option>
+                            <option value="7I">7I</option>
+                        </optgroup>
+                        <optgroup label="Kelas 8">
+                            <option value="8A">8A</option><option value="8B">8B</option>
+                            <option value="8C">8C</option><option value="8D">8D</option>
+                            <option value="8E">8E</option><option value="8F">8F</option>
+                            <option value="8G">8G</option><option value="8H">8H</option>
+                            <option value="8I">8I</option>
+                        </optgroup>
+                        <optgroup label="Kelas 9">
+                            <option value="9A">9A</option><option value="9B">9B</option>
+                            <option value="9C">9C</option><option value="9D">9D</option>
+                            <option value="9E">9E</option><option value="9F">9F</option>
+                            <option value="9G">9G</option><option value="9H">9H</option>
+                            <option value="9I">9I</option>
+                        </optgroup>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Mata Pelajaran</label>
@@ -545,14 +571,14 @@
                         <option value="">-- Pilih Mapel --</option>
                         <option>P.Pancasila</option>
                         <option>Informatika</option>
-                        <option>MATEMATIKA</option>
+                        <option>Matematika</option>
                         <option>B. Indonesia</option>
                         <option>IPS</option>
                         <option>BP-BK</option>
                         <option>PAI</option>
                         <option>IPA</option>
                         <option>B. Sunda</option>
-                        <option>SENPRAK</option>
+                        <option>Seni Praktek</option>
                         <option>B. Inggris</option>
                         <option>PJOK</option>
                         <option>Lainnya</option>
@@ -568,28 +594,54 @@
                 </div>
             </div>
             <div id="hwFormError" class="login-error" style="display:none; margin-top:12px;"></div>
-            <div style="display:flex; gap:10px; margin-top:16px; align-items:center;">
+            <div style="display:flex; gap:10px; margin-top:16px; align-items:center; flex-wrap:wrap;">
                 <button class="btn-primary" id="hwSubmitBtn" style="width:auto; padding:10px 24px;">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
                         <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
                     </svg>
                     Simpan Tugas
                 </button>
+                <button class="btn-secondary" id="hwCancelEditBtn" style="display:none; width:auto; padding:10px 18px; border:1px solid var(--border); background:var(--bg-secondary); color:var(--text-2); border-radius:var(--radius); cursor:pointer; font-size:0.88rem;">
+                    Batal Edit
+                </button>
                 <span id="hwSuccessMsg" style="display:none; color:var(--green); font-size:0.88rem; font-weight:600;">✓ Tugas berhasil disimpan!</span>
+                <span id="hwSavingMsg" style="display:none; color:var(--text-muted); font-size:0.88rem;">⏳ Menyimpan ke Firebase...</span>
             </div>
         </div>
 
-        <!-- Homework List (teacher view) -->
-        <div class="hw-section-title reveal-item">Daftar PR / Tugas Kelas 8F</div>
-        <div id="hwListGuru" class="hw-list"></div>
+        <!-- Filter & Homework List (teacher view) -->
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+            <div class="hw-section-title reveal-item" style="margin-bottom:0; border:none; padding:0;">Semua PR / Tugas Yang Telah Dikirim</div>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <label class="form-label" style="margin:0; text-transform:none; font-size:0.82rem;">Filter kelas:</label>
+                <select id="hwFilterKelas" class="form-input" style="width:auto; padding:6px 10px; font-size:0.82rem;">
+                    <option value="">Semua Kelas</option>
+                    <option value="7A">7A</option><option value="7B">7B</option><option value="7C">7C</option>
+                    <option value="7D">7D</option><option value="7E">7E</option><option value="7F">7F</option>
+                    <option value="7G">7G</option><option value="7H">7H</option><option value="7I">7I</option>
+                    <option value="8A">8A</option><option value="8B">8B</option><option value="8C">8C</option>
+                    <option value="8D">8D</option><option value="8E">8E</option><option value="8F">8F</option>
+                    <option value="8G">8G</option><option value="8H">8H</option><option value="8I">8I</option>
+                    <option value="9A">9A</option><option value="9B">9B</option><option value="9C">9C</option>
+                    <option value="9D">9D</option><option value="9E">9E</option><option value="9F">9F</option>
+                    <option value="9G">9G</option><option value="9H">9H</option><option value="9I">9I</option>
+                </select>
+            </div>
+        </div>
+        <div id="hwListGuru" class="hw-list">
+            <div class="hw-loading">
+                <div class="hw-loading-spinner"></div>
+                <span>Menghubungkan ke Firebase...</span>
+            </div>
+        </div>
     </section>
 
-    <!-- ===== JADWAL HARI INI (8F) ===== -->
+    <!-- ===== JADWAL HARI INI ===== -->
     <section id="jadwal-hari-ini" class="section" aria-label="Jadwal Hari Ini">
         <div class="section-topbar">
             <div class="section-heading">
                 <div class="section-label" id="todayDateLabel">Hari Ini</div>
-                <h2>Jadwal Hari Ini — Kelas 8F</h2>
+                <h2 id="todayScheduleTitle">Jadwal Hari Ini</h2>
             </div>
             <button class="back-btn" id="backFromTodayBtn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -614,9 +666,14 @@
             </div>
         </div>
 
-        <!-- All homework for 8F -->
-        <div class="hw-section-title" style="margin-top:32px;">Semua PR &amp; Tugas Kelas 8F</div>
-        <div id="hwListSiswa" class="hw-list"></div>
+        <!-- All homework for student's class -->
+        <div class="hw-section-title" style="margin-top:32px;" id="hwSiswaTitle">Semua PR &amp; Tugas</div>
+        <div id="hwListSiswa" class="hw-list">
+            <div class="hw-loading">
+                <div class="hw-loading-spinner"></div>
+                <span>Memuat data tugas...</span>
+            </div>
+        </div>
     </section>
 
 </main>
@@ -631,6 +688,19 @@
         <span>© 2024 SMP Negeri 24 Bandung</span>
     </div>
 </footer>
+
+<!-- ===== FIREBASE SDK (v9 compat) ===== -->
+<!-- 
+    HOW TO CONFIGURE:
+    1. Go to https://console.firebase.google.com
+    2. Create a project (e.g. "sijap-smpn24")
+    3. Add a Web App inside the project
+    4. Copy your firebaseConfig object and paste it into
+       the FIREBASE CONFIG section at the top of script.js
+    5. Enable Firestore Database (Start in Test Mode for now)
+-->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script src="script.js"></script>
 </body>
