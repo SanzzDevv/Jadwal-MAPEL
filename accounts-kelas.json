@@ -1,0 +1,171 @@
+{
+  "accounts": [
+    {
+      "username": "7a",
+      "password": "ZVVb^VPt^492",
+      "role": "siswa",
+      "kelas": "7A"
+    },
+    {
+      "username": "7b",
+      "password": "1%mC^KgWPKxq",
+      "role": "siswa",
+      "kelas": "7B"
+    },
+    {
+      "username": "7c",
+      "password": "#kv0UU&625Up",
+      "role": "siswa",
+      "kelas": "7C"
+    },
+    {
+      "username": "7d",
+      "password": "*^l@WK7o2r8Y",
+      "role": "siswa",
+      "kelas": "7D"
+    },
+    {
+      "username": "7e",
+      "password": "*TFTVEP@c@B7",
+      "role": "siswa",
+      "kelas": "7E"
+    },
+    {
+      "username": "7f",
+      "password": "DP8ZOTmZVD^L",
+      "role": "siswa",
+      "kelas": "7F"
+    },
+    {
+      "username": "7g",
+      "password": "&jWT!Dg95nfP",
+      "role": "siswa",
+      "kelas": "7G"
+    },
+    {
+      "username": "7h",
+      "password": "3@&^ynfI4qtE",
+      "role": "siswa",
+      "kelas": "7H"
+    },
+    {
+      "username": "7i",
+      "password": "%7J^Cgnpu!!b",
+      "role": "siswa",
+      "kelas": "7I"
+    },
+    {
+      "username": "8a",
+      "password": "cmk1W!DOeieO",
+      "role": "siswa",
+      "kelas": "8A"
+    },
+    {
+      "username": "8b",
+      "password": "w0cRe#C*&h1W",
+      "role": "siswa",
+      "kelas": "8B"
+    },
+    {
+      "username": "8c",
+      "password": "BBXX1h3Y@1i3",
+      "role": "siswa",
+      "kelas": "8C"
+    },
+    {
+      "username": "8d",
+      "password": "@y^bC2xxaKOy",
+      "role": "siswa",
+      "kelas": "8D"
+    },
+    {
+      "username": "8e",
+      "password": "wLwb5UN&DK!^",
+      "role": "siswa",
+      "kelas": "8E"
+    },
+    {
+      "username": "8f",
+      "password": "nLPw!1PDEx$S",
+      "role": "siswa",
+      "kelas": "8F"
+    },
+    {
+      "username": "8g",
+      "password": "JnrUaBWPJ$6O",
+      "role": "siswa",
+      "kelas": "8G"
+    },
+    {
+      "username": "8h",
+      "password": "QYYu^6#rzIDB",
+      "role": "siswa",
+      "kelas": "8H"
+    },
+    {
+      "username": "8i",
+      "password": "16wwM$#GQxGJ",
+      "role": "siswa",
+      "kelas": "8I"
+    },
+    {
+      "username": "9a",
+      "password": "ug9u7g3*6@Cs",
+      "role": "siswa",
+      "kelas": "9A"
+    },
+    {
+      "username": "9b",
+      "password": "h8JMx^4#mKVr",
+      "role": "siswa",
+      "kelas": "9B"
+    },
+    {
+      "username": "9c",
+      "password": "I4DH5fk^zKcV",
+      "role": "siswa",
+      "kelas": "9C"
+    },
+    {
+      "username": "9d",
+      "password": "yf*m&80J%I7K",
+      "role": "siswa",
+      "kelas": "9D"
+    },
+    {
+      "username": "9e",
+      "password": "QX^cXo4AnQ$q",
+      "role": "siswa",
+      "kelas": "9E"
+    },
+    {
+      "username": "9f",
+      "password": "05uLN&IBtE7d",
+      "role": "siswa",
+      "kelas": "9F"
+    },
+    {
+      "username": "9g",
+      "password": "*9D8UT&L@TMn",
+      "role": "siswa",
+      "kelas": "9G"
+    },
+    {
+      "username": "9h",
+      "password": "f$lU9iF1w&wg",
+      "role": "siswa",
+      "kelas": "9H"
+    },
+    {
+      "username": "9i",
+      "password": "BCzn*DG4@so*",
+      "role": "siswa",
+      "kelas": "9I"
+    },
+    {
+      "username": "admin",
+      "password": "c&|b_kpv&t}3RXKw+kUDjX?x",
+      "role": "admin"
+    }
+  ]
+}
