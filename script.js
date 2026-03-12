@@ -2169,7 +2169,6 @@ function deleteHomeworkFromFirebase(docId, onSuccess, onError) {
 // ===================================================
 
 function subscribeHwGuru(filterKelas) {
-    // Unsubscribe from any existing listener first
     if (hwUnsubscribeGuru) {
         hwUnsubscribeGuru();
         hwUnsubscribeGuru = null;
@@ -2186,7 +2185,9 @@ function subscribeHwGuru(filterKelas) {
             '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat data...</span></div>';
     }
 
-    var query = db.collection('homeworks').orderBy('timestamp', 'desc');
+    // Tidak pakai orderBy supaya tidak perlu Firestore Index.
+    // Pengurutan dilakukan di JavaScript setelah data diterima.
+    var query = db.collection('homeworks');
     if (filterKelas && filterKelas !== '') {
         query = query.where('class', '==', filterKelas);
     }
@@ -2205,6 +2206,12 @@ function subscribeHwGuru(filterKelas) {
                 timestamp: d.timestamp
             });
         });
+        // Urutkan dari yang terbaru ke yang lama
+        list.sort(function(a, b) {
+            var ta = (a.timestamp && a.timestamp.toMillis) ? a.timestamp.toMillis() : 0;
+            var tb = (b.timestamp && b.timestamp.toMillis) ? b.timestamp.toMillis() : 0;
+            return tb - ta;
+        });
         renderHwListGuruData(list, false);
     }, function(err) {
         console.error('[SIJAP] Firestore listener error (guru):', err);
@@ -2217,7 +2224,6 @@ function subscribeHwGuru(filterKelas) {
 // ===================================================
 
 function subscribeHwSiswa(kelasFilter) {
-    // Unsubscribe from previous listener
     if (hwUnsubscribeSiswa) {
         hwUnsubscribeSiswa();
         hwUnsubscribeSiswa = null;
@@ -2234,14 +2240,13 @@ function subscribeHwSiswa(kelasFilter) {
             '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat tugas...</span></div>';
     }
 
-    // Build class filter list.
-    // kelas7 → all 7A-7I, kelas8 → all 8A-8I, kelas9 → all 9A-9I
+    // Tidak pakai orderBy supaya tidak perlu Firestore Index.
+    // Filter 'in' tetap dipakai untuk menyaring per kelas.
+    // Pengurutan dilakukan di JavaScript setelah data diterima.
     var classesToQuery = buildClassFilterList(kelasFilter);
 
-    // Firestore 'in' operator supports max 10 values — we have max 9 per grade, so it's fine.
     var query = db.collection('homeworks')
-        .where('class', 'in', classesToQuery)
-        .orderBy('timestamp', 'desc');
+        .where('class', 'in', classesToQuery);
 
     hwUnsubscribeSiswa = query.onSnapshot(function(snapshot) {
         var list = [];
@@ -2257,8 +2262,14 @@ function subscribeHwSiswa(kelasFilter) {
                 timestamp: d.timestamp
             });
         });
+        // Urutkan dari yang terbaru ke yang lama
+        list.sort(function(a, b) {
+            var ta = (a.timestamp && a.timestamp.toMillis) ? a.timestamp.toMillis() : 0;
+            var tb = (b.timestamp && b.timestamp.toMillis) ? b.timestamp.toMillis() : 0;
+            return tb - ta;
+        });
         renderHwListSiswaData(list, kelasFilter, false);
-        // Also re-render today's schedule table so homework column updates
+        // Update juga kolom PR di tabel jadwal hari ini
         renderTodaySchedule(list);
     }, function(err) {
         console.error('[SIJAP] Firestore listener error (siswa):', err);
