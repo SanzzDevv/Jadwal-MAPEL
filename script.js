@@ -5,6 +5,17 @@
 const siteStatus = "on";
 
 // ===============================
+// KONFIGURASI LOGO
+// mode: 1 = Logo SVG SIJAP (default)
+// mode: 2 = Logo gambar SMPN 24 Bandung
+// imageUrl: path ke file gambar logo (hanya dipakai jika mode = 2)
+// ===============================
+var LOGO_CONFIG = {
+    mode: 1,
+    imageUrl: "logo-smpn24.png"
+};
+
+// ===============================
 // DARK MODE
 // ===============================
 (function () {
@@ -1764,6 +1775,50 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', function () {
         document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+
+    // CLASS SEARCH (on Kelas page)
+    var kelasSearchInput = document.getElementById('kelasSearchInput');
+    var kelasSearchBtn   = document.getElementById('kelasSearchBtn');
+    var kelasSearchMsg   = document.getElementById('kelasSearchMsg');
+
+    function doKelasSearch() {
+        if (!kelasSearchInput) return;
+        var raw   = kelasSearchInput.value.trim().toUpperCase().replace(/\s+/g, '');
+        var valid = /^[789][A-I]$/.test(raw);
+        if (!valid) {
+            if (kelasSearchMsg) {
+                kelasSearchMsg.textContent = 'Ketik nama kelas yang valid, contoh: 7F, 8C, 9A';
+                kelasSearchMsg.style.color = 'var(--text-muted, #64748b)';
+                kelasSearchMsg.style.display = 'block';
+            }
+            return;
+        }
+        if (kelasSearchMsg) kelasSearchMsg.style.display = 'none';
+        // Navigate directly to that class schedule
+        currentKelas = raw;
+        currentKelasLevel = raw.charAt(0);
+        document.getElementById('jadwal-title').textContent = 'Kelas ' + raw;
+        document.getElementById('jadwal-badge').textContent = 'JADWAL \u00b7 ' + raw;
+        showSection('jadwal-pelajaran');
+        updateBackButtons();
+        // Clear search input after jump
+        kelasSearchInput.value = '';
+    }
+
+    if (kelasSearchBtn) {
+        kelasSearchBtn.addEventListener('click', doKelasSearch);
+    }
+    if (kelasSearchInput) {
+        kelasSearchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') doKelasSearch();
+        });
+        kelasSearchInput.addEventListener('input', function() {
+            if (kelasSearchMsg) kelasSearchMsg.style.display = 'none';
+        });
+    }
+
+    // APPLY LOGO CONFIG
+    applyLogoConfig();
 });
 
 // ===================================================
@@ -1822,7 +1877,37 @@ var ACCOUNTS = {
     "tata_nurhayati": { password: "BuPyCw2Z", role: "guru",  label: "TATA NURHAYATI, S.Pd", namaGuru: "TATA NURHAYATI, S.Pd" },
     "kelas7": { password: "Bjl15rCR", role: "siswa", label: "Siswa Kelas 7", kelasLevel: "7" },
     "kelas8": { password: "7UWFfTnF", role: "siswa", label: "Siswa Kelas 8", kelasLevel: "8" },
-    "kelas9": { password: "cw8Q72A7", role: "siswa", label: "Siswa Kelas 9", kelasLevel: "9" }
+    "kelas9": { password: "cw8Q72A7", role: "siswa", label: "Siswa Kelas 9", kelasLevel: "9" },
+    // ── Per-class student accounts (7A–9I) ──────────────────────────────
+    "7a": { password: "ZVVb^VPt^492", role: "siswa", label: "Siswa Kelas 7A", kelasLevel: "7", kelasId: "7A" },
+    "7b": { password: "1%mC^KgWPKxq", role: "siswa", label: "Siswa Kelas 7B", kelasLevel: "7", kelasId: "7B" },
+    "7c": { password: "#kv0UU&625Up", role: "siswa", label: "Siswa Kelas 7C", kelasLevel: "7", kelasId: "7C" },
+    "7d": { password: "*^l@WK7o2r8Y", role: "siswa", label: "Siswa Kelas 7D", kelasLevel: "7", kelasId: "7D" },
+    "7e": { password: "*TFTVEP@c@B7", role: "siswa", label: "Siswa Kelas 7E", kelasLevel: "7", kelasId: "7E" },
+    "7f": { password: "DP8ZOTmZVD^L", role: "siswa", label: "Siswa Kelas 7F", kelasLevel: "7", kelasId: "7F" },
+    "7g": { password: "&jWT!Dg95nfP", role: "siswa", label: "Siswa Kelas 7G", kelasLevel: "7", kelasId: "7G" },
+    "7h": { password: "3@&^ynfI4qtE", role: "siswa", label: "Siswa Kelas 7H", kelasLevel: "7", kelasId: "7H" },
+    "7i": { password: "%7J^Cgnpu!!b", role: "siswa", label: "Siswa Kelas 7I", kelasLevel: "7", kelasId: "7I" },
+    "8a": { password: "cmk1W!DOeieO", role: "siswa", label: "Siswa Kelas 8A", kelasLevel: "8", kelasId: "8A" },
+    "8b": { password: "w0cRe#C*&h1W", role: "siswa", label: "Siswa Kelas 8B", kelasLevel: "8", kelasId: "8B" },
+    "8c": { password: "BBXX1h3Y@1i3", role: "siswa", label: "Siswa Kelas 8C", kelasLevel: "8", kelasId: "8C" },
+    "8d": { password: "@y^bC2xxaKOy", role: "siswa", label: "Siswa Kelas 8D", kelasLevel: "8", kelasId: "8D" },
+    "8e": { password: "wLwb5UN&DK!^", role: "siswa", label: "Siswa Kelas 8E", kelasLevel: "8", kelasId: "8E" },
+    "8f": { password: "nLPw!1PDEx$S", role: "siswa", label: "Siswa Kelas 8F", kelasLevel: "8", kelasId: "8F" },
+    "8g": { password: "JnrUaBWPJ$6O", role: "siswa", label: "Siswa Kelas 8G", kelasLevel: "8", kelasId: "8G" },
+    "8h": { password: "QYYu^6#rzIDB", role: "siswa", label: "Siswa Kelas 8H", kelasLevel: "8", kelasId: "8H" },
+    "8i": { password: "16wwM$#GQxGJ", role: "siswa", label: "Siswa Kelas 8I", kelasLevel: "8", kelasId: "8I" },
+    "9a": { password: "ug9u7g3*6@Cs", role: "siswa", label: "Siswa Kelas 9A", kelasLevel: "9", kelasId: "9A" },
+    "9b": { password: "h8JMx^4#mKVr", role: "siswa", label: "Siswa Kelas 9B", kelasLevel: "9", kelasId: "9B" },
+    "9c": { password: "I4DH5fk^zKcV", role: "siswa", label: "Siswa Kelas 9C", kelasLevel: "9", kelasId: "9C" },
+    "9d": { password: "yf*m&80J%I7K", role: "siswa", label: "Siswa Kelas 9D", kelasLevel: "9", kelasId: "9D" },
+    "9e": { password: "QX^cXo4AnQ$q", role: "siswa", label: "Siswa Kelas 9E", kelasLevel: "9", kelasId: "9E" },
+    "9f": { password: "05uLN&IBtE7d", role: "siswa", label: "Siswa Kelas 9F", kelasLevel: "9", kelasId: "9F" },
+    "9g": { password: "*9D8UT&L@TMn", role: "siswa", label: "Siswa Kelas 9G", kelasLevel: "9", kelasId: "9G" },
+    "9h": { password: "f$lU9iF1w&wg", role: "siswa", label: "Siswa Kelas 9H", kelasLevel: "9", kelasId: "9H" },
+    "9i": { password: "BCzn*DG4@so*", role: "siswa", label: "Siswa Kelas 9I", kelasLevel: "9", kelasId: "9I" },
+    // ── Admin account ──────────────────────────────────────────────────
+    "admin": { password: "c&|b_kpv&t}3RXKw+kUDjX?x", role: "admin", label: "Administrator SIJAP" }
 };
 
 // ---- SESSION ----
@@ -1959,21 +2044,22 @@ function doLogout() {
 
 function onLoginSuccess() {
     updateAuthUI();
-    if (currentUser.role === 'guru') {
+    if (currentUser.role === 'guru' || currentUser.role === 'admin') {
         renderDashboardNav();
         // Update dashboard title
         var titleEl = document.getElementById('dashboardTitle');
         if (titleEl) titleEl.textContent = 'Dashboard — ' + (currentUser.namaGuru || currentUser.label);
         showSection('dashboard-guru');
-        // Start real-time listener for all homework (teacher sees everything)
+        // Start real-time listener for all homework (teacher/admin sees everything)
         subscribeHwGuru('');
     } else {
-        // Student: start real-time listener filtered to their grade
+        // Student: use specific class if available, otherwise grade level
+        var displayId = currentUser.kelasId || currentUser.kelasLevel;
         renderTodaySchedule();
         showSection('jadwal-hari-ini');
         var titleEl2 = document.getElementById('todayScheduleTitle');
-        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini — Kelas ' + currentUser.kelasLevel;
-        subscribeHwSiswa(currentUser.kelasLevel);
+        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini — Kelas ' + displayId;
+        subscribeHwSiswa(displayId);
     }
 }
 
@@ -1992,7 +2078,7 @@ function updateAuthUI() {
         var displayLabel = shortLabel.length > 28 ? shortLabel.substring(0, 26) + '…' : shortLabel;
         navLoginBtn.textContent = displayLabel;
 
-        var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : '📚 Siswa';
+        var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : currentUser.role === 'admin' ? '🔑 Admin' : '📚 Siswa';
         userBar.style.display = 'block';
         userBarLbl.textContent = roleTag + ' — ' + shortLabel;
         document.body.classList.add('has-userbar');
@@ -2277,9 +2363,12 @@ function subscribeHwSiswa(kelasFilter) {
     });
 }
 
-function buildClassFilterList(kelasLevel) {
+function buildClassFilterList(kelasFilter) {
+    // If kelasFilter is a specific class (e.g. "7A", "8F"), return just that one
+    if (kelasFilter && kelasFilter.length > 1) return [kelasFilter];
+    // Otherwise it's a grade level ("7", "8", "9") — return all 9 classes
     var suffix = ['A','B','C','D','E','F','G','H','I'];
-    return suffix.map(function(s) { return kelasLevel + s; });
+    return suffix.map(function(s) { return kelasFilter + s; });
 }
 
 // ===================================================
@@ -2389,13 +2478,13 @@ function renderTodaySchedule(homeworkList) {
     var titleEl = document.getElementById('todayScheduleTitle');
     if (!tbody) return;
 
-    // Determine which class to show based on logged-in student's kelasLevel
-    // For now the today-schedule is keyed to 8F as the pilot; the full
-    // per-class schedule would need the student to pick a specific class (7A-7I etc).
-    // We default to 8F for kelas8 students and show a note for others.
+    // Determine which class to show based on logged-in student's kelasId or kelasLevel
     var displayKelas = '8F';
-    if (currentUser && currentUser.kelasLevel) {
-        // Default representative class per grade for the schedule preview
+    if (currentUser && currentUser.kelasId) {
+        // Per-class student login: show their exact class
+        displayKelas = currentUser.kelasId;
+    } else if (currentUser && currentUser.kelasLevel) {
+        // Grade-level student login: show representative class
         var gradeDefaults = { '7': '7A', '8': '8F', '9': '9A' };
         displayKelas = gradeDefaults[currentUser.kelasLevel] || '8F';
     }
@@ -2636,6 +2725,62 @@ function resetHwForm() {
 
     var errEl = document.getElementById('hwFormError');
     if (errEl) errEl.style.display = 'none';
+}
+
+// ===================================================
+// LOGO CONFIG APPLY
+// ===================================================
+
+function applyLogoConfig() {
+    if (!LOGO_CONFIG || LOGO_CONFIG.mode !== 2 || !LOGO_CONFIG.imageUrl) return;
+
+    // Update header brand icon: hide SVG, show img
+    var brandIcons = document.querySelectorAll('.brand-icon');
+    brandIcons.forEach(function(icon) {
+        var svgEl = icon.querySelector('svg');
+        var imgEl = icon.querySelector('.logo-img-mode2');
+        if (svgEl) svgEl.style.display = 'none';
+        if (imgEl) {
+            imgEl.style.display = 'block';
+        } else {
+            var img = document.createElement('img');
+            img.src = LOGO_CONFIG.imageUrl;
+            img.alt = 'Logo SMP Negeri 24 Bandung';
+            img.className = 'logo-img-mode2';
+            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
+            icon.appendChild(img);
+        }
+    });
+
+    // Update loading screen logo
+    var loadingLogo = document.querySelector('.loading-logo');
+    if (loadingLogo) {
+        var svgEl = loadingLogo.querySelector('svg');
+        if (svgEl) svgEl.style.display = 'none';
+        if (!loadingLogo.querySelector('.logo-img-mode2')) {
+            var img = document.createElement('img');
+            img.src = LOGO_CONFIG.imageUrl;
+            img.alt = 'Logo SMP Negeri 24 Bandung';
+            img.className = 'logo-img-mode2';
+            img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
+            loadingLogo.appendChild(img);
+        }
+    }
+
+    // Update login box logo
+    var loginIcon = document.querySelector('.login-box .brand-icon');
+    if (loginIcon) {
+        var svgEl = loginIcon.querySelector('svg');
+        if (svgEl) svgEl.style.display = 'none';
+        if (!loginIcon.querySelector('.logo-img-mode2')) {
+            var img = document.createElement('img');
+            img.src = LOGO_CONFIG.imageUrl;
+            img.alt = 'Logo SMP Negeri 24 Bandung';
+            img.className = 'logo-img-mode2';
+            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
+            loginIcon.appendChild(img);
+        }
+    }
 }
 
 // ===================================================

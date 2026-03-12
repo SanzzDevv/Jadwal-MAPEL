@@ -253,6 +253,29 @@
             </button>
         </div>
 
+        <!-- CLASS SEARCH BAR -->
+        <div class="kelas-search-wrap">
+            <div class="kelas-search-inner">
+                <div class="kelas-search-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </div>
+                <input
+                    type="text"
+                    id="kelasSearchInput"
+                    class="kelas-search-input"
+                    placeholder="Cari kelas langsung, contoh: 7F"
+                    maxlength="3"
+                    autocomplete="off"
+                    spellcheck="false"
+                    aria-label="Cari kelas"
+                >
+                <button id="kelasSearchBtn" class="kelas-search-btn">Buka Jadwal</button>
+            </div>
+            <div id="kelasSearchMsg" class="kelas-search-msg" style="display:none;"></div>
+        </div>
+
         <div class="grade-grid">
             <div class="grade-card reveal-item">
                 <div class="grade-number">7</div>

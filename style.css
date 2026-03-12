@@ -2017,3 +2017,93 @@ body.dark .fb-status-error {
     to { transform: rotate(360deg); }
 }
 
+
+/* ===============================
+   CLASS SEARCH BAR
+   =============================== */
+.kelas-search-wrap {
+    margin: 0 0 28px;
+}
+
+.kelas-search-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.kelas-search-inner:focus-within {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.dark .kelas-search-inner:focus-within {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.kelas-search-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.kelas-search-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.kelas-search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 8px;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+    min-width: 0;
+    letter-spacing: 0.05em;
+}
+
+.kelas-search-input::placeholder {
+    color: var(--text-muted);
+    letter-spacing: 0;
+}
+
+.kelas-search-btn {
+    flex-shrink: 0;
+    padding: 0 20px;
+    height: 46px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.kelas-search-btn:hover {
+    background: var(--navy-dark, #1e3a8a);
+}
+
+.kelas-search-msg {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    padding: 0 4px;
+}
+
+@media (max-width: 480px) {
+    .kelas-search-btn {
+        padding: 0 14px;
+        font-size: 0.82rem;
+    }
+}
