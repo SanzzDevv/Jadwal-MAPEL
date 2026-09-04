@@ -8,14 +8,34 @@
 </head>
 <body>
 
+<!-- ===== ANNOUNCEMENT / RUNNING TEXT ===== -->
+<div class="announce-bar" aria-label="Pengumuman sekolah">
+    <div class="announce-bar-track" id="announceTrack">
+        <span>Selamat datang di SIJAP — Sistem Informasi Jadwal Pelajaran SMP Negeri 24 Bandung</span>
+        <span>Jam masuk sekolah pukul 06.45 WIB, harap hadir 10 menit lebih awal</span>
+        <span>Cek jadwal pelajaran dan tugas terbaru pada menu Kelas</span>
+        <span>Selamat datang di SIJAP — Sistem Informasi Jadwal Pelajaran SMP Negeri 24 Bandung</span>
+        <span>Jam masuk sekolah pukul 06.45 WIB, harap hadir 10 menit lebih awal</span>
+        <span>Cek jadwal pelajaran dan tugas terbaru pada menu Kelas</span>
+    </div>
+</div>
+<div class="school-stripe" aria-hidden="true"></div>
+
 <!-- ===== LOGIN OVERLAY ===== -->
 <div id="loginOverlay" style="display:none; position:fixed; inset:0; z-index:10000; background:var(--bg); align-items:center; justify-content:center; flex-direction:column; padding:24px;">
     <div class="login-box">
+        <button class="login-close" id="loginCloseBtn" aria-label="Tutup">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
         <div class="login-header">
-            <div class="brand-icon" style="width:40px;height:40px;margin-bottom:12px;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <path d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
-                </svg>
+            <div class="login-icon-ring">
+                <div class="brand-icon" style="width:40px;height:40px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+                    </svg>
+                </div>
             </div>
             <div class="login-brand">SIJAP</div>
             <div class="login-sub">Masuk ke Sistem</div>
@@ -73,7 +93,7 @@
     <div class="loading-inner">
         <div class="loading-logo">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
+                <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
             </svg>
         </div>
         <div class="loading-brand">SIJAP</div>
@@ -91,7 +111,7 @@
         <div class="brand">
             <div class="brand-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <path d="M4 6h16M4 10h16M4 14h10M4 18h7"/>
+                    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
                 </svg>
             </div>
             <div class="brand-text">
@@ -157,6 +177,23 @@
     <!-- BERANDA -->
     <section id="beranda" class="section active-section" aria-label="Halaman Beranda">
         <div class="hero">
+            <div class="greeting-widget reveal-item" id="greetingWidget">
+                <div class="greeting-input-row" id="greetingInputRow">
+                    <span class="greeting-input-icon">👋</span>
+                    <input type="text" id="namaUserInput" class="greeting-input" placeholder="Ketik nama kamu..." maxlength="30" autocomplete="off">
+                    <button id="simpanNamaBtn" class="greeting-save-btn" aria-label="Simpan nama">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                    </button>
+                </div>
+                <div class="greeting-message" id="greetingMessage" style="display:none;">
+                    <span class="greeting-emoji" id="greetingEmoji">🌤️</span>
+                    <span class="greeting-text" id="greetingText"></span>
+                    <button id="gantiNamaBtn" class="greeting-edit-btn" aria-label="Ganti nama" title="Ganti nama">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+                    </button>
+                </div>
+            </div>
+
             <div class="hero-badge reveal-item">
                 <span class="badge-dot"></span>
                 Sistem Aktif — Semua Kelas Tersedia
@@ -168,7 +205,7 @@
             </h1>
 
             <p class="hero-desc reveal-item">
-                Akses jadwal pelajaran kelas 7, 8, dan 9 secara lengkap. Informasi guru dan ruang kelas tersedia untuk setiap hari.
+                Portal resmi jadwal pelajaran untuk seluruh siswa dan guru kelas 7, 8, dan 9. Informasi mata pelajaran, guru pengampu, dan ruang kelas tersedia lengkap untuk setiap hari.
             </p>
 
             <div class="hero-actions reveal-item">
@@ -179,12 +216,11 @@
                     </svg>
                     Lihat Daftar Kelas
                 </button>
-                <div class="btn-secondary">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
+                <div class="version-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M20 6L9 17l-5-5"/>
                     </svg>
-                    Versi 3.5.0 Beta
+                    Versi 3.5.0 — Rilis Resmi
                 </div>
             </div>
 
@@ -491,7 +527,7 @@
 
         <div class="about-layout">
             <div class="about-main reveal-item">
-                <p class="about-desc">Sistem Informasi Jadwal Pelajaran (SIJAP) dikembangkan untuk memudahkan akses informasi akademik secara terpusat bagi siswa, guru, dan orang tua SMP Negeri 24 Bandung.</p>
+                <p class="about-desc">Sistem Informasi Jadwal Pelajaran (SIJAP) merupakan platform resmi SMP Negeri 24 Bandung yang dikembangkan untuk memudahkan akses informasi akademik secara terpusat bagi siswa, guru, dan orang tua.</p>
 
                 <div class="version-grid">
                     <div class="version-item">
@@ -516,7 +552,8 @@
                         <li class="done"><span class="rmark">✓</span> Pengembangan modul kelas 7</li>
                         <li class="done"><span class="rmark">✓</span> Aktivasi modul kelas 9</li>
                         <li class="done"><span class="rmark">✓</span> Profil & Jadwal Guru</li>
-                        <li class="current"><span class="rmark spin">⟳</span> Optimasi performa sistem</li>
+                        <li class="done"><span class="rmark">✓</span> Optimasi performa sistem</li>
+                        <li class="done"><span class="rmark">✓</span> Rilis resmi versi 3.5.0</li>
                     </ul>
                 </div>
             </div>
@@ -708,9 +745,25 @@
         <span class="footer-sep">·</span>
                 <span>Ahmad H. &amp; Tim SIJAP</span>
         <span class="footer-sep">·</span>
-        <span>© 2024 SMP Negeri 24 Bandung</span>
+        <span>© 2026 SMP Negeri 24 Bandung</span>
     </div>
 </footer>
+
+<!-- ===== BOTTOM TAB BAR (khusus tampilan HP) ===== -->
+<nav class="bottom-tabbar" role="navigation" aria-label="Navigasi cepat">
+    <a href="#" class="nav-link bottom-tab" data-section="kelas">
+        <span class="bottom-tab-icon">⊞</span>
+        <span class="bottom-tab-label">Kelas</span>
+    </a>
+    <a href="#" class="nav-link bottom-tab bottom-tab-fab active" data-section="beranda">
+        <span class="bottom-tab-icon">⌂</span>
+        <span class="bottom-tab-label">Beranda</span>
+    </a>
+    <a href="#" class="nav-link bottom-tab" data-section="guru">
+        <span class="bottom-tab-icon">◈</span>
+        <span class="bottom-tab-label">Guru</span>
+    </a>
+</nav>
 
 <!-- ===== FIREBASE SDK (v9 compat) ===== -->
 <!-- 

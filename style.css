@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
 /* === CSS VARIABLES === */
 :root {
     --bg: #ffffff;
@@ -6,15 +8,22 @@
     --border: #e2e8f0;
     --border-strong: #cbd5e1;
 
-    --navy: #1e3a5f;
-    --navy-mid: #2d5282;
-    --navy-light: #3b6ea5;
-    --navy-dim: rgba(30, 58, 95, 0.08);
-    --navy-dim2: rgba(30, 58, 95, 0.15);
+    --navy: #123B6D;
+    --navy-mid: #1B4E8C;
+    --navy-light: #3574B8;
+    --navy-dim: rgba(18, 59, 109, 0.08);
+    --navy-dim2: rgba(18, 59, 109, 0.15);
 
-    --accent: #1e3a5f;
-    --accent-hover: #2d5282;
+    --accent: #123B6D;
+    --accent-hover: #1B4E8C;
     --accent-text: #ffffff;
+
+    /* Warna sekolah kedua: hijau gedung / almamater */
+    --school-green: #0E7C4A;
+    --school-green-mid: #16A05E;
+    --school-green-light: #22B872;
+    --school-green-dim: rgba(14, 124, 74, 0.1);
+    --school-green-dim2: rgba(14, 124, 74, 0.18);
 
     --text: #0f1923;
     --text-2: #4a5568;
@@ -34,7 +43,8 @@
     --radius-lg: 16px;
     --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sans: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    --sans: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+    --heading-font: 'Poppins', 'Inter', -apple-system, sans-serif;
 }
 
 /* === DARK MODE === */
@@ -54,6 +64,12 @@ body.dark {
     --accent: #4a90d9;
     --accent-hover: #5ba3e8;
     --accent-text: #ffffff;
+
+    --school-green: #2fd88a;
+    --school-green-mid: #3fe39a;
+    --school-green-light: #5eeba9;
+    --school-green-dim: rgba(47, 216, 138, 0.12);
+    --school-green-dim2: rgba(47, 216, 138, 0.2);
 
     --text: #e2e8f0;
     --text-2: #94a3b8;
@@ -81,15 +97,29 @@ html {
     font-size: 16px;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, .brand-abbr, .login-brand, .loading-brand, .hero-title, .grade-info h3, .team-name, .brand-text {
+    font-family: var(--heading-font);
+}
+
 body {
     background: var(--bg);
+    background-image:
+        radial-gradient(circle at 8% 0%, var(--navy-dim) 0%, transparent 32%),
+        radial-gradient(circle at 100% 18%, var(--school-green-dim) 0%, transparent 30%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--text);
     font-family: var(--sans);
     line-height: 1.6;
     min-height: 100vh;
     overflow-x: hidden;
+    overscroll-behavior-y: contain;
     -webkit-font-smoothing: antialiased;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Saat loading, body tidak discroll */
@@ -226,10 +256,70 @@ body.dark .loading-logo {
 .reveal-item:nth-child(3) { transition-delay: 0.16s; }
 .reveal-item:nth-child(4) { transition-delay: 0.24s; }
 
+/* === ANNOUNCEMENT / RUNNING TEXT BAR === */
+.announce-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-mid) 55%, var(--school-green) 100%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.announce-bar-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 60px;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: announceScroll 28s linear infinite;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.announce-bar-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.announce-bar-track span::before {
+    content: "\25CF";
+    font-size: 0.5rem;
+    color: var(--school-green-light);
+}
+
+@keyframes announceScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .announce-bar-track { animation: none; padding-left: 16px; }
+}
+
+/* Garis identitas dua warna (biru logo + hijau gedung sekolah) */
+.school-stripe {
+    position: fixed;
+    top: 34px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 202;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 60%, var(--school-green) 60%, var(--school-green) 100%);
+}
+
 /* === HEADER / NAVBAR === */
 .header {
     position: fixed;
-    top: 0;
+    top: 37px;
     left: 0;
     right: 0;
     z-index: 200;
@@ -340,6 +430,106 @@ body.dark .header {
     font-weight: 600;
 }
 
+/* === BOTTOM TAB BAR (mobile) === */
+.bottom-tabbar {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .bottom-tabbar {
+        display: flex;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 14px;
+        z-index: 300;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+        box-shadow: 0 8px 28px rgba(18, 59, 109, 0.16);
+        justify-content: space-around;
+        align-items: center;
+        gap: 4px;
+    }
+
+    body.dark .bottom-tabbar {
+        background: rgba(15, 25, 35, 0.92);
+        border-color: var(--border);
+    }
+
+    .bottom-tabbar .bottom-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        flex: 1;
+        width: auto;
+        padding: 7px 4px;
+        border-radius: 14px;
+        text-decoration: none;
+        color: var(--text-3);
+        transition: var(--transition);
+    }
+
+    .bottom-tab-icon {
+        font-size: 1.15rem;
+        line-height: 1;
+        opacity: 0.75;
+        transition: var(--transition);
+    }
+
+    .bottom-tab-label {
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+    }
+
+    .bottom-tabbar .bottom-tab:active {
+        transform: scale(0.92);
+    }
+
+    .bottom-tabbar .bottom-tab.active {
+        color: #fff;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+        box-shadow: 0 4px 12px var(--navy-dim2);
+    }
+
+    .bottom-tabbar .bottom-tab.active .bottom-tab-icon { opacity: 1; }
+
+    .bottom-tabbar .bottom-tab-fab {
+        flex: 0 0 auto;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        margin-top: -26px;
+        background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+        color: #fff;
+        box-shadow: 0 8px 18px var(--navy-dim2), 0 0 0 5px var(--bg);
+        gap: 0;
+    }
+
+    body.dark .bottom-tabbar .bottom-tab-fab {
+        box-shadow: 0 8px 18px var(--navy-dim2), 0 0 0 5px var(--bg-card);
+    }
+
+    .bottom-tabbar .bottom-tab-fab .bottom-tab-icon {
+        font-size: 1.5rem;
+        opacity: 1;
+    }
+
+    .bottom-tabbar .bottom-tab-fab .bottom-tab-label {
+        display: none;
+    }
+
+    .bottom-tabbar .bottom-tab-fab:active {
+        transform: scale(0.92);
+    }
+}
+
 /* Nav right */
 .nav-right {
     display: flex;
@@ -406,7 +596,7 @@ body.dark .dark-toggle .icon-moon { display: none; }
 .main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 80px 24px 60px;
+    padding: 117px 24px 60px;
     min-height: calc(100vh - 120px);
 }
 
@@ -430,6 +620,101 @@ body.dark .dark-toggle .icon-moon { display: none; }
     padding: 72px 0 60px;
     max-width: 680px;
 }
+
+/* === GREETING WIDGET === */
+.greeting-widget {
+    margin-bottom: 20px;
+    animation: fadeUp 0.35s ease both;
+}
+
+.greeting-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 340px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 8px 6px 16px;
+    transition: var(--transition);
+}
+
+.greeting-input-row:focus-within {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px var(--navy-dim);
+}
+
+.greeting-input-icon { font-size: 1rem; }
+
+.greeting-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-family: var(--sans);
+}
+
+.greeting-input::placeholder { color: var(--text-3); }
+
+.greeting-save-btn {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.greeting-save-btn svg { width: 15px; height: 15px; }
+
+.greeting-save-btn:hover { transform: scale(1.08); }
+.greeting-save-btn:active { transform: scale(0.92); }
+
+.greeting-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: fit-content;
+    background: linear-gradient(90deg, var(--navy-dim) 0%, var(--school-green-dim) 100%);
+    border: 1px solid var(--navy-dim2);
+    border-radius: 100px;
+    padding: 9px 10px 9px 16px;
+    animation: fadeUp 0.3s ease both;
+}
+
+.greeting-emoji { font-size: 1.1rem; }
+
+.greeting-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.greeting-edit-btn {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--navy-dim2);
+    background: var(--bg-card);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.greeting-edit-btn svg { width: 12px; height: 12px; }
+.greeting-edit-btn:hover { background: var(--navy); color: #fff; }
 
 .hero-badge {
     display: inline-flex;
@@ -482,6 +767,18 @@ body.dark .badge-dot {
 .hero-accent {
     color: var(--navy);
     display: block;
+    position: relative;
+}
+
+.hero-accent::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -6px;
+    width: 64px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--school-green) 0%, var(--school-green-light) 100%);
 }
 
 .hero-desc {
@@ -551,6 +848,23 @@ body.dark .btn-primary:hover {
 
 .btn-secondary svg { width: 14px; height: 14px; }
 
+.version-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--school-green) 0%, var(--navy) 100%);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.825rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 14px rgba(14, 124, 74, 0.25);
+}
+
+.version-pill svg { width: 15px; height: 15px; flex-shrink: 0; }
+
 /* Stats */
 .hero-stats {
     display: flex;
@@ -616,6 +930,11 @@ body.dark .btn-primary:hover {
     border-color: var(--navy);
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
+}
+
+.feature-card:active {
+    transform: scale(0.98);
+    box-shadow: var(--shadow-sm);
 }
 
 .feature-icon {
@@ -743,6 +1062,10 @@ body.dark .btn-primary:hover {
 }
 
 .grade-card:hover::before { opacity: 1; }
+
+.grade-card:active {
+    transform: scale(0.98);
+}
 
 .grade-number {
     font-size: 3.5rem;
@@ -894,10 +1217,16 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     transform: translateY(-1px);
 }
 
+.kelas-button:active {
+    transform: scale(0.96);
+    background: var(--navy);
+    color: #fff;
+}
+
 /* === JADWAL / SCHEDULE === */
 .jadwal-header {
     position: sticky;
-    top: 64px;
+    top: 101px;
     z-index: 10;
     background: var(--bg);
     padding-bottom: 16px;
@@ -933,9 +1262,14 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 }
 
 .hari-btn.active {
-    background: var(--navy);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
     border-color: var(--navy);
     color: #fff;
+    box-shadow: 0 3px 10px var(--navy-dim2);
+}
+
+.hari-btn:active {
+    transform: scale(0.94);
 }
 
 .jadwal-wrapper {
@@ -1351,7 +1685,8 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 
 /* === FOOTER === */
 .footer {
-    border-top: 1px solid var(--border);
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--school-green) 55%, var(--school-green) 100%) 1;
     background: var(--bg-secondary);
     transition: background 0.3s ease;
 }
@@ -1420,7 +1755,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     .hamburger { display: flex; }
     .brand-sub { display: none; }
 
-    .main { padding: 80px 16px 48px; }
+    .main { padding: 117px 16px 130px; }
 
     .hero { padding: 40px 0 36px; }
     .hero-stats { padding: 16px 20px; width: 100%; }
@@ -1443,12 +1778,68 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     .jadwal-table th,
     .jadwal-table td { padding: 10px 12px; }
 
+    /* Jadwal jadi tampilan kartu di layar kecil, gak perlu geser tabel lagi */
+    .jadwal-wrapper { overflow-x: visible; border: none; box-shadow: none; background: transparent; }
+
+    .jadwal-table { min-width: 0; }
+    .jadwal-table thead { display: none; }
+
+    .jadwal-table, .jadwal-table tbody, .jadwal-table tr, .jadwal-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .jadwal-table tbody tr {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        margin-bottom: 12px;
+        padding: 6px 4px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .jadwal-table tbody tr:hover { background: var(--bg-card); }
+
+    .jadwal-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 14px;
+        border-bottom: 1px dashed var(--border);
+        text-align: right;
+    }
+
+    .jadwal-table tbody tr td:last-child { border-bottom: none; }
+
+    .jadwal-table td::before {
+        content: attr(data-label);
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--text-3);
+        text-align: left;
+    }
+
+    .jadwal-table td:first-child {
+        background: var(--navy-dim);
+        border-radius: var(--radius) var(--radius) 0 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .jadwal-table td.no-data {
+        display: block;
+        text-align: center;
+    }
+    .jadwal-table td.no-data::before { display: none; }
+
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .btn-primary, .btn-secondary { justify-content: center; }
+    .btn-primary, .btn-secondary, .version-pill { justify-content: center; }
 
     .hari-btn { padding: 7px 14px; font-size: 0.75rem; }
 
@@ -1520,11 +1911,66 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     border-radius: var(--radius-lg);
     padding: 36px 32px;
     box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: loginPopIn 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.2);
 }
+
+.login-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--school-green) 55%, var(--school-green) 100%);
+}
+
+@keyframes loginPopIn {
+    from { opacity: 0; transform: scale(0.94) translateY(8px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.login-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.login-close svg { width: 15px; height: 15px; }
+
+.login-close:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+.login-close:active { transform: rotate(90deg) scale(0.9); }
 
 .login-header {
     text-align: center;
     margin-bottom: 28px;
+}
+
+.login-icon-ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+    margin-bottom: 12px;
+    box-shadow: 0 6px 16px var(--navy-dim2);
 }
 
 .login-header .brand-icon {
@@ -1533,10 +1979,9 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     justify-content: center;
     width: 48px;
     height: 48px;
-    background: var(--navy-dim);
-    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    border-radius: 14px;
     color: var(--navy);
-    margin-bottom: 12px;
 }
 
 .login-brand {
