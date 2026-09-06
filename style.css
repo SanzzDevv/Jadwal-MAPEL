@@ -38,9 +38,9 @@
     --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
     --shadow-lg: 0 10px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05);
 
-    --radius: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
+    --radius: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
     --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sans: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
@@ -107,11 +107,6 @@ h1, h2, h3, .brand-abbr, .login-brand, .loading-brand, .hero-title, .grade-info 
 
 body {
     background: var(--bg);
-    background-image:
-        radial-gradient(circle at 8% 0%, var(--navy-dim) 0%, transparent 32%),
-        radial-gradient(circle at 100% 18%, var(--school-green-dim) 0%, transparent 30%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: var(--text);
     font-family: var(--sans);
     line-height: 1.6;
@@ -256,17 +251,57 @@ body.dark .loading-logo {
 .reveal-item:nth-child(3) { transition-delay: 0.16s; }
 .reveal-item:nth-child(4) { transition-delay: 0.24s; }
 
+/* === TOPBAR KONTAK (identitas resmi, ala web sekolah negeri) === */
+.topbar-kontak {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 203;
+    height: 28px;
+    background: var(--school-green-mid, var(--school-green));
+    display: flex;
+    align-items: center;
+}
+
+.topbar-kontak-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    overflow: hidden;
+}
+
+.topbar-kontak-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.68rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.topbar-kontak-item svg {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+}
+
 /* === ANNOUNCEMENT / RUNNING TEXT BAR === */
 .announce-bar {
     position: fixed;
-    top: 0;
+    top: 28px;
     left: 0;
     right: 0;
     z-index: 201;
     height: 34px;
     display: flex;
     align-items: center;
-    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-mid) 55%, var(--school-green) 100%);
+    background: var(--navy);
     overflow: hidden;
     white-space: nowrap;
 }
@@ -308,7 +343,7 @@ body.dark .loading-logo {
 /* Garis identitas dua warna (biru logo + hijau gedung sekolah) */
 .school-stripe {
     position: fixed;
-    top: 34px;
+    top: 62px;
     left: 0;
     right: 0;
     height: 3px;
@@ -319,7 +354,7 @@ body.dark .loading-logo {
 /* === HEADER / NAVBAR === */
 .header {
     position: fixed;
-    top: 37px;
+    top: 65px;
     left: 0;
     right: 0;
     z-index: 200;
@@ -494,7 +529,7 @@ body.dark .header {
 
     .bottom-tabbar .bottom-tab.active {
         color: #fff;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+        background: var(--navy);
         box-shadow: 0 4px 12px var(--navy-dim2);
     }
 
@@ -506,9 +541,9 @@ body.dark .header {
         height: 56px;
         border-radius: 50%;
         margin-top: -26px;
-        background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+        background: var(--navy);
         color: #fff;
-        box-shadow: 0 8px 18px var(--navy-dim2), 0 0 0 5px var(--bg);
+        box-shadow: 0 4px 10px var(--navy-dim2), 0 0 0 5px var(--bg);
         gap: 0;
     }
 
@@ -596,7 +631,7 @@ body.dark .dark-toggle .icon-moon { display: none; }
 .main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 117px 24px 60px;
+    padding: 145px 24px 60px;
     min-height: calc(100vh - 120px);
 }
 
@@ -664,7 +699,7 @@ body.dark .dark-toggle .icon-moon { display: none; }
     flex-shrink: 0;
     border-radius: 50%;
     border: none;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+    background: var(--navy);
     color: #fff;
     display: flex;
     align-items: center;
@@ -683,7 +718,7 @@ body.dark .dark-toggle .icon-moon { display: none; }
     align-items: center;
     gap: 10px;
     max-width: fit-content;
-    background: linear-gradient(90deg, var(--navy-dim) 0%, var(--school-green-dim) 100%);
+    background: var(--navy-dim);
     border: 1px solid var(--navy-dim2);
     border-radius: 100px;
     padding: 9px 10px 9px 16px;
@@ -778,7 +813,7 @@ body.dark .badge-dot {
     width: 64px;
     height: 5px;
     border-radius: 3px;
-    background: linear-gradient(90deg, var(--school-green) 0%, var(--school-green-light) 100%);
+    background: var(--school-green);
 }
 
 .hero-desc {
@@ -853,7 +888,7 @@ body.dark .btn-primary:hover {
     align-items: center;
     gap: 8px;
     padding: 10px 20px;
-    background: linear-gradient(135deg, var(--school-green) 0%, var(--navy) 100%);
+    background: var(--navy);
     color: #fff;
     border: none;
     border-radius: var(--radius);
@@ -1226,7 +1261,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 /* === JADWAL / SCHEDULE === */
 .jadwal-header {
     position: sticky;
-    top: 101px;
+    top: 129px;
     z-index: 10;
     background: var(--bg);
     padding-bottom: 16px;
@@ -1262,7 +1297,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 }
 
 .hari-btn.active {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    background: var(--navy);
     border-color: var(--navy);
     color: #fff;
     box-shadow: 0 3px 10px var(--navy-dim2);
@@ -1391,7 +1426,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     position: absolute;
     bottom: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--navy), var(--navy-light));
+    background: var(--navy);
     opacity: 0;
     transition: opacity 0.25s;
 }
@@ -1729,6 +1764,12 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 
 /* === RESPONSIVE — MOBILE === */
 @media (max-width: 600px) {
+    /* Topbar kontak disembunyikan di HP biar ruang layar kecil tetap lega */
+    .topbar-kontak { display: none; }
+    .announce-bar { top: 0; }
+    .school-stripe { top: 34px; }
+    .header { top: 37px; }
+
     .header-inner { padding: 0 16px; }
 
     .nav {
@@ -1756,6 +1797,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     .brand-sub { display: none; }
 
     .main { padding: 117px 16px 130px; }
+    .jadwal-header { top: 101px; }
 
     .hero { padding: 40px 0 36px; }
     .hero-stats { padding: 16px 20px; width: 100%; }
@@ -1913,20 +1955,20 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
-    animation: loginPopIn 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    animation: loginPopIn 0.22s ease;
 }
 
 .login-box::before {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
-    height: 5px;
+    height: 4px;
     background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--school-green) 55%, var(--school-green) 100%);
 }
 
 @keyframes loginPopIn {
-    from { opacity: 0; transform: scale(0.94) translateY(8px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .login-close {
@@ -1968,9 +2010,9 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     justify-content: center;
     padding: 5px;
     border-radius: 18px;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--school-green) 100%);
+    background: var(--navy);
     margin-bottom: 12px;
-    box-shadow: 0 6px 16px var(--navy-dim2);
+    box-shadow: 0 4px 10px var(--navy-dim2);
 }
 
 .login-header .brand-icon {
