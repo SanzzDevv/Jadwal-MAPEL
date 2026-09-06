@@ -1,2889 +1,2563 @@
-// ===============================
-// KONFIGURASI STATUS SITUS
-// Ganti "on" menjadi "off" untuk mengaktifkan halaman maintenance
-// ===============================
-const siteStatus = "on";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
-// ===============================
-// KONFIGURASI LOGO
-// mode: 1 = Logo SVG SIJAP (default)
-// mode: 2 = Logo gambar SMPN 24 Bandung
-// imageUrl: path ke file gambar logo (hanya dipakai jika mode = 2)
-// ===============================
-var LOGO_CONFIG = {
-    mode: 1,
-    imageUrl: "logo-smpn24.png"
-};
+/* === CSS VARIABLES === */
+:root {
+    --bg: #ffffff;
+    --bg-secondary: #f4f6f9;
+    --bg-card: #ffffff;
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
 
-// ===============================
-// DARK MODE
-// ===============================
-(function () {
-    const saved = localStorage.getItem('sijap-theme');
-    if (saved === 'dark') {
-        document.body.classList.add('dark');
-    }
-})();
+    --navy: #123B6D;
+    --navy-mid: #1B4E8C;
+    --navy-light: #3574B8;
+    --navy-dim: rgba(18, 59, 109, 0.08);
+    --navy-dim2: rgba(18, 59, 109, 0.15);
 
-// ===============================
-// LOADING SCREEN
-// ===============================
-(function () {
-    document.body.classList.add('loading');
+    --accent: #123B6D;
+    --accent-hover: #1B4E8C;
+    --accent-text: #ffffff;
 
-    const steps = [
-        { pct: 20, msg: 'Memuat sistem...' },
-        { pct: 55, msg: 'Menyiapkan data jadwal...' },
-        { pct: 80, msg: 'Menginisialisasi antarmuka...' },
-        { pct: 100, msg: 'Selesai!' }
-    ];
+    /* Warna sekolah kedua: hijau gedung / almamater */
+    --school-green: #0E7C4A;
+    --school-green-mid: #16A05E;
+    --school-green-light: #22B872;
+    --school-green-dim: rgba(14, 124, 74, 0.1);
+    --school-green-dim2: rgba(14, 124, 74, 0.18);
 
-    let i = 0;
-    const bar    = document.getElementById('loadingBar');
-    const status = document.getElementById('loadingStatus');
+    --text: #0f1923;
+    --text-2: #4a5568;
+    --text-3: #94a3b8;
+    --text-muted: #718096;
 
-    function nextStep() {
-        if (i >= steps.length) return;
-        const s = steps[i++];
-        if (bar)    bar.style.width = s.pct + '%';
-        if (status) status.textContent = s.msg;
-        if (i < steps.length) {
-            setTimeout(nextStep, 280 + Math.random() * 150);
-        }
-    }
+    --green: #16a34a;
+    --green-bg: #f0fdf4;
+    --green-border: #bbf7d0;
 
-    setTimeout(nextStep, 120);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05);
 
-    window.addEventListener('load', function () {
-        setTimeout(function () {
-            const screen = document.getElementById('loadingScreen');
-            if (screen) {
-                screen.classList.add('hide');
-                setTimeout(function () {
-                    screen.style.display = 'none';
-                    document.body.classList.remove('loading');
-                    triggerReveal();
-                }, 520);
-            }
-        }, 900);
-    });
-})();
+    --radius: 6px;
+    --radius-md: 8px;
+    --radius-lg: 10px;
+    --transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
 
-// ===============================
-// DATA KELAS
-// ===============================
-
-const dataKelas7 = [
-    { id: "7A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7A" },
-    { id: "7B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7B" },
-    { id: "7C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7C" },
-    { id: "7D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7D" },
-    { id: "7E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7E" },
-    { id: "7F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7F" },
-    { id: "7G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7G" },
-    { id: "7H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7H" },
-    { id: "7I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7I" }
-];
-
-const dataKelas8 = [
-    { id: "8A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8A" },
-    { id: "8B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8B" },
-    { id: "8C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8C" },
-    { id: "8D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8D" },
-    { id: "8E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8E" },
-    { id: "8F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8F" },
-    { id: "8G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8G" },
-    { id: "8H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8H" },
-    { id: "8I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8I" }
-];
-
-const dataKelas9 = [
-    { id: "9A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9A" },
-    { id: "9B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9B" },
-    { id: "9C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9C" },
-    { id: "9D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9D" },
-    { id: "9E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9E" },
-    { id: "9F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9F" },
-    { id: "9G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9G" },
-    { id: "9H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9H" },
-    { id: "9I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9I" }
-];
-
-// ===============================
-// DATA GURU
-// Tambahkan guru di sini. Nama harus sama persis dengan yang ada di jadwal.
-// tingkat: "7", "8", "9", atau "semua" jika mengajar lintas tingkat
-// ===============================
-const dataGuru = [
-    { id: "guru-001", nama: "A. SUTISNA, S.Pd",                    mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-002", nama: "AHMAD RAHMAT, S.Sn, M.Pd",            mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-003", nama: "AI RIKA ISMAHANI, S.Psi",             mapel: "—",         waliKelas: "—", tingkat: "9" },
-    { id: "guru-004", nama: "ALDA ALDILA RIYADI, S.Pd",            mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-005", nama: "ANDRI SUNANTO, S. Pd., M. Pd",        mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-006", nama: "ANDRI SUNANTO, S.Pd., M.Pd",          mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-007", nama: "ANNISA HAELWANI, S. KOM",             mapel: "—",   waliKelas: "—", tingkat: "7" },
-    { id: "guru-008", nama: "ARI NUGRAHA, S. Pd",                  mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-009", nama: "ARIF MAULANA GUNAWAN, S.T",           mapel: "—",   waliKelas: "—", tingkat: "8" },
-    { id: "guru-010", nama: "CANDITA REKSA RIYADI, S. Pd",         mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-011", nama: "DEDEN KURNIA S, S. Pd",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-012", nama: "DEDEN KURNIA S, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-013", nama: "DIAH SOEPLIAH, S. Sos",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-014", nama: "DIAN RAHMAWATI, S. Pd",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-015", nama: "Drs. AGUS MASRUQ, M.Pd",              mapel: "—",          waliKelas: "—", tingkat: "9" },
-    { id: "guru-016", nama: "DWI PRIHANTO K, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-017", nama: "EHA JULAEHA, S.S",                    mapel: "—",      waliKelas: "—", tingkat: "9" },
-    { id: "guru-018", nama: "ELLI KEMALAWATI, S.Pd",               mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-019", nama: "ENDAH NURJANAH, S. Pd",               mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-020", nama: "FAIJUL ARIFIN, S.Pd",                 mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-021", nama: "FARHAN BUDIARTO, S.Pd",               mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-022", nama: "FIRDA PUTRI UTAMI, S. Pd",            mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-023", nama: "FITRIA AGUSTINI, S.Pd",               mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-024", nama: "HENDRA SAPUTRA, S.Pd",                mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-025", nama: "IIS PRIATINI, S.Pd",                  mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-026", nama: "IKA KURNIA, S.Pd",                    mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-027", nama: "IMAM ADI PRASETYO, S. Pd",            mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-028", nama: "INNA NURAINI SUJANA, S. Pd",          mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-029", nama: "IWAN SETIAWAN, S.Pd",                 mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-030", nama: "LANI MUSTIKASARI, S.Pd",              mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-031", nama: "LELA ZULKAEDAH, S.Pd",                mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-032", nama: "LIA PRAMURTYA, S.Si",                 mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-033", nama: "LUTHFI HADIANSYAH, S.Pd",             mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-034", nama: "M. NOOR FENDI SAEFULOH, S.Pd",        mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-035", nama: "MEGA HERLIANI, S.Sn",                 mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-036", nama: "MUH. ZAENAL ARIPIN, S. Pd",           mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-037", nama: "MUH. ZAENAL ARIPIN, S.Pd",            mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-038", nama: "NIDYA EKA PRATIWI, S.Pd",             mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-039", nama: "PIPIN FIRMANSYAH N, S.Pd",            mapel: "—",          waliKelas: "—", tingkat: "8" },
-    { id: "guru-040", nama: "PRAPTI HANDAYANI, S.Pd",              mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-041", nama: "QISTI SEPTIA W. A, S. Pd",            mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-042", nama: "RAHMASARI AULIA KHOTIMAH, S. Pd",     mapel: "—",      waliKelas: "—", tingkat: "7" },
-    { id: "guru-043", nama: "Rd. SRI REJEKI, S.Pd",                mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-044", nama: "RINI SEPTIANI, S. Pd",                mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "—",   waliKelas: "—", tingkat: "9" },
-    { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "—",          waliKelas: "—", tingkat: "7" },
-    { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "—",         waliKelas: "—", tingkat: "7" },
-    { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "8" }
-];
-
-// ===============================
-// JADWAL JUMAT (berlaku untuk semua kelas)
-// ===============================
-const jadwalJumat = [
-    { waktu: "07.00-07.20", mapel: "Persiapan Sholat Dhuha", guru: "", ruang: "Masjid" },
-    { waktu: "07.20-07.40", mapel: "Sholat Dhuha",           guru: "", ruang: "Masjid" },
-    { waktu: "07.40-07.50", mapel: "Baca Doa",               guru: "", ruang: "Masjid" },
-    { waktu: "07.50-08.20", mapel: "Baca Surah Al Kahf",     guru: "", ruang: "Masjid" },
-    { waktu: "08.20-08.40", mapel: "Baca Surah Pendek",      guru: "", ruang: "Masjid" },
-    { waktu: "08.40-09.00", mapel: "Ceramah",                guru: "", ruang: "Masjid" },
-    { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "Lapangan" },
-    { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "—" }
-];
-
-const jadwalKelas7 = {
-
-"7A": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"7B": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"7C": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-    "7D": {
-        senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-"7E": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"7F": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-"7G": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-"7H": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"7I": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-};
-
-const jadwalKelas8 = {
-"8A": {
-    senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    jumat: jadwalJumat
-},
-    
-"8B": {
-    senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    jumat: jadwalJumat
-},
-    
-"8C": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-"8D": {
-    senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-  // KELAS 8E - JADWAL RESMI
-"8E": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" , ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"8F": {
-    senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"8G": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-
-"8H": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-  "8I": {
-      senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
-    ],
-    jumat: jadwalJumat
-}
-};
-
-const jadwalKelas9 = {
-"9A": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-    
-"9B": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
-    ],
-    selasa: [
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
-    ],
-    jumat: jadwalJumat
-},
-    
-"9B": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-
-"9C": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-    
-"9D": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-
-"9E": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-    
-"9F": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-
-"9G": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-
-"9H": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ]
-},
-    
-"9I": {
-    senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
-    ],
-    jumat: jadwalJumat
-}
-    
-};
-
-const jadwalKelas = {
-    ...jadwalKelas7,
-    ...jadwalKelas8,
-    ...jadwalKelas9
-};
-
-// ===============================
-// STATE
-// ===============================
-let currentKelas = null;
-let currentKelasLevel = null;
-let currentGuruId  = null;
-let currentGuruHari = 'senin';
-
-// ===============================
-// SCROLL REVEAL
-// ===============================
-function triggerReveal() {
-    document.querySelectorAll('.reveal-item:not(.revealed)').forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight - 40) {
-            el.classList.add('revealed');
-        }
-    });
+    --sans: 'Inter', -apple-system, 'Segoe UI', system-ui, sans-serif;
+    --heading-font: 'Poppins', 'Inter', -apple-system, sans-serif;
 }
 
-// ===============================
-// RENDER GURU
-// ===============================
-let filterGuru = 'semua';
+/* === DARK MODE === */
+body.dark {
+    --bg: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-card: #1a2232;
+    --border: #2d3748;
+    --border-strong: #3d4f63;
 
-function renderGuru() {
-    const grid = document.querySelector('.guru-grid');
-    if (!grid) return;
+    --navy: #4a90d9;
+    --navy-mid: #5ba3e8;
+    --navy-light: #6fb5f5;
+    --navy-dim: rgba(74, 144, 217, 0.12);
+    --navy-dim2: rgba(74, 144, 217, 0.2);
 
-    const filtered = dataGuru
-        .filter(function (g) { return filterGuru === 'semua' || g.tingkat === filterGuru; })
-        .sort(function (a, b) { return a.nama.localeCompare(b.nama, 'id'); });
+    --accent: #4a90d9;
+    --accent-hover: #5ba3e8;
+    --accent-text: #ffffff;
 
-    grid.innerHTML = '';
+    --school-green: #2fd88a;
+    --school-green-mid: #3fe39a;
+    --school-green-light: #5eeba9;
+    --school-green-dim: rgba(47, 216, 138, 0.12);
+    --school-green-dim2: rgba(47, 216, 138, 0.2);
 
-    if (!filtered.length) {
-        grid.innerHTML = '<p class="no-data" style="padding:24px">Tidak ada guru untuk kategori ini.</p>';
-        return;
-    }
+    --text: #e2e8f0;
+    --text-2: #94a3b8;
+    --text-3: #4a5568;
+    --text-muted: #718096;
 
-    filtered.forEach(function (guru) {
-        const card = document.createElement('div');
-        card.className = 'guru-card reveal-item';
-        card.innerHTML =
-            '<div class="guru-card-inner">' +
-                '<div class="guru-avatar">' +
-                    '<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">' +
-                        '<circle cx="40" cy="30" r="18" fill="#94a3b8"/>' +
-                        '<ellipse cx="40" cy="70" rx="26" ry="18" fill="#94a3b8"/>' +
-                    '</svg>' +
-                '</div>' +
-                '<div class="guru-info">' +
-                    '<h3 class="guru-nama">' + guru.nama + '</h3>' +
-                    (guru.mapel !== '—' ? '<span class="guru-mapel">' + guru.mapel + '</span>' : '') +
-                    (guru.waliKelas !== '—' ? '<span class="guru-wali"> Wali Kelas: ' + guru.waliKelas + '</span>' : '') +
-                '</div>' +
-            '</div>' +
-            '<button class="guru-jadwal-btn" data-guru-id="' + guru.id + '">LIHAT JADWAL GURU</button>';
-        grid.appendChild(card);
-    });
+    --green: #4ade80;
+    --green-bg: rgba(74, 222, 128, 0.08);
+    --green-border: rgba(74, 222, 128, 0.25);
 
-    setTimeout(triggerReveal, 50);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-// ===============================
-// CARI & RENDER JADWAL GURU
-// ===============================
-function cariJadwalGuru(namaGuru) {
-    const semuaJadwal = { ...jadwalKelas7, ...jadwalKelas8, ...jadwalKelas9 };
-    const hasil = { senin: [], selasa: [], rabu: [], kamis: [], jumat: [] };
-    Object.keys(semuaJadwal).forEach(function (kelasId) {
-        const jadwalKelas = semuaJadwal[kelasId];
-        ['senin','selasa','rabu','kamis','jumat'].forEach(function (hari) {
-            (jadwalKelas[hari] || []).forEach(function (item) {
-                if (item.guru && item.guru.trim() === namaGuru.trim()) {
-                    hasil[hari].push({ kelas: kelasId, waktu: item.waktu, mapel: item.mapel, ruang: item.ruang || '—' });
-                }
-            });
-        });
-    });
-    return hasil;
+/* === RESET === */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-function renderJadwalGuru(hari) {
-    const tbody = document.getElementById('guru-jadwal-tbody');
-    if (!tbody) return;
-    tbody.innerHTML = '';
-    const guru = dataGuru.find(function (g) { return g.id === currentGuruId; });
-    if (!guru) return;
-    const jadwal = cariJadwalGuru(guru.nama);
-    const rows = jadwal[hari] || [];
-    if (!rows.length) {
-        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Tidak ada jadwal untuk hari ini.</td></tr>';
-        return;
-    }
-    rows.forEach(function (item) {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `<td data-label="Waktu">${item.waktu}</td><td data-label="Kelas">${item.kelas}</td><td data-label="Mapel">${item.mapel}</td><td data-label="Ruang">${item.ruang}</td>`;
-        tbody.appendChild(tr);
-    });
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-// ===============================
-// RENDER FUNCTIONS
-// ===============================
-
-function renderKelasGrid(containerSelector, dataKelas) {
-    const grid = document.querySelector(containerSelector);
-    if (!grid) return;
-    grid.innerHTML = '';
-
-    dataKelas.forEach(kelas => {
-        const card = document.createElement('div');
-        card.className = 'kelas-card';
-        card.innerHTML = `
-            <div class="kelas-card-header">
-                <h3>${kelas.id}</h3>
-                <span class="kelas-badge">Aktif</span>
-            </div>
-            <div class="kelas-meta">
-                <span class="label">WALI KELAS</span>
-                <span>${kelas.waliKelas}</span>
-                <span class="label" style="margin-top:6px">RUANG</span>
-                <span>${kelas.ruang}</span>
-            </div>
-            <button class="kelas-button" data-kelas="${kelas.id}">
-                Lihat Jadwal →
-            </button>
-        `;
-        grid.appendChild(card);
-    });
+* {
+    -webkit-tap-highlight-color: transparent;
 }
 
-function renderKelas7() { renderKelasGrid('.kelas-7-grid', dataKelas7); }
-function renderKelas8() { renderKelasGrid('.kelas-8-grid', dataKelas8); }
-function renderKelas9() { renderKelasGrid('.kelas-9-grid', dataKelas9); }
-
-function renderJadwalHari(hari) {
-    const tbody = document.getElementById('jadwal-tbody');
-    tbody.innerHTML = '';
-
-    if (!currentKelas || !jadwalKelas[currentKelas] || !jadwalKelas[currentKelas][hari]) {
-        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Tidak ada jadwal untuk hari ini.</td></tr>';
-        return;
-    }
-
-    const jadwal = jadwalKelas[currentKelas][hari];
-    if (!jadwal.length) {
-        tbody.innerHTML = '<tr><td colspan="4" class="no-data">Jadwal belum diisi.</td></tr>';
-        return;
-    }
-
-    jadwal.forEach(item => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td data-label="Waktu">${item.waktu}</td>
-            <td data-label="Mapel">${item.mapel}</td>
-            <td data-label="Guru">${item.guru || '—'}</td>
-            <td data-label="Ruang">${item.ruang}</td>
-        `;
-        tbody.appendChild(tr);
-    });
+h1, h2, h3, .brand-abbr, .login-brand, .loading-brand, .hero-title, .grade-info h3, .team-name, .brand-text {
+    font-family: var(--heading-font);
 }
 
-// ===============================
-// NAVIGATION
-// ===============================
-
-function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active-section'));
-    const target = document.getElementById(id);
-    if (target) target.classList.add('active-section');
-
-    // Update nav active (top nav + bottom tabbar sekaligus)
-    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    document.querySelectorAll(`.nav-link[data-section="${id}"]`).forEach(l => l.classList.add('active'));
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    // If jadwal section, reset to monday
-    if (id === 'jadwal-pelajaran') {
-        setHariAktif('senin');
-        renderJadwalHari('senin');
-    }
-
-    // Trigger reveal animasi setelah section tampil
-    setTimeout(triggerReveal, 80);
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-function setHariAktif(hari) {
-    document.querySelectorAll('.hari-btn').forEach(b => b.classList.remove('active'));
-    const btn = document.querySelector(`.hari-btn[data-hari="${hari}"]`);
-    if (btn) btn.classList.add('active');
+/* Saat loading, body tidak discroll */
+body.loading {
+    overflow: hidden;
 }
 
-function setGuruHariAktif(hari) {
-    document.querySelectorAll('.guru-jadwal-tabs .hari-btn').forEach(function (b) { b.classList.remove('active'); });
-    const btn = document.querySelector('.guru-jadwal-tabs .hari-btn[data-hari="' + hari + '"]');
-    if (btn) btn.classList.add('active');
+/* ====================================
+   LOADING SCREEN
+   ==================================== */
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-function updateBackButtons() {
-    document.getElementById('backToKelas7').style.display = 'none';
-    document.getElementById('backToKelas8').style.display = 'none';
-    document.getElementById('backToKelas9').style.display = 'none';
-
-    if (currentKelasLevel === '7') document.getElementById('backToKelas7').style.display = '';
-    else if (currentKelasLevel === '8') document.getElementById('backToKelas8').style.display = '';
-    else if (currentKelasLevel === '9') document.getElementById('backToKelas9').style.display = '';
+body.dark .loading-screen {
+    background: #0d1117;
 }
 
-// ===============================
-// INIT
-// ===============================
-
-// ===============================
-// SAPAAN NAMA (greeting widget di Beranda)
-// ===============================
-function getSapaanWaktu(jam) {
-    if (jam >= 0 && jam < 3)  return { label: 'Selamat tengah malam', emoji: '🌙' };
-    if (jam >= 3 && jam < 7)  return { label: 'Selamat subuh',        emoji: '🌄' };
-    if (jam >= 7 && jam < 12) return { label: 'Selamat pagi',         emoji: '☀️' };
-    if (jam >= 12 && jam < 15) return { label: 'Selamat siang',       emoji: '🌤️' };
-    if (jam >= 15 && jam < 18) return { label: 'Selamat sore',        emoji: '🌇' };
-    return { label: 'Selamat malam', emoji: '🌃' };
+.loading-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-function tampilkanSapaan(nama) {
-    var sapaan = getSapaanWaktu(new Date().getHours());
-    document.getElementById('greetingEmoji').textContent = sapaan.emoji;
-    document.getElementById('greetingText').textContent = sapaan.label + ', ' + nama + '!';
-    document.getElementById('greetingInputRow').style.display = 'none';
-    document.getElementById('greetingMessage').style.display = 'flex';
+.loading-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    animation: loadingEntrance 0.5s ease both;
 }
 
-function initGreetingWidget() {
-    var savedNama = localStorage.getItem('sijap-nama');
-    if (savedNama) {
-        tampilkanSapaan(savedNama);
-        document.getElementById('namaUserInput').value = savedNama;
-    }
-
-    function simpanNama() {
-        var nama = document.getElementById('namaUserInput').value.trim();
-        if (!nama) return;
-        localStorage.setItem('sijap-nama', nama);
-        tampilkanSapaan(nama);
-    }
-
-    document.getElementById('simpanNamaBtn').addEventListener('click', simpanNama);
-    document.getElementById('namaUserInput').addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') simpanNama();
-    });
-    document.getElementById('gantiNamaBtn').addEventListener('click', function () {
-        document.getElementById('greetingMessage').style.display = 'none';
-        document.getElementById('greetingInputRow').style.display = 'flex';
-        document.getElementById('namaUserInput').focus();
-        document.getElementById('namaUserInput').select();
-    });
+@keyframes loadingEntrance {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+.loading-logo {
+    width: 56px;
+    height: 56px;
+    background: var(--navy);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 14px;
+    margin-bottom: 18px;
+    animation: logoPulse 1.8s ease-in-out infinite;
+}
 
-    // MAINTENANCE MODE
-    if (siteStatus === 'off') {
-        document.getElementById('mainHeader').style.display = 'none';
-        document.querySelector('.main').style.display = 'none';
-        document.querySelector('.footer').style.display = 'none';
-        const m = document.getElementById('maintenancePage');
-        if (m) m.style.display = 'flex';
-        return;
+@keyframes logoPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(30, 58, 95, 0.3); }
+    50%       { box-shadow: 0 0 0 10px rgba(30, 58, 95, 0); }
+}
+
+body.dark .loading-logo {
+    animation: logoPulseDark 1.8s ease-in-out infinite;
+}
+
+@keyframes logoPulseDark {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 144, 217, 0.3); }
+    50%       { box-shadow: 0 0 0 10px rgba(74, 144, 217, 0); }
+}
+
+.loading-logo svg {
+    width: 100%;
+    height: 100%;
+}
+
+.loading-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 3px;
+    margin-bottom: 4px;
+}
+
+.loading-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+}
+
+.loading-bar-wrap {
+    width: 180px;
+    height: 3px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--navy);
+    border-radius: 100px;
+    transition: width 0.1s linear;
+}
+
+.loading-status {
+    font-size: 0.72rem;
+    color: var(--text-3);
+    letter-spacing: 0.3px;
+}
+
+/* ====================================
+   SCROLL REVEAL ANIMASI
+   ==================================== */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay bertahap untuk kartu dalam grid */
+.reveal-item:nth-child(2) { transition-delay: 0.08s; }
+.reveal-item:nth-child(3) { transition-delay: 0.16s; }
+.reveal-item:nth-child(4) { transition-delay: 0.24s; }
+
+/* === ANNOUNCEMENT / RUNNING TEXT BAR === */
+.announce-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 201;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    background: var(--navy);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.announce-bar-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 60px;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: announceScroll 28s linear infinite;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.announce-bar-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.announce-bar-track span::before {
+    content: "\25CF";
+    font-size: 0.5rem;
+    color: var(--school-green-light);
+}
+
+@keyframes announceScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .announce-bar-track { animation: none; padding-left: 16px; }
+}
+
+/* Garis identitas dua warna (biru logo + hijau gedung sekolah) */
+.school-stripe {
+    position: fixed;
+    top: 34px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 202;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 60%, var(--school-green) 60%, var(--school-green) 100%);
+}
+
+/* === HEADER / NAVBAR === */
+.header {
+    position: fixed;
+    top: 37px;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: var(--transition), box-shadow 0.22s;
+}
+
+body.dark .header {
+    background: rgba(13, 17, 23, 0.95);
+}
+
+.header.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Brand */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    cursor: default;
+}
+
+.brand-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 7px;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.brand-icon svg { width: 100%; height: 100%; }
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.brand-abbr {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 1.5px;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.brand-sub {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 0.3px;
+    line-height: 1;
+}
+
+.brand-contact {
+    display: none;
+    font-size: 0.58rem;
+    color: var(--text-3);
+    letter-spacing: 0.2px;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+@media (min-width: 700px) {
+    .brand-contact { display: block; }
+}
+
+/* Navigation */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-2);
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.nav-icon { font-size: 0.85rem; opacity: 0.7; }
+
+.nav-link:hover {
+    color: var(--text);
+    background: var(--navy-dim);
+}
+
+.nav-link.active {
+    color: var(--navy);
+    background: var(--navy-dim);
+    font-weight: 600;
+}
+
+/* === BOTTOM TAB BAR (mobile) === */
+.bottom-tabbar {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .bottom-tabbar {
+        display: flex;
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: 14px;
+        z-index: 300;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+        box-shadow: 0 8px 28px rgba(18, 59, 109, 0.16);
+        justify-content: space-around;
+        align-items: center;
+        gap: 4px;
     }
 
-    initGreetingWidget();
-
-    renderKelas7();
-    renderKelas8();
-    renderKelas9();
-    renderGuru();
-
-    // Scroll reveal
-    window.addEventListener('scroll', triggerReveal, { passive: true });
-    setTimeout(triggerReveal, 200);
-
-    // DARK MODE TOGGLE
-    const darkToggle = document.getElementById('darkToggle');
-    if (darkToggle) {
-        darkToggle.addEventListener('click', function () {
-            document.body.classList.toggle('dark');
-            const isDark = document.body.classList.contains('dark');
-            localStorage.setItem('sijap-theme', isDark ? 'dark' : 'light');
-        });
+    body.dark .bottom-tabbar {
+        background: rgba(15, 25, 35, 0.92);
+        border-color: var(--border);
     }
 
-    // NAV LINKS
-    document.querySelectorAll('.nav-link').forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            showSection(this.getAttribute('data-section'));
-            document.getElementById('mainNav').classList.remove('open');
-            document.getElementById('hamburger').classList.remove('open');
-        });
-    });
-
-    // HAMBURGER
-    document.getElementById('hamburger').addEventListener('click', function () {
-        this.classList.toggle('open');
-        document.getElementById('mainNav').classList.toggle('open');
-        this.setAttribute('aria-expanded', this.classList.contains('open') ? 'true' : 'false');
-    });
-
-    // Close nav on outside click
-    document.addEventListener('click', function (e) {
-        const nav = document.getElementById('mainNav');
-        const ham = document.getElementById('hamburger');
-        if (!nav.contains(e.target) && !ham.contains(e.target)) {
-            nav.classList.remove('open');
-            ham.classList.remove('open');
-        }
-    });
-
-    // HERO BUTTON
-    document.getElementById('lihatKelasBtn').addEventListener('click', function () { showSection('kelas'); });
-
-    // GRADE LEVEL BUTTONS
-    document.getElementById('lihatKelas7').addEventListener('click', function () { showSection('kelas-7'); });
-    document.getElementById('lihatKelas8').addEventListener('click', function () { showSection('kelas-8'); });
-    document.getElementById('lihatKelas9').addEventListener('click', function () { showSection('kelas-9'); });
-
-    // BACK BUTTONS
-    document.getElementById('backToHome').addEventListener('click',     function () { showSection('beranda'); });
-    document.getElementById('backToClasses7').addEventListener('click', function () { showSection('kelas'); });
-    document.getElementById('backToClasses').addEventListener('click',  function () { showSection('kelas'); });
-    document.getElementById('backToClasses9').addEventListener('click', function () { showSection('kelas'); });
-    document.getElementById('backToKelas7').addEventListener('click',   function () { showSection('kelas-7'); });
-    document.getElementById('backToKelas8').addEventListener('click',   function () { showSection('kelas-8'); });
-    document.getElementById('backToKelas9').addEventListener('click',   function () { showSection('kelas-9'); });
-
-    const backToGuruBtn = document.getElementById('backToGuru');
-    if (backToGuruBtn) backToGuruBtn.addEventListener('click', function () { showSection('guru'); });
-
-    // KELAS CARDS (delegated)
-    document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.kelas-button');
-        if (!btn) return;
-        currentKelas = btn.getAttribute('data-kelas');
-        currentKelasLevel = currentKelas.charAt(0);
-        document.getElementById('jadwal-title').textContent = 'Kelas ' + currentKelas;
-        document.getElementById('jadwal-badge').textContent = 'JADWAL \u00b7 ' + currentKelas;
-        showSection('jadwal-pelajaran');
-        updateBackButtons();
-    });
-
-    // HARI BUTTONS (jadwal kelas)
-    document.querySelectorAll('#jadwal-pelajaran .hari-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            document.querySelectorAll('#jadwal-pelajaran .hari-btn').forEach(function (b) { b.classList.remove('active'); });
-            this.classList.add('active');
-            renderJadwalHari(this.getAttribute('data-hari'));
-        });
-    });
-
-    // GURU FILTER TABS
-    document.querySelectorAll('.guru-filter-btn').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            document.querySelectorAll('.guru-filter-btn').forEach(function (b) { b.classList.remove('active'); });
-            this.classList.add('active');
-            filterGuru = this.getAttribute('data-filter');
-            renderGuru();
-        });
-    });
-
-    // GURU — tombol lihat jadwal (delegated)
-    document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.guru-jadwal-btn');
-        if (!btn) return;
-        currentGuruId = btn.getAttribute('data-guru-id');
-        const guru = dataGuru.find(function (g) { return g.id === currentGuruId; });
-        if (!guru) return;
-        const titleEl = document.getElementById('jadwal-guru-title');
-        if (titleEl) titleEl.textContent = guru.nama;
-        currentGuruHari = 'senin';
-        setGuruHariAktif('senin');
-        showSection('jadwal-guru');
-        renderJadwalGuru('senin');
-    });
-
-    // GURU — tab hari
-    const guruTabs = document.querySelector('.guru-jadwal-tabs');
-    if (guruTabs) {
-        guruTabs.addEventListener('click', function (e) {
-            const btn = e.target.closest('.hari-btn');
-            if (!btn) return;
-            const hari = btn.getAttribute('data-hari');
-            currentGuruHari = hari;
-            setGuruHariAktif(hari);
-            renderJadwalGuru(hari);
-        });
+    .bottom-tabbar .bottom-tab {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        flex: 1;
+        width: auto;
+        padding: 7px 4px;
+        border-radius: 14px;
+        text-decoration: none;
+        color: var(--text-3);
+        transition: var(--transition);
     }
 
-    // SCROLL: header shadow
-    window.addEventListener('scroll', function () {
-        document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
-
-    // CLASS SEARCH (on Kelas page)
-    var kelasSearchInput = document.getElementById('kelasSearchInput');
-    var kelasSearchBtn   = document.getElementById('kelasSearchBtn');
-    var kelasSearchMsg   = document.getElementById('kelasSearchMsg');
-
-    function doKelasSearch() {
-        if (!kelasSearchInput) return;
-        var raw   = kelasSearchInput.value.trim().toUpperCase().replace(/\s+/g, '');
-        var valid = /^[789][A-I]$/.test(raw);
-        if (!valid) {
-            if (kelasSearchMsg) {
-                kelasSearchMsg.textContent = 'Ketik nama kelas yang valid, contoh: 7F, 8C, 9A';
-                kelasSearchMsg.style.color = 'var(--text-muted, #64748b)';
-                kelasSearchMsg.style.display = 'block';
-            }
-            return;
-        }
-        if (kelasSearchMsg) kelasSearchMsg.style.display = 'none';
-        // Navigate directly to that class schedule
-        currentKelas = raw;
-        currentKelasLevel = raw.charAt(0);
-        document.getElementById('jadwal-title').textContent = 'Kelas ' + raw;
-        document.getElementById('jadwal-badge').textContent = 'JADWAL \u00b7 ' + raw;
-        showSection('jadwal-pelajaran');
-        updateBackButtons();
-        // Clear search input after jump
-        kelasSearchInput.value = '';
+    .bottom-tab-icon {
+        font-size: 1.15rem;
+        line-height: 1;
+        opacity: 0.75;
+        transition: var(--transition);
     }
 
-    if (kelasSearchBtn) {
-        kelasSearchBtn.addEventListener('click', doKelasSearch);
-    }
-    if (kelasSearchInput) {
-        kelasSearchInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') doKelasSearch();
-        });
-        kelasSearchInput.addEventListener('input', function() {
-            if (kelasSearchMsg) kelasSearchMsg.style.display = 'none';
-        });
+    .bottom-tab-label {
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
     }
 
-    // APPLY LOGO CONFIG
-    applyLogoConfig();
-});
+    .bottom-tabbar .bottom-tab:active {
+        transform: scale(0.92);
+    }
 
-// ===================================================
-// LOGIN & HOMEWORK SYSTEM
-// ===================================================
+    .bottom-tabbar .bottom-tab.active {
+        color: #fff;
+        background: var(--navy);
+        box-shadow: 0 4px 12px var(--navy-dim2);
+    }
 
-// ---- ACCOUNTS ----
-// Generated automatically. Do NOT edit manually.
-// For the full credential list see: accounts.txt
-var ACCOUNTS = {
-    "a_sutisna": { password: "f5sbLJIj", role: "guru",  label: "A. SUTISNA, S.Pd", namaGuru: "A. SUTISNA, S.Pd" },
-    "ahmad_rahmat": { password: "ZneWCs8T", role: "guru",  label: "AHMAD RAHMAT, S.Sn, M.Pd", namaGuru: "AHMAD RAHMAT, S.Sn, M.Pd" },
-    "ai_rika": { password: "E87fp8Wa", role: "guru",  label: "AI RIKA ISMAHANI, S.Psi", namaGuru: "AI RIKA ISMAHANI, S.Psi" },
-    "alda_aldila": { password: "EVavb2XN", role: "guru",  label: "ALDA ALDILA RIYADI, S.Pd", namaGuru: "ALDA ALDILA RIYADI, S.Pd" },
-    "andri_sunanto": { password: "11AEWaYW", role: "guru",  label: "ANDRI SUNANTO, S. Pd., M. Pd", namaGuru: "ANDRI SUNANTO, S. Pd., M. Pd" },
-    "annisa_haelwani": { password: "a3AypPwy", role: "guru",  label: "ANNISA HAELWANI, S. KOM", namaGuru: "ANNISA HAELWANI, S. KOM" },
-    "ari_nugraha": { password: "MYhnqki9", role: "guru",  label: "ARI NUGRAHA, S. Pd", namaGuru: "ARI NUGRAHA, S. Pd" },
-    "arif_maulana": { password: "bq9FZtqQ", role: "guru",  label: "ARIF MAULANA GUNAWAN, S.T", namaGuru: "ARIF MAULANA GUNAWAN, S.T" },
-    "candita_reksa": { password: "6PRJRMWi", role: "guru",  label: "CANDITA REKSA RIYADI, S. Pd", namaGuru: "CANDITA REKSA RIYADI, S. Pd" },
-    "deden_kurnia": { password: "kAUEg4W8", role: "guru",  label: "DEDEN KURNIA S, S. Pd", namaGuru: "DEDEN KURNIA S, S. Pd" },
-    "diah_soepliah": { password: "L6lYRWda", role: "guru",  label: "DIAH SOEPLIAH, S. Sos", namaGuru: "DIAH SOEPLIAH, S. Sos" },
-    "dian_rahmawati": { password: "PGLxye6R", role: "guru",  label: "DIAN RAHMAWATI, S. Pd", namaGuru: "DIAN RAHMAWATI, S. Pd" },
-    "agus_masruq": { password: "i981iEXo", role: "guru",  label: "Drs. AGUS MASRUQ, M.Pd", namaGuru: "Drs. AGUS MASRUQ, M.Pd" },
-    "dwi_prihanto": { password: "1W11wt8D", role: "guru",  label: "DWI PRIHANTO K, S.Pd", namaGuru: "DWI PRIHANTO K, S.Pd" },
-    "eha_julaeha": { password: "pukXfqc7", role: "guru",  label: "EHA JULAEHA, S.S", namaGuru: "EHA JULAEHA, S.S" },
-    "elli_kemalawati": { password: "m4peOVV9", role: "guru",  label: "ELLI KEMALAWATI, S.Pd", namaGuru: "ELLI KEMALAWATI, S.Pd" },
-    "endah_nurjanah": { password: "GY0NhhwX", role: "guru",  label: "ENDAH NURJANAH, S. Pd", namaGuru: "ENDAH NURJANAH, S. Pd" },
-    "faijul_arifin": { password: "vH8SiZQx", role: "guru",  label: "FAIJUL ARIFIN, S.Pd", namaGuru: "FAIJUL ARIFIN, S.Pd" },
-    "farhan_budiarto": { password: "8ZXs112q", role: "guru",  label: "FARHAN BUDIARTO, S.Pd", namaGuru: "FARHAN BUDIARTO, S.Pd" },
-    "firda_putri": { password: "A6UyUwlh", role: "guru",  label: "FIRDA PUTRI UTAMI, S. Pd", namaGuru: "FIRDA PUTRI UTAMI, S. Pd" },
-    "fitria_agustini": { password: "EavNOQA2", role: "guru",  label: "FITRIA AGUSTINI, S.Pd", namaGuru: "FITRIA AGUSTINI, S.Pd" },
-    "hendra_saputra": { password: "amA8nlWB", role: "guru",  label: "HENDRA SAPUTRA, S.Pd", namaGuru: "HENDRA SAPUTRA, S.Pd" },
-    "iis_priatini": { password: "h5MZh0lC", role: "guru",  label: "IIS PRIATINI, S.Pd", namaGuru: "IIS PRIATINI, S.Pd" },
-    "ika_kurnia": { password: "rGUjTb78", role: "guru",  label: "IKA KURNIA, S.Pd", namaGuru: "IKA KURNIA, S.Pd" },
-    "imam_adi": { password: "arvXUfu7", role: "guru",  label: "IMAM ADI PRASETYO, S. Pd", namaGuru: "IMAM ADI PRASETYO, S. Pd" },
-    "inna_nuraini": { password: "I2R08GbV", role: "guru",  label: "INNA NURAINI SUJANA, S. Pd", namaGuru: "INNA NURAINI SUJANA, S. Pd" },
-    "iwan_setiawan": { password: "EcGBD5Xe", role: "guru",  label: "IWAN SETIAWAN, S.Pd", namaGuru: "IWAN SETIAWAN, S.Pd" },
-    "lani_mustikasari": { password: "3morcDtq", role: "guru",  label: "LANI MUSTIKASARI, S.Pd", namaGuru: "LANI MUSTIKASARI, S.Pd" },
-    "lela_zulkaedah": { password: "k8QAem08", role: "guru",  label: "LELA ZULKAEDAH, S.Pd", namaGuru: "LELA ZULKAEDAH, S.Pd" },
-    "lia_pramurtya": { password: "o1MHyOKH", role: "guru",  label: "LIA PRAMURTYA, S.Si", namaGuru: "LIA PRAMURTYA, S.Si" },
-    "luthfi_hadiansyah": { password: "X4IjJZeo", role: "guru",  label: "LUTHFI HADIANSYAH, S.Pd", namaGuru: "LUTHFI HADIANSYAH, S.Pd" },
-    "noor_fendi": { password: "Vv0iEHey", role: "guru",  label: "M. NOOR FENDI SAEFULOH, S.Pd", namaGuru: "M. NOOR FENDI SAEFULOH, S.Pd" },
-    "mega_herliani": { password: "vtSb2eDs", role: "guru",  label: "MEGA HERLIANI, S.Sn", namaGuru: "MEGA HERLIANI, S.Sn" },
-    "muh_zaenal": { password: "nQVZmsg9", role: "guru",  label: "MUH. ZAENAL ARIPIN, S. Pd", namaGuru: "MUH. ZAENAL ARIPIN, S. Pd" },
-    "nidya_eka": { password: "EyVCTb9v", role: "guru",  label: "NIDYA EKA PRATIWI, S.Pd", namaGuru: "NIDYA EKA PRATIWI, S.Pd" },
-    "pipin_firmansyah": { password: "rWE31IwE", role: "guru",  label: "PIPIN FIRMANSYAH N, S.Pd", namaGuru: "PIPIN FIRMANSYAH N, S.Pd" },
-    "prapti_handayani": { password: "LM4sxagH", role: "guru",  label: "PRAPTI HANDAYANI, S.Pd", namaGuru: "PRAPTI HANDAYANI, S.Pd" },
-    "qisti_septia": { password: "Y7JGedaO", role: "guru",  label: "QISTI SEPTIA W. A, S. Pd", namaGuru: "QISTI SEPTIA W. A, S. Pd" },
-    "rahmasari_aulia": { password: "KV8Kd619", role: "guru",  label: "RAHMASARI AULIA KHOTIMAH, S. Pd", namaGuru: "RAHMASARI AULIA KHOTIMAH, S. Pd" },
-    "rd_sri": { password: "gics4Bwb", role: "guru",  label: "Rd. SRI REJEKI, S.Pd", namaGuru: "Rd. SRI REJEKI, S.Pd" },
-    "rini_septiani": { password: "xdiliI4o", role: "guru",  label: "RINI SEPTIANI, S. Pd", namaGuru: "RINI SEPTIANI, S. Pd" },
-    "roni_rahmansyah": { password: "aVSK8MwP", role: "guru",  label: "RONI RAHMANSYAH, S.KOM", namaGuru: "RONI RAHMANSYAH, S.KOM" },
-    "sariya_dewi": { password: "g0f91JKh", role: "guru",  label: "SARIYA DEWI SARASWATI, S. Pd", namaGuru: "SARIYA DEWI SARASWATI, S. Pd" },
-    "setia_nur": { password: "h7otJycq", role: "guru",  label: "SETIA NUR PARIDAH, S.Pd", namaGuru: "SETIA NUR PARIDAH, S.Pd" },
-    "silfa_agisni": { password: "qa14vrFd", role: "guru",  label: "SILFA AGISNI SALMA, S. Pd", namaGuru: "SILFA AGISNI SALMA, S. Pd" },
-    "tata_nurhayati": { password: "BuPyCw2Z", role: "guru",  label: "TATA NURHAYATI, S.Pd", namaGuru: "TATA NURHAYATI, S.Pd" },
-    "kelas7": { password: "Bjl15rCR", role: "siswa", label: "Siswa Kelas 7", kelasLevel: "7" },
-    "kelas8": { password: "7UWFfTnF", role: "siswa", label: "Siswa Kelas 8", kelasLevel: "8" },
-    "kelas9": { password: "cw8Q72A7", role: "siswa", label: "Siswa Kelas 9", kelasLevel: "9" },
-    // ── Per-class student accounts (7A–9I) ──────────────────────────────
-    "7a": { password: "ZVVb^VPt^492", role: "siswa", label: "Siswa Kelas 7A", kelasLevel: "7", kelasId: "7A" },
-    "7b": { password: "1%mC^KgWPKxq", role: "siswa", label: "Siswa Kelas 7B", kelasLevel: "7", kelasId: "7B" },
-    "7c": { password: "#kv0UU&625Up", role: "siswa", label: "Siswa Kelas 7C", kelasLevel: "7", kelasId: "7C" },
-    "7d": { password: "*^l@WK7o2r8Y", role: "siswa", label: "Siswa Kelas 7D", kelasLevel: "7", kelasId: "7D" },
-    "7e": { password: "*TFTVEP@c@B7", role: "siswa", label: "Siswa Kelas 7E", kelasLevel: "7", kelasId: "7E" },
-    "7f": { password: "DP8ZOTmZVD^L", role: "siswa", label: "Siswa Kelas 7F", kelasLevel: "7", kelasId: "7F" },
-    "7g": { password: "&jWT!Dg95nfP", role: "siswa", label: "Siswa Kelas 7G", kelasLevel: "7", kelasId: "7G" },
-    "7h": { password: "3@&^ynfI4qtE", role: "siswa", label: "Siswa Kelas 7H", kelasLevel: "7", kelasId: "7H" },
-    "7i": { password: "%7J^Cgnpu!!b", role: "siswa", label: "Siswa Kelas 7I", kelasLevel: "7", kelasId: "7I" },
-    "8a": { password: "cmk1W!DOeieO", role: "siswa", label: "Siswa Kelas 8A", kelasLevel: "8", kelasId: "8A" },
-    "8b": { password: "w0cRe#C*&h1W", role: "siswa", label: "Siswa Kelas 8B", kelasLevel: "8", kelasId: "8B" },
-    "8c": { password: "BBXX1h3Y@1i3", role: "siswa", label: "Siswa Kelas 8C", kelasLevel: "8", kelasId: "8C" },
-    "8d": { password: "@y^bC2xxaKOy", role: "siswa", label: "Siswa Kelas 8D", kelasLevel: "8", kelasId: "8D" },
-    "8e": { password: "wLwb5UN&DK!^", role: "siswa", label: "Siswa Kelas 8E", kelasLevel: "8", kelasId: "8E" },
-    "8f": { password: "nLPw!1PDEx$S", role: "siswa", label: "Siswa Kelas 8F", kelasLevel: "8", kelasId: "8F" },
-    "8g": { password: "JnrUaBWPJ$6O", role: "siswa", label: "Siswa Kelas 8G", kelasLevel: "8", kelasId: "8G" },
-    "8h": { password: "QYYu^6#rzIDB", role: "siswa", label: "Siswa Kelas 8H", kelasLevel: "8", kelasId: "8H" },
-    "8i": { password: "16wwM$#GQxGJ", role: "siswa", label: "Siswa Kelas 8I", kelasLevel: "8", kelasId: "8I" },
-    "9a": { password: "ug9u7g3*6@Cs", role: "siswa", label: "Siswa Kelas 9A", kelasLevel: "9", kelasId: "9A" },
-    "9b": { password: "h8JMx^4#mKVr", role: "siswa", label: "Siswa Kelas 9B", kelasLevel: "9", kelasId: "9B" },
-    "9c": { password: "I4DH5fk^zKcV", role: "siswa", label: "Siswa Kelas 9C", kelasLevel: "9", kelasId: "9C" },
-    "9d": { password: "yf*m&80J%I7K", role: "siswa", label: "Siswa Kelas 9D", kelasLevel: "9", kelasId: "9D" },
-    "9e": { password: "QX^cXo4AnQ$q", role: "siswa", label: "Siswa Kelas 9E", kelasLevel: "9", kelasId: "9E" },
-    "9f": { password: "05uLN&IBtE7d", role: "siswa", label: "Siswa Kelas 9F", kelasLevel: "9", kelasId: "9F" },
-    "9g": { password: "*9D8UT&L@TMn", role: "siswa", label: "Siswa Kelas 9G", kelasLevel: "9", kelasId: "9G" },
-    "9h": { password: "f$lU9iF1w&wg", role: "siswa", label: "Siswa Kelas 9H", kelasLevel: "9", kelasId: "9H" },
-    "9i": { password: "BCzn*DG4@so*", role: "siswa", label: "Siswa Kelas 9I", kelasLevel: "9", kelasId: "9I" },
-    // ── Admin account ──────────────────────────────────────────────────
-    "admin": { password: "c&|b_kpv&t}3RXKw+kUDjX?x", role: "admin", label: "Administrator SIJAP" }
-};
+    .bottom-tabbar .bottom-tab.active .bottom-tab-icon { opacity: 1; }
 
-// ---- SESSION ----
-var currentUser = null;  // { username, role, label }
+    .bottom-tabbar .bottom-tab-fab {
+        flex: 0 0 auto;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        margin-top: -26px;
+        background: var(--navy);
+        color: #fff;
+        box-shadow: 0 4px 10px var(--navy-dim2), 0 0 0 5px var(--bg);
+        gap: 0;
+    }
 
-// ---- BRUTE-FORCE PROTECTION ----
-var MAX_ATTEMPTS  = 3;
-var LOCKOUT_MS    = 2 * 60 * 1000; // 2 minutes
-var LOGIN_STORAGE = 'sijap-login-attempts';
+    body.dark .bottom-tabbar .bottom-tab-fab {
+        box-shadow: 0 8px 18px var(--navy-dim2), 0 0 0 5px var(--bg-card);
+    }
 
-function getLoginAttempts() {
-    try {
-        var raw = localStorage.getItem(LOGIN_STORAGE);
-        if (!raw) return { count: 0, lockedUntil: 0 };
-        return JSON.parse(raw);
-    } catch(e) {
-        return { count: 0, lockedUntil: 0 };
+    .bottom-tabbar .bottom-tab-fab .bottom-tab-icon {
+        font-size: 1.5rem;
+        opacity: 1;
+    }
+
+    .bottom-tabbar .bottom-tab-fab .bottom-tab-label {
+        display: none;
+    }
+
+    .bottom-tabbar .bottom-tab-fab:active {
+        transform: scale(0.92);
     }
 }
 
-function saveLoginAttempts(data) {
-    localStorage.setItem(LOGIN_STORAGE, JSON.stringify(data));
+/* Nav right */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-function resetLoginAttempts() {
-    localStorage.removeItem(LOGIN_STORAGE);
+/* Dark Mode Toggle */
+.dark-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-2);
+    transition: var(--transition);
+    flex-shrink: 0;
 }
 
-function isLockedOut() {
-    var d = getLoginAttempts();
-    if (d.lockedUntil && Date.now() < d.lockedUntil) return d.lockedUntil;
-    return false;
+.dark-toggle:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--navy-dim);
+    transform: rotate(15deg);
 }
 
-function recordFailedAttempt() {
-    var d = getLoginAttempts();
-    d.count = (d.count || 0) + 1;
-    if (d.count >= MAX_ATTEMPTS) {
-        d.lockedUntil = Date.now() + LOCKOUT_MS;
-    }
-    saveLoginAttempts(d);
-    return d;
+.dark-toggle svg { width: 18px; height: 18px; }
+
+.dark-toggle .icon-sun { display: none; }
+.dark-toggle .icon-moon { display: block; }
+body.dark .dark-toggle .icon-sun { display: block; }
+body.dark .dark-toggle .icon-moon { display: none; }
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: var(--radius);
 }
 
-// ---- LOGIN UI ----
-function showLoginOverlay() {
-    var overlay = document.getElementById('loginOverlay');
-    overlay.style.display = 'flex';
-    // clear inputs
-    document.getElementById('loginUsername').value = '';
-    document.getElementById('loginPassword').value = '';
-    document.getElementById('loginError').style.display = 'none';
-    checkLockStatus();
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-2);
+    border-radius: 2px;
+    transition: var(--transition);
 }
 
-function hideLoginOverlay() {
-    document.getElementById('loginOverlay').style.display = 'none';
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* === MAIN LAYOUT === */
+.main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 117px 24px 60px;
+    min-height: calc(100vh - 120px);
 }
 
-function checkLockStatus() {
-    var lockedUntil = isLockedOut();
-    var lockEl = document.getElementById('loginLocked');
-    var btnEl  = document.getElementById('loginBtn');
-    if (lockedUntil) {
-        lockEl.style.display = 'flex';
-        btnEl.disabled = true;
-        var remaining = Math.ceil((lockedUntil - Date.now()) / 1000);
-        document.getElementById('loginLockedMsg').textContent =
-            'Terlalu banyak percobaan. Tunggu ' + remaining + ' detik lagi.';
-        setTimeout(checkLockStatus, 1000);
-    } else {
-        lockEl.style.display = 'none';
-        btnEl.disabled = false;
+/* === SECTIONS === */
+.section {
+    display: none;
+    animation: fadeUp 0.38s ease forwards;
+}
+
+.section.active-section {
+    display: block;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === HERO === */
+.hero {
+    padding: 72px 0 60px;
+    max-width: 680px;
+}
+
+/* === GREETING WIDGET === */
+.greeting-widget {
+    margin-bottom: 20px;
+    animation: fadeUp 0.35s ease both;
+}
+
+.greeting-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 340px;
+    background: var(--bg-card);
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 8px 6px 16px;
+    transition: var(--transition);
+}
+
+.greeting-input-row:focus-within {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px var(--navy-dim);
+}
+
+.greeting-input-icon { font-size: 1rem; }
+
+.greeting-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.85rem;
+    color: var(--text);
+    font-family: var(--sans);
+}
+
+.greeting-input::placeholder { color: var(--text-3); }
+
+.greeting-save-btn {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: none;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.greeting-save-btn svg { width: 15px; height: 15px; }
+
+.greeting-save-btn:hover { transform: scale(1.08); }
+.greeting-save-btn:active { transform: scale(0.92); }
+
+.greeting-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: fit-content;
+    background: var(--navy-dim);
+    border: 1px solid var(--navy-dim2);
+    border-radius: 100px;
+    padding: 9px 10px 9px 16px;
+    animation: fadeUp 0.3s ease both;
+}
+
+.greeting-emoji { font-size: 1.1rem; }
+
+.greeting-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.greeting-edit-btn {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid var(--navy-dim2);
+    background: var(--bg-card);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.greeting-edit-btn svg { width: 12px; height: 12px; }
+.greeting-edit-btn:hover { background: var(--navy); color: #fff; }
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--green);
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    padding: 5px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.35s ease 0.05s both;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.35); }
+    50%       { opacity: 0.8; box-shadow: 0 0 0 5px rgba(22, 163, 74, 0); }
+}
+
+body.dark .badge-dot {
+    animation: pulse-dark 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dark {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.35); }
+    50%       { opacity: 0.8; box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+}
+
+.hero-title {
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 18px;
+    animation: fadeUp 0.35s ease 0.1s both;
+}
+
+.hero-accent {
+    color: var(--navy);
+    display: block;
+    position: relative;
+}
+
+.hero-accent::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -6px;
+    width: 64px;
+    height: 5px;
+    border-radius: 3px;
+    background: var(--school-green);
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: var(--text-2);
+    margin-bottom: 36px;
+    max-width: 480px;
+    line-height: 1.75;
+    animation: fadeUp 0.35s ease 0.15s both;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 52px;
+    animation: fadeUp 0.35s ease 0.2s both;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    background: var(--navy);
+    color: #fff;
+    border: 2px solid var(--navy);
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.2px;
+}
+
+.btn-primary svg { width: 16px; height: 16px; }
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 58, 95, 0.28);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+body.dark .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(74, 144, 217, 0.3);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--text-2);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius);
+    font-size: 0.825rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.btn-secondary svg { width: 14px; height: 14px; }
+
+.version-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.825rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 14px rgba(14, 124, 74, 0.25);
+}
+
+.version-pill svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+/* Stats */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 28px;
+    width: fit-content;
+    box-shadow: var(--shadow-sm);
+    animation: fadeUp 0.35s ease 0.25s both;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 0 24px;
+}
+
+.stat-card:first-child { padding-left: 0; }
+.stat-card:last-child  { padding-right: 0; }
+
+.stat-num {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.03em;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-3);
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+    flex-shrink: 0;
+}
+
+/* Feature Grid */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+    animation: fadeUp 0.35s ease 0.3s both;
+}
+
+.feature-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.feature-card:active {
+    transform: scale(0.98);
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--navy-dim);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    margin-bottom: 14px;
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    background: var(--navy);
+    color: #fff;
+}
+
+.feature-icon svg { width: 20px; height: 20px; }
+
+.feature-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.feature-card p {
+    font-size: 0.825rem;
+    color: var(--text-2);
+    line-height: 1.65;
+}
+
+/* === SECTION TOPBAR === */
+.section-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-top: 32px;
+}
+
+.section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.7;
+}
+
+.section-heading h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: var(--bg-secondary);
+    color: var(--text-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.back-btn svg { width: 14px; height: 14px; }
+
+.back-btn:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--navy-dim);
+}
+
+.back-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* === GRADE GRID === */
+.grade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.grade-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.grade-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--navy);
+    opacity: 0;
+    transition: opacity 0.22s;
+}
+
+.grade-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.grade-card:hover::before { opacity: 1; }
+
+.grade-card:active {
+    transform: scale(0.98);
+}
+
+.grade-number {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--navy-dim2);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+}
+
+body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
+
+.grade-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.grade-info p {
+    font-size: 0.78rem;
+    color: var(--text-2);
+    margin-bottom: 12px;
+}
+
+.grade-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.dot-active {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+}
+
+.grade-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.grade-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30,58,95,0.25);
+}
+
+/* === KELAS GRID === */
+.kelas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.kelas-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.kelas-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+.kelas-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.kelas-card-header h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+}
+
+.kelas-badge {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-bg);
+    border: 1px solid var(--green-border);
+    padding: 2px 8px;
+    border-radius: 100px;
+    letter-spacing: 0.5px;
+}
+
+.kelas-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3px 8px;
+    font-size: 0.75rem;
+    margin-bottom: 14px;
+    align-items: center;
+}
+
+.kelas-meta .label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 1px;
+}
+
+.kelas-meta span:not(.label) {
+    color: var(--text-2);
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kelas-button {
+    width: 100%;
+    padding: 9px 14px;
+    background: var(--navy-dim);
+    color: var(--navy);
+    border: 1px solid var(--navy-dim2);
+    border-radius: var(--radius);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.kelas-button:hover {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    transform: translateY(-1px);
+}
+
+.kelas-button:active {
+    transform: scale(0.96);
+    background: var(--navy);
+    color: #fff;
+}
+
+/* === JADWAL / SCHEDULE === */
+.jadwal-header {
+    position: sticky;
+    top: 101px;
+    z-index: 10;
+    background: var(--bg);
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+    transition: background 0.3s ease;
+}
+
+.hari-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.hari-btn {
+    padding: 8px 18px;
+    border: 1.5px solid var(--border);
+    border-radius: 100px;
+    background: var(--bg-card);
+    color: var(--text-2);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.3px;
+}
+
+.hari-btn:hover {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: var(--navy-dim);
+}
+
+.hari-btn.active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: #fff;
+    box-shadow: 0 3px 10px var(--navy-dim2);
+}
+
+.hari-btn:active {
+    transform: scale(0.94);
+}
+
+.jadwal-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+}
+
+.jadwal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 480px;
+}
+
+.jadwal-table thead tr {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--border);
+}
+
+.jadwal-table th {
+    padding: 13px 18px;
+    text-align: left;
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.jadwal-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+}
+
+.jadwal-table tbody tr:last-child { border-bottom: none; }
+
+.jadwal-table tbody tr:hover { background: var(--navy-dim); }
+
+.jadwal-table td {
+    padding: 13px 18px;
+    color: var(--text-2);
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.jadwal-table td:first-child {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.jadwal-table td:nth-child(2) {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.no-data {
+    text-align: center;
+    padding: 48px !important;
+    color: var(--text-3);
+    font-size: 0.82rem;
+}
+
+/* Notice */
+.notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.notice svg { width: 16px; height: 16px; color: var(--text-3); flex-shrink: 0; margin-top: 1px; }
+
+.notice p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ====================================
+   SECTION GURU
+   ==================================== */
+.guru-intro {
+    font-size: 0.9rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 600px;
+}
+
+.guru-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+}
+
+/* Kartu Guru */
+.guru-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.guru-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--navy);
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.guru-card:hover {
+    border-color: var(--navy);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.guru-card:hover::after {
+    opacity: 1;
+}
+
+.guru-card-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+/* Foto profil placeholder berbentuk lingkaran */
+.guru-avatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: var(--text-3);
+    font-size: 1.6rem;
+    font-weight: 800;
+    transition: var(--transition);
+    position: relative;
+}
+
+.guru-avatar svg {
+    width: 36px;
+    height: 36px;
+    opacity: 0.4;
+}
+
+.guru-avatar-initials {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+}
+
+.guru-card:hover .guru-avatar {
+    border-color: var(--navy);
+    background: var(--navy-dim);
+}
+
+.guru-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.guru-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.guru-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+}
+
+.guru-meta-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    width: 68px;
+}
+
+.guru-meta-value {
+    font-size: 0.78rem;
+    color: var(--text-2);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.guru-mapel-badge {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--navy);
+    background: var(--navy-dim);
+    border: 1px solid var(--navy-dim2);
+    padding: 2px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.3px;
+    margin-top: 8px;
+}
+
+/* Tombol jadwal guru */
+.guru-jadwal-btn {
+    width: 100%;
+    padding: 10px 16px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.guru-jadwal-btn svg { width: 14px; height: 14px; }
+
+.guru-jadwal-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(30,58,95,0.3);
+}
+
+.guru-jadwal-btn:active { transform: translateY(0); }
+
+/* Jadwal Guru Tabs */
+.guru-jadwal-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+/* === TENTANG / ABOUT === */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    margin-top: 4px;
+}
+
+.about-main, .about-sidebar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-sm);
+}
+
+.about-desc {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    line-height: 1.75;
+    margin-bottom: 28px;
+}
+
+.version-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.version-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+}
+
+.version-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.version-value {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.version-value.online { color: var(--green); }
+
+.roadmap-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.roadmap-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.roadmap-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-2);
+}
+
+.rmark {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    font-weight: 700;
+}
+
+.done .rmark {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid var(--green-border);
+}
+
+.current .rmark {
+    background: var(--navy-dim);
+    color: var(--navy);
+    border: 1px solid var(--navy-dim2);
+}
+
+.spin {
+    display: inline-block;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Sidebar */
+.sidebar-title {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--text-3);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.team-card {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.team-card:last-child { border-bottom: none; }
+
+.team-role {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.team-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* === FOOTER === */
+.footer {
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--school-green) 55%, var(--school-green) 100%) 1;
+    background: var(--bg-secondary);
+    transition: background 0.3s ease;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    color: var(--text-3);
+}
+
+.footer-brand {
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: 1px;
+}
+
+.footer-sep { color: var(--border-strong); }
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--navy); }
+
+/* === RESPONSIVE — TABLET === */
+@media (max-width: 860px) {
+    .feature-grid { grid-template-columns: repeat(2, 1fr); }
+    .grade-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-layout { grid-template-columns: 1fr; }
+    .version-grid { grid-template-columns: repeat(2, 1fr); }
+    .kelas-grid { grid-template-columns: repeat(3, 1fr); }
+    .guru-grid { grid-template-columns: 1fr; }
+}
+
+/* === RESPONSIVE — MOBILE === */
+@media (max-width: 600px) {
+    .header-inner { padding: 0 16px; }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0; right: 0;
+        flex-direction: column;
+        gap: 2px;
+        padding: 12px 16px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+    }
+
+    body.dark .nav { background: var(--bg); }
+
+    .nav.open {
+        display: flex;
+        animation: fadeUp 0.2s ease forwards;
+    }
+
+    .nav-link { width: 100%; padding: 11px 14px; }
+    .hamburger { display: flex; }
+    .brand-sub { display: none; }
+
+    .main { padding: 117px 16px 130px; }
+    .jadwal-header { top: 101px; }
+
+    .hero { padding: 40px 0 36px; }
+    .hero-stats { padding: 16px 20px; width: 100%; }
+    .stat-card { padding: 0 14px; flex: 1; }
+    .stat-num { font-size: 1.35rem; }
+
+    .feature-grid { grid-template-columns: 1fr; }
+    .grade-grid { grid-template-columns: 1fr; }
+    .kelas-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .version-grid { grid-template-columns: 1fr 1fr; }
+
+    .section-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-top: 24px;
+    }
+
+    .jadwal-table th,
+    .jadwal-table td { padding: 10px 12px; }
+
+    /* Jadwal jadi tampilan kartu di layar kecil, gak perlu geser tabel lagi */
+    .jadwal-wrapper { overflow-x: visible; border: none; box-shadow: none; background: transparent; }
+
+    .jadwal-table { min-width: 0; }
+    .jadwal-table thead { display: none; }
+
+    .jadwal-table, .jadwal-table tbody, .jadwal-table tr, .jadwal-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .jadwal-table tbody tr {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        margin-bottom: 12px;
+        padding: 6px 4px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .jadwal-table tbody tr:hover { background: var(--bg-card); }
+
+    .jadwal-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 14px;
+        border-bottom: 1px dashed var(--border);
+        text-align: right;
+    }
+
+    .jadwal-table tbody tr td:last-child { border-bottom: none; }
+
+    .jadwal-table td::before {
+        content: attr(data-label);
+        font-size: 0.68rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        color: var(--text-3);
+        text-align: left;
+    }
+
+    .jadwal-table td:first-child {
+        background: var(--navy-dim);
+        border-radius: var(--radius) var(--radius) 0 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .jadwal-table td.no-data {
+        display: block;
+        text-align: center;
+    }
+    .jadwal-table td.no-data::before { display: none; }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary, .btn-secondary, .version-pill { justify-content: center; }
+
+    .hari-btn { padding: 7px 14px; font-size: 0.75rem; }
+
+    .guru-card-top { flex-direction: row; align-items: center; }
+    .guru-avatar { width: 58px; height: 58px; }
+
+    .guru-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 380px) {
+    .kelas-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: column; gap: 12px; }
+    .stat-divider { width: 60%; height: 1px; align-self: center; }
+}
+
+/* ===== GURU FILTER TABS ===== */
+.guru-filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.guru-filter-btn {
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.02em;
+}
+
+.guru-filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.guru-filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+/* ============================================
+   LOGIN & AUTH SYSTEM
+   ============================================ */
+
+#loginOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: var(--bg);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    animation: loginPopIn 0.22s ease;
+}
+
+.login-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 55%, var(--school-green) 55%, var(--school-green) 100%);
+}
+
+@keyframes loginPopIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.login-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.login-close svg { width: 15px; height: 15px; }
+
+.login-close:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #dc2626;
+    transform: rotate(90deg);
+}
+
+.login-close:active { transform: rotate(90deg) scale(0.9); }
+
+.login-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-icon-ring {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 18px;
+    background: var(--navy);
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px var(--navy-dim2);
+}
+
+.login-header .brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--bg-card);
+    border-radius: 14px;
+    color: var(--navy);
+}
+
+.login-brand {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+}
+
+.login-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.login-error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark .login-error {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: rgba(220, 38, 38, 0.4);
+    color: #f87171;
+}
+
+.login-locked {
+    background: #fef3c7;
+    color: #d97706;
+    border: 1px solid #fde68a;
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.dark .login-locked {
+    background: rgba(217, 119, 6, 0.15);
+    border-color: rgba(217, 119, 6, 0.4);
+    color: #fbbf24;
+}
+
+.login-form .form-group {
+    margin-bottom: 16px;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--text-2);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.92rem;
+    font-family: var(--sans);
+    transition: var(--transition);
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px var(--navy-dim2);
+}
+
+.form-input[readonly] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+select.form-input {
+    cursor: pointer;
+}
+
+.form-textarea {
+    min-height: 90px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--navy);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 4px;
+}
+
+.btn-login:hover {
+    background: var(--navy-mid);
+    transform: translateY(-1px);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.login-hint {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.login-hint code {
+    background: var(--navy-dim);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    color: var(--navy);
+}
+
+/* ============================================
+   USER BAR
+   ============================================ */
+
+.user-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    background: var(--navy);
+    border-top: 1px solid var(--navy-mid);
+}
+
+.user-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.user-bar-label {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--radius);
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ============================================
+   NAV LOGIN BUTTON
+   ============================================ */
+
+.nav-login-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--navy-dim);
+    color: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 7px 14px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.nav-login-btn:hover {
+    background: var(--navy-dim2);
+    border-color: var(--navy);
+}
+
+/* ============================================
+   HOMEWORK FORM (TEACHER DASHBOARD)
+   ============================================ */
+
+.hw-form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.hw-form-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hw-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.hw-desc-group {
+    grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+    .hw-form-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-function doLogin() {
-    if (isLockedOut()) {
-        checkLockStatus();
-        return;
-    }
-
-    var username = document.getElementById('loginUsername').value.trim().toLowerCase();
-    var password = document.getElementById('loginPassword').value;
-    var errEl = document.getElementById('loginError');
-
-    if (!username || !password) {
-        errEl.textContent = 'Username dan password harus diisi.';
-        errEl.style.display = 'flex';
-        return;
-    }
-
-    var account = ACCOUNTS[username];
-    if (!account || account.password !== password) {
-        var d = recordFailedAttempt();
-        var remaining = MAX_ATTEMPTS - d.count;
-        if (d.count >= MAX_ATTEMPTS) {
-            errEl.style.display = 'none';
-            checkLockStatus();
-        } else {
-            errEl.textContent = 'Username atau password salah. Sisa percobaan: ' + remaining;
-            errEl.style.display = 'flex';
-        }
-        return;
-    }
-
-    // Success
-    resetLoginAttempts();
-    currentUser = {
-        username:   username,
-        role:       account.role,
-        label:      account.label,
-        namaGuru:   account.namaGuru   || null,
-        kelasLevel: account.kelasLevel || null
-    };
-    hideLoginOverlay();
-    onLoginSuccess();
+.hw-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
 }
 
-function doLogout() {
-    // Stop all real-time listeners
-    if (hwUnsubscribeGuru) {
-        hwUnsubscribeGuru();
-        hwUnsubscribeGuru = null;
-    }
-    if (hwUnsubscribeSiswa) {
-        hwUnsubscribeSiswa();
-        hwUnsubscribeSiswa = null;
-    }
-    currentUser = null;
-    updateAuthUI();
-    showSection('beranda');
+/* ============================================
+   HOMEWORK LIST
+   ============================================ */
+
+.hw-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
 }
 
-function onLoginSuccess() {
-    updateAuthUI();
-    if (currentUser.role === 'guru' || currentUser.role === 'admin') {
-        renderDashboardNav();
-        // Update dashboard title
-        var titleEl = document.getElementById('dashboardTitle');
-        if (titleEl) titleEl.textContent = 'Dashboard — ' + (currentUser.namaGuru || currentUser.label);
-        showSection('dashboard-guru');
-        // Start real-time listener for all homework (teacher/admin sees everything)
-        subscribeHwGuru('');
-    } else {
-        // Student: use specific class if available, otherwise grade level
-        var displayId = currentUser.kelasId || currentUser.kelasLevel;
-        renderTodaySchedule();
-        showSection('jadwal-hari-ini');
-        var titleEl2 = document.getElementById('todayScheduleTitle');
-        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini — Kelas ' + displayId;
-        subscribeHwSiswa(displayId);
-    }
+.hw-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeInUp 0.25s ease;
 }
 
-function updateAuthUI() {
-    var navLoginBtn = document.getElementById('navLoginBtn');
-    var userBar     = document.getElementById('userBar');
-    var userBarLbl  = document.getElementById('userBarLabel');
-
-    if (currentUser) {
-        // Build a short label for the nav button
-        var shortLabel = currentUser.role === 'guru'
-            ? (currentUser.namaGuru || currentUser.label)
-            : currentUser.label;
-
-        // Truncate if very long for nav button
-        var displayLabel = shortLabel.length > 28 ? shortLabel.substring(0, 26) + '…' : shortLabel;
-        navLoginBtn.textContent = displayLabel;
-
-        var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : currentUser.role === 'admin' ? '🔑 Admin' : '📚 Siswa';
-        userBar.style.display = 'block';
-        userBarLbl.textContent = roleTag + ' — ' + shortLabel;
-        document.body.classList.add('has-userbar');
-    } else {
-        navLoginBtn.innerHTML =
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
-            '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>' +
-            '<polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Login';
-        userBar.style.display = 'none';
-        document.body.classList.remove('has-userbar');
-        var dashNav = document.getElementById('dashboardNavLink');
-        if (dashNav) dashNav.remove();
-    }
+@keyframes fadeInUp {
+    from { opacity:0; transform:translateY(8px); }
+    to   { opacity:1; transform:translateY(0); }
 }
 
-function renderDashboardNav() {
-    if (document.getElementById('dashboardNavLink')) return;
-    var nav = document.getElementById('mainNav');
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'nav-link';
-    link.id = 'dashboardNavLink';
-    link.setAttribute('data-section', 'dashboard-guru');
-    link.innerHTML = '<span class="nav-icon">⊕</span><span>Dashboard</span>';
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('dashboard-guru');
-        renderHwListGuru();
-        nav.classList.remove('open');
-        document.getElementById('hamburger').classList.remove('open');
-    });
-    nav.appendChild(link);
+.hw-item-mapel-badge {
+    background: var(--navy-dim);
+    color: var(--navy);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
-// ===================================================
-// FIREBASE CONFIGURATION
-// ===================================================
-// ⚠️  REPLACE THE VALUES BELOW WITH YOUR OWN CONFIG
-//     From: Firebase Console → Your Project → Project Settings → Your Apps → SDK setup
-// ===================================================
-var FIREBASE_CONFIG = {
-    apiKey:            "AIzaSyBbOyHHcsFv7dB6vINYOqhkGvz-synfY78",
-    authDomain:        "sijap-smpn24.firebaseapp.com",
-    projectId:         "sijap-smpn24",
-    storageBucket:     "sijap-smpn24.firebasestorage.app",
-    messagingSenderId: "44069478574",
-    appId:             "1:44069478574:web:6af07c1bc334fcbc5e8d3f"
-};
-
-// ===================================================
-// FIREBASE INIT
-// ===================================================
-
-var db = null;              // Firestore instance (set after init)
-var fbReady = false;        // true once Firebase has initialised successfully
-var fbError = false;        // true if Firebase failed to connect
-var hwUnsubscribeGuru   = null;   // real-time listener handle for teacher view
-var hwUnsubscribeSiswa  = null;   // real-time listener handle for student view
-
-function initFirebase() {
-    try {
-        // Guard: only init once
-        if (!firebase.apps.length) {
-            firebase.initializeApp(FIREBASE_CONFIG);
-        }
-        db = firebase.firestore();
-        fbReady = true;
-        showFbStatus('connected');
-    } catch (err) {
-        fbReady = false;
-        fbError = true;
-        showFbStatus('error', err.message);
-        console.error('[SIJAP] Firebase init error:', err);
-    }
+.hw-item-body {
+    flex: 1;
+    min-width: 0;
 }
 
-// ── Firebase status bar (only visible in teacher dashboard) ──────────
-function showFbStatus(state, msg) {
-    var bar = document.getElementById('fbStatusBar');
-    if (!bar) return;
-    if (state === 'connected') {
-        bar.style.display = 'flex';
-        bar.className = 'fb-status-bar fb-status-ok';
-        bar.innerHTML =
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l1.27-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
-            '<span>Firebase terhubung — Data real-time aktif ✓</span>';
-    } else {
-        bar.style.display = 'flex';
-        bar.className = 'fb-status-bar fb-status-error';
-        bar.innerHTML =
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
-            '<span>Firebase error: ' + escapeHtml(msg || 'Tidak dapat terhubung') +
-            ' — Periksa konfigurasi di script.js</span>';
-    }
+.hw-item-desc {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 6px;
 }
 
-// ===================================================
-// HELPERS
-// ===================================================
-
-function escapeHtml(str) {
-    if (!str) return '';
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+.hw-item-meta {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-function formatTanggal(isoStr) {
-    if (!isoStr) return '—';
-    var d = new Date(isoStr + 'T00:00:00');
-    var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-    var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-    return days[d.getDay()] + ', ' + d.getDate() + ' ' + months[d.getMonth()] + ' ' + d.getFullYear();
+.hw-item-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-// ===================================================
-// FIREBASE — ADD HOMEWORK
-// ===================================================
-
-function addHomeworkToFirebase(data, onSuccess, onError) {
-    if (!fbReady || !db) {
-        onError('Firebase belum siap. Coba refresh halaman.');
-        return;
-    }
-    db.collection('homeworks').add({
-        class:       data.kelas,
-        subject:     data.mapel,
-        teacher:     data.namaGuru,
-        description: data.deskripsi,
-        date:        data.tanggal,
-        timestamp:   firebase.firestore.FieldValue.serverTimestamp()
-    })
-    .then(function() { onSuccess(); })
-    .catch(function(err) { onError(err.message); });
+.hw-item-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
 }
 
-// ===================================================
-// FIREBASE — UPDATE HOMEWORK
-// ===================================================
-
-function updateHomeworkInFirebase(docId, data, onSuccess, onError) {
-    if (!fbReady || !db) {
-        onError('Firebase belum siap.');
-        return;
-    }
-    db.collection('homeworks').doc(docId).update({
-        class:       data.kelas,
-        subject:     data.mapel,
-        description: data.deskripsi,
-        date:        data.tanggal
-    })
-    .then(function() { onSuccess(); })
-    .catch(function(err) { onError(err.message); });
+.hw-action-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: var(--transition);
 }
 
-// ===================================================
-// FIREBASE — DELETE HOMEWORK
-// ===================================================
-
-function deleteHomeworkFromFirebase(docId, onSuccess, onError) {
-    if (!fbReady || !db) {
-        onError('Firebase belum siap.');
-        return;
-    }
-    db.collection('homeworks').doc(docId).delete()
-    .then(function() { onSuccess(); })
-    .catch(function(err) { onError(err.message); });
+.hw-edit-btn {
+    background: var(--navy-dim);
+    color: var(--navy);
+    border-color: var(--border);
 }
 
-// ===================================================
-// FIREBASE — REAL-TIME LISTENER: TEACHER (all classes)
-// ===================================================
-
-function subscribeHwGuru(filterKelas) {
-    if (hwUnsubscribeGuru) {
-        hwUnsubscribeGuru();
-        hwUnsubscribeGuru = null;
-    }
-
-    if (!fbReady || !db) {
-        renderHwListGuruData([], true);
-        return;
-    }
-
-    var container = document.getElementById('hwListGuru');
-    if (container) {
-        container.innerHTML =
-            '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat data...</span></div>';
-    }
-
-    // Tidak pakai orderBy supaya tidak perlu Firestore Index.
-    // Pengurutan dilakukan di JavaScript setelah data diterima.
-    var query = db.collection('homeworks');
-    if (filterKelas && filterKelas !== '') {
-        query = query.where('class', '==', filterKelas);
-    }
-
-    hwUnsubscribeGuru = query.onSnapshot(function(snapshot) {
-        var list = [];
-        snapshot.forEach(function(doc) {
-            var d = doc.data();
-            list.push({
-                id:        doc.id,
-                kelas:     d.class       || '',
-                mapel:     d.subject     || '',
-                namaGuru:  d.teacher     || '',
-                deskripsi: d.description || '',
-                tanggal:   d.date        || '',
-                timestamp: d.timestamp
-            });
-        });
-        // Urutkan dari yang terbaru ke yang lama
-        list.sort(function(a, b) {
-            var ta = (a.timestamp && a.timestamp.toMillis) ? a.timestamp.toMillis() : 0;
-            var tb = (b.timestamp && b.timestamp.toMillis) ? b.timestamp.toMillis() : 0;
-            return tb - ta;
-        });
-        renderHwListGuruData(list, false);
-    }, function(err) {
-        console.error('[SIJAP] Firestore listener error (guru):', err);
-        renderHwListGuruData([], true, err.message);
-    });
+.hw-edit-btn:hover {
+    background: var(--navy-dim2);
 }
 
-// ===================================================
-// FIREBASE — REAL-TIME LISTENER: STUDENT (filtered by class)
-// ===================================================
-
-function subscribeHwSiswa(kelasFilter) {
-    if (hwUnsubscribeSiswa) {
-        hwUnsubscribeSiswa();
-        hwUnsubscribeSiswa = null;
-    }
-
-    if (!fbReady || !db) {
-        renderHwListSiswaData([], kelasFilter, true);
-        return;
-    }
-
-    var container = document.getElementById('hwListSiswa');
-    if (container) {
-        container.innerHTML =
-            '<div class="hw-loading"><div class="hw-loading-spinner"></div><span>Memuat tugas...</span></div>';
-    }
-
-    // Tidak pakai orderBy supaya tidak perlu Firestore Index.
-    // Filter 'in' tetap dipakai untuk menyaring per kelas.
-    // Pengurutan dilakukan di JavaScript setelah data diterima.
-    var classesToQuery = buildClassFilterList(kelasFilter);
-
-    var query = db.collection('homeworks')
-        .where('class', 'in', classesToQuery);
-
-    hwUnsubscribeSiswa = query.onSnapshot(function(snapshot) {
-        var list = [];
-        snapshot.forEach(function(doc) {
-            var d = doc.data();
-            list.push({
-                id:        doc.id,
-                kelas:     d.class       || '',
-                mapel:     d.subject     || '',
-                namaGuru:  d.teacher     || '',
-                deskripsi: d.description || '',
-                tanggal:   d.date        || '',
-                timestamp: d.timestamp
-            });
-        });
-        // Urutkan dari yang terbaru ke yang lama
-        list.sort(function(a, b) {
-            var ta = (a.timestamp && a.timestamp.toMillis) ? a.timestamp.toMillis() : 0;
-            var tb = (b.timestamp && b.timestamp.toMillis) ? b.timestamp.toMillis() : 0;
-            return tb - ta;
-        });
-        renderHwListSiswaData(list, kelasFilter, false);
-        // Update juga kolom PR di tabel jadwal hari ini
-        renderTodaySchedule(list);
-    }, function(err) {
-        console.error('[SIJAP] Firestore listener error (siswa):', err);
-        renderHwListSiswaData([], kelasFilter, true, err.message);
-    });
+.hw-delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+    border-color: #fca5a5;
 }
 
-function buildClassFilterList(kelasFilter) {
-    // If kelasFilter is a specific class (e.g. "7A", "8F"), return just that one
-    if (kelasFilter && kelasFilter.length > 1) return [kelasFilter];
-    // Otherwise it's a grade level ("7", "8", "9") — return all 9 classes
-    var suffix = ['A','B','C','D','E','F','G','H','I'];
-    return suffix.map(function(s) { return kelasFilter + s; });
+body.dark .hw-delete-btn {
+    background: rgba(220, 38, 38, 0.15);
+    border-color: rgba(220, 38, 38, 0.3);
+    color: #f87171;
 }
 
-// ===================================================
-// RENDER — TEACHER HOMEWORK LIST
-// ===================================================
-
-function renderHwListGuruData(list, hasError, errMsg) {
-    var container = document.getElementById('hwListGuru');
-    if (!container) return;
-
-    if (hasError) {
-        container.innerHTML =
-            '<div class="hw-empty" style="color:#dc2626;">' +
-            '⚠️ Gagal memuat data.' +
-            (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') +
-            ' Periksa konfigurasi Firebase di script.js.</div>';
-        return;
-    }
-
-    if (!list.length) {
-        container.innerHTML = '<div class="hw-empty">Belum ada tugas yang dikirim.</div>';
-        return;
-    }
-
-    container.innerHTML = '';
-    list.forEach(function(hw) {
-        var item = document.createElement('div');
-        item.className = 'hw-item';
-        item.innerHTML =
-            '<div class="hw-item-mapel-badge">' + escapeHtml(hw.mapel) + '</div>' +
-            '<div class="hw-item-body">' +
-                '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
-                '<div class="hw-item-meta">' +
-                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
-                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
-                '</div>' +
-            '</div>' +
-            '<div class="hw-item-actions">' +
-                '<button class="hw-action-btn hw-edit-btn" data-hw-id="' + hw.id + '" ' +
-                    'data-hw-kelas="' + escapeHtml(hw.kelas) + '" ' +
-                    'data-hw-mapel="' + escapeHtml(hw.mapel) + '" ' +
-                    'data-hw-desc="'  + escapeHtml(hw.deskripsi) + '" ' +
-                    'data-hw-date="'  + escapeHtml(hw.tanggal) + '">Edit</button>' +
-                '<button class="hw-action-btn hw-delete-btn" data-hw-del-id="' + hw.id + '">Hapus</button>' +
-            '</div>';
-        container.appendChild(item);
-    });
+.hw-delete-btn:hover {
+    background: #fca5a5;
 }
 
-// ===================================================
-// RENDER — STUDENT HOMEWORK LIST
-// ===================================================
-
-function renderHwListSiswaData(list, kelasLevel, hasError, errMsg) {
-    var container = document.getElementById('hwListSiswa');
-    if (!container) return;
-
-    var titleEl = document.getElementById('hwSiswaTitle');
-    if (titleEl) titleEl.textContent = 'Semua PR & Tugas Kelas ' + kelasLevel;
-
-    if (hasError) {
-        container.innerHTML =
-            '<div class="hw-empty" style="color:#dc2626;">' +
-            '⚠️ Gagal memuat tugas.' +
-            (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') + '</div>';
-        return;
-    }
-
-    if (!list.length) {
-        container.innerHTML = '<div class="hw-empty">Tidak ada PR / Tugas saat ini. 🎉</div>';
-        return;
-    }
-
-    container.innerHTML = '';
-    list.forEach(function(hw) {
-        var item = document.createElement('div');
-        item.className = 'hw-item';
-        item.innerHTML =
-            '<div class="hw-item-mapel-badge">' + escapeHtml(hw.mapel) + '</div>' +
-            '<div class="hw-item-body">' +
-                '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
-                '<div class="hw-item-meta">' +
-                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
-                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
-                '</div>' +
-            '</div>';
-        container.appendChild(item);
-    });
+.hw-empty {
+    text-align: center;
+    padding: 32px 16px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
 }
 
-// ===================================================
-// TODAY'S SCHEDULE
-// ===================================================
+/* ============================================
+   TODAY'S SCHEDULE — homework column highlight
+   ============================================ */
 
-function getTodayHariKey() {
-    var day = new Date().getDay();
-    var map = { 1: 'senin', 2: 'selasa', 3: 'rabu', 4: 'kamis', 5: 'jumat' };
-    return map[day] || null;
+.hw-badge-in-table {
+    display: inline-block;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    border-radius: 5px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-// kelasId: e.g. "8F"  |  homeworkList: array from Firebase snapshot (optional)
-function renderTodaySchedule(homeworkList) {
-    var tbody   = document.getElementById('today-tbody');
-    var labelEl = document.getElementById('todayDateLabel');
-    var titleEl = document.getElementById('todayScheduleTitle');
-    if (!tbody) return;
-
-    // Determine which class to show based on logged-in student's kelasId or kelasLevel
-    var displayKelas = '8F';
-    if (currentUser && currentUser.kelasId) {
-        // Per-class student login: show their exact class
-        displayKelas = currentUser.kelasId;
-    } else if (currentUser && currentUser.kelasLevel) {
-        // Grade-level student login: show representative class
-        var gradeDefaults = { '7': '7A', '8': '8F', '9': '9A' };
-        displayKelas = gradeDefaults[currentUser.kelasLevel] || '8F';
-    }
-
-    var today  = new Date();
-    var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
-    var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
-    if (labelEl) {
-        labelEl.textContent = days[today.getDay()] + ', ' + today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
-    }
-    if (titleEl) {
-        titleEl.textContent = 'Jadwal Hari Ini — Kelas ' + displayKelas;
-    }
-
-    var hariKey = getTodayHariKey();
-    tbody.innerHTML = '';
-
-    if (!hariKey) {
-        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Hari ini libur — tidak ada jadwal pelajaran.</td></tr>';
-        return;
-    }
-
-    var jadwalKls = jadwalKelas[displayKelas];
-    if (!jadwalKls || !jadwalKls[hariKey]) {
-        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Jadwal belum tersedia untuk kelas ' + escapeHtml(displayKelas) + '.</td></tr>';
-        return;
-    }
-
-    var schedule = jadwalKls[hariKey];
-
-    // Build subject → homework map from the passed list (or empty)
-    var hwMap = {};
-    if (homeworkList && homeworkList.length) {
-        homeworkList.forEach(function(hw) {
-            if (hw.kelas === displayKelas) {
-                var key = hw.mapel.toLowerCase().trim();
-                if (!hwMap[key]) hwMap[key] = [];
-                hwMap[key].push(hw);
-            }
-        });
-    }
-
-    schedule.forEach(function(item) {
-        var tr = document.createElement('tr');
-        var mapelKey = item.mapel.toLowerCase().trim();
-        var hwItems  = hwMap[mapelKey] || [];
-
-        var hwCell = '';
-        if (hwItems.length) {
-            hwItems.forEach(function(hw) {
-                hwCell += '<span class="hw-badge-in-table" title="' + escapeHtml(hw.deskripsi) + '">' +
-                    escapeHtml(hw.deskripsi.substring(0, 30)) + (hw.deskripsi.length > 30 ? '…' : '') +
-                    '</span> ';
-            });
-        } else {
-            hwCell = '<span class="no-hw-badge">—</span>';
-        }
-
-        tr.innerHTML =
-            '<td data-label="Waktu">' + escapeHtml(item.waktu)       + '</td>' +
-            '<td data-label="Mapel">' + escapeHtml(item.mapel)       + '</td>' +
-            '<td data-label="Guru">' + escapeHtml(item.guru || '—') + '</td>' +
-            '<td data-label="Ruang">' + escapeHtml(item.ruang)       + '</td>' +
-            '<td data-label="Tugas">' + hwCell                        + '</td>';
-        tbody.appendChild(tr);
-    });
+body.dark .hw-badge-in-table {
+    background: rgba(251, 191, 36, 0.12);
+    border-color: rgba(251, 191, 36, 0.3);
+    color: #fbbf24;
 }
 
-// ===================================================
-// HOMEWORK FORM SUBMIT (TEACHER)
-// ===================================================
-
-function initHomeworkForm() {
-    var submitBtn     = document.getElementById('hwSubmitBtn');
-    var cancelEditBtn = document.getElementById('hwCancelEditBtn');
-    if (!submitBtn) return;
-
-    // Set default date to today
-    document.getElementById('hwTanggal').value = new Date().toISOString().substring(0, 10);
-
-    // ── Cancel edit button ─────────────────────────────
-    if (cancelEditBtn) {
-        cancelEditBtn.addEventListener('click', function() {
-            resetHwForm();
-        });
-    }
-
-    // ── Submit / Update ────────────────────────────────
-    submitBtn.addEventListener('click', function() {
-        var kelas     = document.getElementById('hwKelas').value.trim();
-        var mapel     = document.getElementById('hwMapel').value.trim();
-        var deskripsi = document.getElementById('hwDeskripsi').value.trim();
-        var tanggal   = document.getElementById('hwTanggal').value;
-        var errEl     = document.getElementById('hwFormError');
-        var successEl = document.getElementById('hwSuccessMsg');
-        var savingEl  = document.getElementById('hwSavingMsg');
-
-        errEl.style.display = 'none';
-
-        if (!kelas) {
-            errEl.textContent = 'Pilih kelas tujuan terlebih dahulu.';
-            errEl.style.display = 'flex'; return;
-        }
-        if (!mapel) {
-            errEl.textContent = 'Pilih mata pelajaran terlebih dahulu.';
-            errEl.style.display = 'flex'; return;
-        }
-        if (!deskripsi) {
-            errEl.textContent = 'Deskripsi tugas tidak boleh kosong.';
-            errEl.style.display = 'flex'; return;
-        }
-        if (!tanggal) {
-            errEl.textContent = 'Tanggal pengumpulan harus diisi.';
-            errEl.style.display = 'flex'; return;
-        }
-        if (!fbReady) {
-            errEl.textContent = 'Firebase belum terhubung. Periksa konfigurasi.';
-            errEl.style.display = 'flex'; return;
-        }
-
-        var editId   = submitBtn.getAttribute('data-edit-id');
-        var namaGuru = (currentUser && currentUser.namaGuru) ? currentUser.namaGuru : 'Guru';
-
-        submitBtn.disabled = true;
-        savingEl.style.display = 'inline';
-
-        var payload = { kelas: kelas, mapel: mapel, deskripsi: deskripsi, tanggal: tanggal, namaGuru: namaGuru };
-
-        if (editId) {
-            // UPDATE existing document
-            updateHomeworkInFirebase(editId, payload,
-                function() {
-                    submitBtn.disabled = false;
-                    savingEl.style.display = 'none';
-                    successEl.textContent = '✓ Tugas berhasil diperbarui!';
-                    successEl.style.display = 'inline';
-                    setTimeout(function() { successEl.style.display = 'none'; }, 2500);
-                    resetHwForm();
-                },
-                function(errMsg) {
-                    submitBtn.disabled = false;
-                    savingEl.style.display = 'none';
-                    errEl.textContent = 'Gagal update: ' + errMsg;
-                    errEl.style.display = 'flex';
-                }
-            );
-        } else {
-            // ADD new document
-            addHomeworkToFirebase(payload,
-                function() {
-                    submitBtn.disabled = false;
-                    savingEl.style.display = 'none';
-                    successEl.textContent = '✓ Tugas berhasil disimpan ke Firebase!';
-                    successEl.style.display = 'inline';
-                    setTimeout(function() { successEl.style.display = 'none'; }, 2500);
-                    resetHwForm();
-                    // Real-time listener will auto-update the list — no manual refresh needed
-                },
-                function(errMsg) {
-                    submitBtn.disabled = false;
-                    savingEl.style.display = 'none';
-                    errEl.textContent = 'Gagal simpan: ' + errMsg;
-                    errEl.style.display = 'flex';
-                }
-            );
-        }
-    });
-
-    // ── Delegated delete / edit on hw list ────────────
-    var hwListGuru = document.getElementById('hwListGuru');
-    if (hwListGuru) {
-        hwListGuru.addEventListener('click', function(e) {
-            var delBtn  = e.target.closest('[data-hw-del-id]');
-            var editBtn = e.target.closest('[data-hw-id]');
-
-            if (delBtn) {
-                var docId = delBtn.getAttribute('data-hw-del-id');
-                if (!confirm('Hapus tugas ini dari Firebase?')) return;
-                deleteHomeworkFromFirebase(docId,
-                    function() { /* listener auto-updates UI */ },
-                    function(err) { alert('Gagal hapus: ' + err); }
-                );
-                return;
-            }
-
-            if (editBtn) {
-                // Populate form with data stored as data-* attributes (no extra Firestore read needed)
-                var docId    = editBtn.getAttribute('data-hw-id');
-                var hwKelas  = editBtn.getAttribute('data-hw-kelas');
-                var hwMapel  = editBtn.getAttribute('data-hw-mapel');
-                var hwDesc   = editBtn.getAttribute('data-hw-desc');
-                var hwDate   = editBtn.getAttribute('data-hw-date');
-
-                document.getElementById('hwKelas').value     = hwKelas;
-                document.getElementById('hwMapel').value     = hwMapel;
-                document.getElementById('hwDeskripsi').value = hwDesc;
-                document.getElementById('hwTanggal').value   = hwDate;
-
-                var btn = document.getElementById('hwSubmitBtn');
-                btn.setAttribute('data-edit-id', docId);
-                btn.innerHTML =
-                    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
-                    '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>' +
-                    '<path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Update Tugas';
-
-                var cancelBtn = document.getElementById('hwCancelEditBtn');
-                if (cancelBtn) cancelBtn.style.display = 'inline-flex';
-
-                document.querySelector('.hw-form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    }
-
-    // ── Filter kelas dropdown (teacher) ───────────────
-    var filterSelect = document.getElementById('hwFilterKelas');
-    if (filterSelect) {
-        filterSelect.addEventListener('change', function() {
-            subscribeHwGuru(this.value);
-        });
-    }
+.no-hw-badge {
+    color: var(--text-3);
+    font-size: 0.8rem;
 }
 
-function resetHwForm() {
-    document.getElementById('hwKelas').value     = '';
-    document.getElementById('hwMapel').value     = '';
-    document.getElementById('hwDeskripsi').value = '';
-    document.getElementById('hwTanggal').value   = new Date().toISOString().substring(0, 10);
-
-    var btn = document.getElementById('hwSubmitBtn');
-    btn.removeAttribute('data-edit-id');
-    btn.disabled = false;
-    btn.innerHTML =
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
-        '<line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Simpan Tugas';
-
-    var cancelBtn = document.getElementById('hwCancelEditBtn');
-    if (cancelBtn) cancelBtn.style.display = 'none';
-
-    var errEl = document.getElementById('hwFormError');
-    if (errEl) errEl.style.display = 'none';
+/* body padding when user-bar is visible */
+body.has-userbar main,
+body.has-userbar .footer {
+    padding-bottom: 48px;
 }
 
-// ===================================================
-// LOGO CONFIG APPLY
-// ===================================================
 
-function applyLogoConfig() {
-    if (!LOGO_CONFIG || LOGO_CONFIG.mode !== 2 || !LOGO_CONFIG.imageUrl) return;
+/* ============================================
+   FIREBASE STATUS BAR
+   ============================================ */
 
-    // Update header brand icon: hide SVG, show img
-    var brandIcons = document.querySelectorAll('.brand-icon');
-    brandIcons.forEach(function(icon) {
-        var svgEl = icon.querySelector('svg');
-        var imgEl = icon.querySelector('.logo-img-mode2');
-        if (svgEl) svgEl.style.display = 'none';
-        if (imgEl) {
-            imgEl.style.display = 'block';
-        } else {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
-            icon.appendChild(img);
-        }
-    });
-
-    // Update loading screen logo
-    var loadingLogo = document.querySelector('.loading-logo');
-    if (loadingLogo) {
-        var svgEl = loadingLogo.querySelector('svg');
-        if (svgEl) svgEl.style.display = 'none';
-        if (!loadingLogo.querySelector('.logo-img-mode2')) {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
-            loadingLogo.appendChild(img);
-        }
-    }
-
-    // Update login box logo
-    var loginIcon = document.querySelector('.login-box .brand-icon');
-    if (loginIcon) {
-        var svgEl = loginIcon.querySelector('svg');
-        if (svgEl) svgEl.style.display = 'none';
-        if (!loginIcon.querySelector('.logo-img-mode2')) {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
-            loginIcon.appendChild(img);
-        }
-    }
+.fb-status-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: var(--radius);
+    font-size: 0.83rem;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
-// ===================================================
-// INIT AUTH EVENTS (called after DOMContentLoaded)
-// ===================================================
-
-function initAuthSystem() {
-    // Nav login button
-    document.getElementById('navLoginBtn').addEventListener('click', function() {
-        if (currentUser) {
-            if (currentUser.role === 'guru' || currentUser.role === 'admin') {
-                showSection('dashboard-guru');
-            } else {
-                renderTodaySchedule();
-                showSection('jadwal-hari-ini');
-            }
-        } else {
-            showLoginOverlay();
-        }
-    });
-
-    // Login form events
-    document.getElementById('loginBtn').addEventListener('click', doLogin);
-    document.getElementById('loginCloseBtn').addEventListener('click', hideLoginOverlay);
-    document.getElementById('loginPassword').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') doLogin();
-    });
-    document.getElementById('loginUsername').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') document.getElementById('loginPassword').focus();
-    });
-
-    // Logout
-    document.getElementById('logoutBtn').addEventListener('click', doLogout);
-
-    // Back button on today's schedule
-    var backBtn = document.getElementById('backFromTodayBtn');
-    if (backBtn) {
-        backBtn.addEventListener('click', function() {
-            // Clean up student listener when leaving
-            if (hwUnsubscribeSiswa) {
-                hwUnsubscribeSiswa();
-                hwUnsubscribeSiswa = null;
-            }
-            showSection('beranda');
-        });
-    }
-
-    // Init homework form
-    initHomeworkForm();
+.fb-status-ok {
+    background: var(--green-bg);
+    color: var(--green);
+    border: 1px solid var(--green-border);
 }
 
-// ===================================================
-// HOOK INTO EXISTING DOMContentLoaded
-// ===================================================
+.fb-status-error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    initFirebase();   // must be first
-    initAuthSystem();
-});
+body.dark .fb-status-error {
+    background: rgba(220, 38, 38, 0.12);
+    border-color: rgba(220, 38, 38, 0.35);
+    color: #f87171;
+}
+
+/* ============================================
+   HOMEWORK LOADING SPINNER
+   ============================================ */
+
+.hw-loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 24px 16px;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+.hw-loading-spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-top-color: var(--navy);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ===============================
+   CLASS SEARCH BAR
+   =============================== */
+.kelas-search-wrap {
+    margin: 0 0 28px;
+}
+
+.kelas-search-inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-secondary);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.kelas-search-inner:focus-within {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+}
+
+.dark .kelas-search-inner:focus-within {
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.kelas-search-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.kelas-search-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.kelas-search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 8px;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+    min-width: 0;
+    letter-spacing: 0.05em;
+}
+
+.kelas-search-input::placeholder {
+    color: var(--text-muted);
+    letter-spacing: 0;
+}
+
+.kelas-search-btn {
+    flex-shrink: 0;
+    padding: 0 20px;
+    height: 46px;
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.kelas-search-btn:hover {
+    background: var(--navy-dark, #1e3a8a);
+}
+
+.kelas-search-msg {
+    margin-top: 8px;
+    font-size: 0.82rem;
+    padding: 0 4px;
+}
+
+@media (max-width: 480px) {
+    .kelas-search-btn {
+        padding: 0 14px;
+        font-size: 0.82rem;
+    }
+}
