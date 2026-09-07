@@ -2120,14 +2120,19 @@ function updateAuthUI() {
     var userBarLbl  = document.getElementById('userBarLabel');
 
     if (currentUser) {
-        // Build a short label for the nav button
+        // Full label still used in the user bar below the header
         var shortLabel = currentUser.role === 'guru'
             ? (currentUser.namaGuru || currentUser.label)
             : currentUser.label;
 
-        // Truncate if very long for nav button
-        var displayLabel = shortLabel.length > 28 ? shortLabel.substring(0, 26) + '…' : shortLabel;
-        navLoginBtn.textContent = displayLabel;
+        // Nav button always shows a short, fixed "Dashboard" label for every role
+        // (admin, guru, or kelas/siswa) so the header never overflows or pushes
+        // the theme toggle / hamburger out of place.
+        navLoginBtn.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex-shrink:0;">' +
+            '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>' +
+            '<rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard';
+        navLoginBtn.title = 'Dashboard';
 
         var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : currentUser.role === 'admin' ? '🔑 Admin' : '📚 Siswa';
         userBar.style.display = 'block';
@@ -2138,6 +2143,7 @@ function updateAuthUI() {
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">' +
             '<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>' +
             '<polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg> Login';
+        navLoginBtn.title = 'Login';
         userBar.style.display = 'none';
         document.body.classList.remove('has-userbar');
         var dashNav = document.getElementById('dashboardNavLink');

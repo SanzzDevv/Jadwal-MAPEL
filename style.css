@@ -531,6 +531,7 @@ body.dark .header {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 /* Dark Mode Toggle */
@@ -573,6 +574,7 @@ body.dark .dark-toggle .icon-moon { display: none; }
     cursor: pointer;
     padding: 6px;
     border-radius: var(--radius);
+    flex-shrink: 0;
 }
 
 .hamburger span {
@@ -1919,10 +1921,27 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     .guru-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 480px) {
     .kelas-grid { grid-template-columns: 1fr; }
-    .hero-stats { flex-direction: column; gap: 12px; }
-    .stat-divider { width: 60%; height: 1px; align-self: center; }
+
+    .hero-stats {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 18px 24px;
+    }
+    .stat-card {
+        padding: 0;
+        flex: none;
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+    }
+    .stat-num { font-size: 1.4rem; margin-bottom: 0; }
+    .stat-label { font-size: 0.72rem; }
+    .stat-divider { width: 100%; height: 1px; align-self: center; }
 }
 
 /* ===== GURU FILTER TABS ===== */
@@ -2284,6 +2303,11 @@ select.form-input {
     cursor: pointer;
     transition: var(--transition);
     white-space: nowrap;
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 140px;
 }
 
 .nav-login-btn:hover {
