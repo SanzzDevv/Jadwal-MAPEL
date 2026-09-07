@@ -11,7 +11,7 @@ const siteStatus = "on";
 // imageUrl: path ke file gambar logo (hanya dipakai jika mode = 2)
 // ===============================
 var LOGO_CONFIG = {
-    mode: 1,
+    mode: 2,
     imageUrl: "logo-smpn24.png"
 };
 
