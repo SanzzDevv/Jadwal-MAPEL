@@ -2778,14 +2778,6 @@ function resetHwForm() {
     if (errEl) errEl.style.display = 'none';
 }
 
-// ===================================================
-// LOGO CONFIG APPLY
-// ===================================================
-
-// ===================================================
-// INIT AUTH EVENTS (called after DOMContentLoaded)
-// ===================================================
-
 function initAuthSystem() {
     // Nav login button
     document.getElementById('navLoginBtn').addEventListener('click', function() {
