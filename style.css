@@ -294,7 +294,7 @@ body.dark .loading-logo {
     100% { transform: translateX(-100%); }
 }
 
-/* Garis identitas dua warna (biru logo + hijau gedung sekolah) */
+/* Garis identitas di bawah top bar — solid, senada dengan announce-bar */
 .school-stripe {
     position: fixed;
     top: 34px;
@@ -302,7 +302,7 @@ body.dark .loading-logo {
     right: 0;
     height: 3px;
     z-index: 202;
-    background: linear-gradient(90deg, var(--navy) 0%, var(--navy) 60%, var(--school-green) 60%, var(--school-green) 100%);
+    background: var(--navy);
 }
 
 /* === HEADER / NAVBAR === */
@@ -1773,6 +1773,12 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
 }
 
 .footer-sep { color: var(--border-strong); }
+
+@media (max-width: 600px) {
+    .footer {
+        padding-bottom: 100px;
+    }
+}
 
 /* === SCROLLBAR === */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
