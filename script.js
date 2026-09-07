@@ -73,39 +73,39 @@ const siteStatus = "on";
 // ===============================
 
 const dataKelas7 = [
-    { id: "7A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7A" },
-    { id: "7B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7B" },
-    { id: "7C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7C" },
-    { id: "7D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7D" },
-    { id: "7E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7E" },
-    { id: "7F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7F" },
-    { id: "7G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7G" },
-    { id: "7H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7H" },
-    { id: "7I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 7I" }
+    { id: "7A", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7A" },
+    { id: "7B", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7B" },
+    { id: "7C", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7C" },
+    { id: "7D", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7D" },
+    { id: "7E", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7E" },
+    { id: "7F", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7F" },
+    { id: "7G", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7G" },
+    { id: "7H", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7H" },
+    { id: "7I", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 7I" }
 ];
 
 const dataKelas8 = [
-    { id: "8A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8A" },
-    { id: "8B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8B" },
-    { id: "8C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8C" },
-    { id: "8D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8D" },
-    { id: "8E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8E" },
-    { id: "8F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8F" },
-    { id: "8G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8G" },
-    { id: "8H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8H" },
-    { id: "8I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 8I" }
+    { id: "8A", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8A" },
+    { id: "8B", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8B" },
+    { id: "8C", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8C" },
+    { id: "8D", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8D" },
+    { id: "8E", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8E" },
+    { id: "8F", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8F" },
+    { id: "8G", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8G" },
+    { id: "8H", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8H" },
+    { id: "8I", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 8I" }
 ];
 
 const dataKelas9 = [
-    { id: "9A", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9A" },
-    { id: "9B", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9B" },
-    { id: "9C", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9C" },
-    { id: "9D", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9D" },
-    { id: "9E", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9E" },
-    { id: "9F", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9F" },
-    { id: "9G", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9G" },
-    { id: "9H", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9H" },
-    { id: "9I", waliKelas: "—", jumlahSiswa: 34, ruang: "Kelas 9I" }
+    { id: "9A", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9A" },
+    { id: "9B", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9B" },
+    { id: "9C", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9C" },
+    { id: "9D", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9D" },
+    { id: "9E", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9E" },
+    { id: "9F", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9F" },
+    { id: "9G", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9G" },
+    { id: "9H", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9H" },
+    { id: "9I", waliKelas: "-", jumlahSiswa: 34, ruang: "Kelas 9I" }
 ];
 
 // ===============================
@@ -114,55 +114,55 @@ const dataKelas9 = [
 // tingkat: "7", "8", "9", atau "semua" jika mengajar lintas tingkat
 // ===============================
 const dataGuru = [
-    { id: "guru-001", nama: "A. SUTISNA, S.Pd",                    mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-002", nama: "AHMAD RAHMAT, S.Sn, M.Pd",            mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-003", nama: "AI RIKA ISMAHANI, S.Psi",             mapel: "—",         waliKelas: "—", tingkat: "9" },
-    { id: "guru-004", nama: "ALDA ALDILA RIYADI, S.Pd",            mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-005", nama: "ANDRI SUNANTO, S. Pd., M. Pd",        mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-006", nama: "ANDRI SUNANTO, S.Pd., M.Pd",          mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-007", nama: "ANNISA HAELWANI, S. KOM",             mapel: "—",   waliKelas: "—", tingkat: "7" },
-    { id: "guru-008", nama: "ARI NUGRAHA, S. Pd",                  mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-009", nama: "ARIF MAULANA GUNAWAN, S.T",           mapel: "—",   waliKelas: "—", tingkat: "8" },
-    { id: "guru-010", nama: "CANDITA REKSA RIYADI, S. Pd",         mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-011", nama: "DEDEN KURNIA S, S. Pd",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-012", nama: "DEDEN KURNIA S, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-013", nama: "DIAH SOEPLIAH, S. Sos",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-014", nama: "DIAN RAHMAWATI, S. Pd",               mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-015", nama: "Drs. AGUS MASRUQ, M.Pd",              mapel: "—",          waliKelas: "—", tingkat: "9" },
-    { id: "guru-016", nama: "DWI PRIHANTO K, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-017", nama: "EHA JULAEHA, S.S",                    mapel: "—",      waliKelas: "—", tingkat: "9" },
-    { id: "guru-018", nama: "ELLI KEMALAWATI, S.Pd",               mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-019", nama: "ENDAH NURJANAH, S. Pd",               mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-020", nama: "FAIJUL ARIFIN, S.Pd",                 mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-021", nama: "FARHAN BUDIARTO, S.Pd",               mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-022", nama: "FIRDA PUTRI UTAMI, S. Pd",            mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-023", nama: "FITRIA AGUSTINI, S.Pd",               mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-024", nama: "HENDRA SAPUTRA, S.Pd",                mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-025", nama: "IIS PRIATINI, S.Pd",                  mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-026", nama: "IKA KURNIA, S.Pd",                    mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-027", nama: "IMAM ADI PRASETYO, S. Pd",            mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-028", nama: "INNA NURAINI SUJANA, S. Pd",          mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-029", nama: "IWAN SETIAWAN, S.Pd",                 mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-030", nama: "LANI MUSTIKASARI, S.Pd",              mapel: "—",  waliKelas: "—", tingkat: "9" },
-    { id: "guru-031", nama: "LELA ZULKAEDAH, S.Pd",                mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-032", nama: "LIA PRAMURTYA, S.Si",                 mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-033", nama: "LUTHFI HADIANSYAH, S.Pd",             mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-034", nama: "M. NOOR FENDI SAEFULOH, S.Pd",        mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-035", nama: "MEGA HERLIANI, S.Sn",                 mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-036", nama: "MUH. ZAENAL ARIPIN, S. Pd",           mapel: "—",    waliKelas: "—", tingkat: "7" },
-    { id: "guru-037", nama: "MUH. ZAENAL ARIPIN, S.Pd",            mapel: "—",    waliKelas: "—", tingkat: "9" },
-    { id: "guru-038", nama: "NIDYA EKA PRATIWI, S.Pd",             mapel: "—",           waliKelas: "—", tingkat: "8" },
-    { id: "guru-039", nama: "PIPIN FIRMANSYAH N, S.Pd",            mapel: "—",          waliKelas: "—", tingkat: "8" },
-    { id: "guru-040", nama: "PRAPTI HANDAYANI, S.Pd",              mapel: "—",    waliKelas: "—", tingkat: "8" },
-    { id: "guru-041", nama: "QISTI SEPTIA W. A, S. Pd",            mapel: "—",           waliKelas: "—", tingkat: "7" },
-    { id: "guru-042", nama: "RAHMASARI AULIA KHOTIMAH, S. Pd",     mapel: "—",      waliKelas: "—", tingkat: "7" },
-    { id: "guru-043", nama: "Rd. SRI REJEKI, S.Pd",                mapel: "—",           waliKelas: "—", tingkat: "9" },
-    { id: "guru-044", nama: "RINI SEPTIANI, S. Pd",                mapel: "—",  waliKelas: "—", tingkat: "7" },
-    { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "—",   waliKelas: "—", tingkat: "9" },
-    { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "—",          waliKelas: "—", tingkat: "7" },
-    { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "—",  waliKelas: "—", tingkat: "8" },
-    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "—",         waliKelas: "—", tingkat: "7" },
-    { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "—",  waliKelas: "—", tingkat: "8" }
+    { id: "guru-001", nama: "A. SUTISNA, S.Pd",                    mapel: "-",  waliKelas: "-", tingkat: "9" },
+    { id: "guru-002", nama: "AHMAD RAHMAT, S.Sn, M.Pd",            mapel: "-",  waliKelas: "-", tingkat: "9" },
+    { id: "guru-003", nama: "AI RIKA ISMAHANI, S.Psi",             mapel: "-",         waliKelas: "-", tingkat: "9" },
+    { id: "guru-004", nama: "ALDA ALDILA RIYADI, S.Pd",            mapel: "-",           waliKelas: "-", tingkat: "8" },
+    { id: "guru-005", nama: "ANDRI SUNANTO, S. Pd., M. Pd",        mapel: "-",           waliKelas: "-", tingkat: "7" },
+    { id: "guru-006", nama: "ANDRI SUNANTO, S.Pd., M.Pd",          mapel: "-",           waliKelas: "-", tingkat: "9" },
+    { id: "guru-007", nama: "ANNISA HAELWANI, S. KOM",             mapel: "-",   waliKelas: "-", tingkat: "7" },
+    { id: "guru-008", nama: "ARI NUGRAHA, S. Pd",                  mapel: "-",    waliKelas: "-", tingkat: "7" },
+    { id: "guru-009", nama: "ARIF MAULANA GUNAWAN, S.T",           mapel: "-",   waliKelas: "-", tingkat: "8" },
+    { id: "guru-010", nama: "CANDITA REKSA RIYADI, S. Pd",         mapel: "-",           waliKelas: "-", tingkat: "7" },
+    { id: "guru-011", nama: "DEDEN KURNIA S, S. Pd",               mapel: "-",  waliKelas: "-", tingkat: "7" },
+    { id: "guru-012", nama: "DEDEN KURNIA S, S.Pd",                mapel: "-",  waliKelas: "-", tingkat: "9" },
+    { id: "guru-013", nama: "DIAH SOEPLIAH, S. Sos",               mapel: "-",  waliKelas: "-", tingkat: "7" },
+    { id: "guru-014", nama: "DIAN RAHMAWATI, S. Pd",               mapel: "-",  waliKelas: "-", tingkat: "7" },
+    { id: "guru-015", nama: "Drs. AGUS MASRUQ, M.Pd",              mapel: "-",          waliKelas: "-", tingkat: "9" },
+    { id: "guru-016", nama: "DWI PRIHANTO K, S.Pd",                mapel: "-",  waliKelas: "-", tingkat: "8" },
+    { id: "guru-017", nama: "EHA JULAEHA, S.S",                    mapel: "-",      waliKelas: "-", tingkat: "9" },
+    { id: "guru-018", nama: "ELLI KEMALAWATI, S.Pd",               mapel: "-",    waliKelas: "-", tingkat: "9" },
+    { id: "guru-019", nama: "ENDAH NURJANAH, S. Pd",               mapel: "-",    waliKelas: "-", tingkat: "7" },
+    { id: "guru-020", nama: "FAIJUL ARIFIN, S.Pd",                 mapel: "-",           waliKelas: "-", tingkat: "9" },
+    { id: "guru-021", nama: "FARHAN BUDIARTO, S.Pd",               mapel: "-",    waliKelas: "-", tingkat: "8" },
+    { id: "guru-022", nama: "FIRDA PUTRI UTAMI, S. Pd",            mapel: "-",    waliKelas: "-", tingkat: "7" },
+    { id: "guru-023", nama: "FITRIA AGUSTINI, S.Pd",               mapel: "-",  waliKelas: "-", tingkat: "8" },
+    { id: "guru-024", nama: "HENDRA SAPUTRA, S.Pd",                mapel: "-",           waliKelas: "-", tingkat: "8" },
+    { id: "guru-025", nama: "IIS PRIATINI, S.Pd",                  mapel: "-",           waliKelas: "-", tingkat: "9" },
+    { id: "guru-026", nama: "IKA KURNIA, S.Pd",                    mapel: "-",    waliKelas: "-", tingkat: "9" },
+    { id: "guru-027", nama: "IMAM ADI PRASETYO, S. Pd",            mapel: "-",           waliKelas: "-", tingkat: "7" },
+    { id: "guru-028", nama: "INNA NURAINI SUJANA, S. Pd",          mapel: "-",           waliKelas: "-", tingkat: "7" },
+    { id: "guru-029", nama: "IWAN SETIAWAN, S.Pd",                 mapel: "-",    waliKelas: "-", tingkat: "8" },
+    { id: "guru-030", nama: "LANI MUSTIKASARI, S.Pd",              mapel: "-",  waliKelas: "-", tingkat: "9" },
+    { id: "guru-031", nama: "LELA ZULKAEDAH, S.Pd",                mapel: "-",    waliKelas: "-", tingkat: "8" },
+    { id: "guru-032", nama: "LIA PRAMURTYA, S.Si",                 mapel: "-",           waliKelas: "-", tingkat: "9" },
+    { id: "guru-033", nama: "LUTHFI HADIANSYAH, S.Pd",             mapel: "-",           waliKelas: "-", tingkat: "8" },
+    { id: "guru-034", nama: "M. NOOR FENDI SAEFULOH, S.Pd",        mapel: "-",    waliKelas: "-", tingkat: "9" },
+    { id: "guru-035", nama: "MEGA HERLIANI, S.Sn",                 mapel: "-",  waliKelas: "-", tingkat: "8" },
+    { id: "guru-036", nama: "MUH. ZAENAL ARIPIN, S. Pd",           mapel: "-",    waliKelas: "-", tingkat: "7" },
+    { id: "guru-037", nama: "MUH. ZAENAL ARIPIN, S.Pd",            mapel: "-",    waliKelas: "-", tingkat: "9" },
+    { id: "guru-038", nama: "NIDYA EKA PRATIWI, S.Pd",             mapel: "-",           waliKelas: "-", tingkat: "8" },
+    { id: "guru-039", nama: "PIPIN FIRMANSYAH N, S.Pd",            mapel: "-",          waliKelas: "-", tingkat: "8" },
+    { id: "guru-040", nama: "PRAPTI HANDAYANI, S.Pd",              mapel: "-",    waliKelas: "-", tingkat: "8" },
+    { id: "guru-041", nama: "QISTI SEPTIA W. A, S. Pd",            mapel: "-",           waliKelas: "-", tingkat: "7" },
+    { id: "guru-042", nama: "RAHMASARI AULIA KHOTIMAH, S. Pd",     mapel: "-",      waliKelas: "-", tingkat: "7" },
+    { id: "guru-043", nama: "Rd. SRI REJEKI, S.Pd",                mapel: "-",           waliKelas: "-", tingkat: "9" },
+    { id: "guru-044", nama: "RINI SEPTIANI, S. Pd",                mapel: "-",  waliKelas: "-", tingkat: "7" },
+    { id: "guru-045", nama: "RONI RAHMANSYAH, S.KOM",              mapel: "-",   waliKelas: "-", tingkat: "9" },
+    { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "-",          waliKelas: "-", tingkat: "7" },
+    { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "-",  waliKelas: "-", tingkat: "8" },
+    { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "-",         waliKelas: "-", tingkat: "7" },
+    { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "-",  waliKelas: "-", tingkat: "8" }
 ];
 
 // ===============================
@@ -176,403 +176,403 @@ const jadwalJumat = [
     { waktu: "08.20-08.40", mapel: "Baca Surah Pendek",      guru: "", ruang: "Masjid" },
     { waktu: "08.40-09.00", mapel: "Ceramah",                guru: "", ruang: "Masjid" },
     { waktu: "09.00-09.40", mapel: "Senam",                  guru: "", ruang: "Lapangan" },
-    { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "—" }
+    { waktu: "09.40-10.00", mapel: "Istirahat",              guru: "", ruang: "-" }
 ];
 
 const jadwalKelas7 = {
 
 "7A": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "7B": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "7C": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
     "7D": {
         senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
 "7E": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "7F": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
 "7G": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
 "7H": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "7I": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
@@ -582,176 +582,176 @@ const jadwalKelas7 = {
 const jadwalKelas8 = {
 "8A": {
     senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.30 - 08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10 - 08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50 - 09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30 - 10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20 - 10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55 - 11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     jumat: jadwalJumat
 },
     
 "8B": {
     senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.30 - 08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10 - 08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50 - 09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30 - 10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20 - 10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55 - 11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     jumat: jadwalJumat
 },
     
 "8C": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
 "8D": {
     senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30 - 08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10 - 08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50 - 09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30 - 10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20 - 10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55 - 11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
@@ -759,220 +759,220 @@ const jadwalKelas8 = {
   // KELAS 8E - JADWAL RESMI
 "8E": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" , ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-" , ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "8F": {
     senin: [
-        { waktu: "07.30 - 08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10 - 08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50 - 09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30 - 10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20 - 10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55 - 11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30 - 08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10 - 08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50 - 09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30 - 10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20 - 10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55 - 11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00 - 07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40 - 08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20 - 09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00 - 09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00 - 10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40 - 11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40 - 13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20 - 14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00 - 07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40 - 08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20 - 09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00 - 09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00 - 10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40 - 11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40 - 13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20 - 14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "8G": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
 
 "8H": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 },
     
   "8I": {
       senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" },
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" },
     ],
     jumat: jadwalJumat
 }
@@ -981,430 +981,430 @@ const jadwalKelas8 = {
 const jadwalKelas9 = {
 "9A": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "IPS", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "INFORMATIKA", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "INFORMATIKA", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
     
 "9B": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-" }
     ],
     selasa: [
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
+        { waktu: "07.40-08.20", mapel: "-", guru: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-" }
     ],
     jumat: jadwalJumat
 },
     
 "9B": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
 
 "9C": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
     
 "9D": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
 
 "9E": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
     
 "9F": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
 
 "9G": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
 
 "9H": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ]
 },
     
 "9I": {
     senin: [
-        { waktu: "07.30-08.10", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.10-08.50", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.50-09.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.30-10.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.20-10.55", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.55-11.30", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.30-08.10", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.10-08.50", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.50-09.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.30-10.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.20-10.55", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.55-11.30", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     selasa: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     rabu: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     kamis: [
-        { waktu: "07.00-07.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "07.40-08.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "08.20-09.00", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "09.00-09.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.00-10.40", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "10.40-11.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "12.40-13.20", mapel: "—", guru: "—", ruang: "—" },
-        { waktu: "13.20-14.00", mapel: "—", guru: "—", ruang: "—" }
+        { waktu: "07.00-07.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "07.40-08.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "08.20-09.00", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "09.00-09.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.00-10.40", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "10.40-11.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "12.40-13.20", mapel: "-", guru: "-", ruang: "-" },
+        { waktu: "13.20-14.00", mapel: "-", guru: "-", ruang: "-" }
     ],
     jumat: jadwalJumat
 }
@@ -1469,8 +1469,8 @@ function renderGuru() {
                 '</div>' +
                 '<div class="guru-info">' +
                     '<h3 class="guru-nama">' + guru.nama + '</h3>' +
-                    (guru.mapel !== '—' ? '<span class="guru-mapel">' + guru.mapel + '</span>' : '') +
-                    (guru.waliKelas !== '—' ? '<span class="guru-wali"> Wali Kelas: ' + guru.waliKelas + '</span>' : '') +
+                    (guru.mapel !== '-' ? '<span class="guru-mapel">' + guru.mapel + '</span>' : '') +
+                    (guru.waliKelas !== '-' ? '<span class="guru-wali"> Wali Kelas: ' + guru.waliKelas + '</span>' : '') +
                 '</div>' +
             '</div>' +
             '<button class="guru-jadwal-btn" data-guru-id="' + guru.id + '">LIHAT JADWAL GURU</button>';
@@ -1491,7 +1491,7 @@ function cariJadwalGuru(namaGuru) {
         ['senin','selasa','rabu','kamis','jumat'].forEach(function (hari) {
             (jadwalKelas[hari] || []).forEach(function (item) {
                 if (item.guru && item.guru.trim() === namaGuru.trim()) {
-                    hasil[hari].push({ kelas: kelasId, waktu: item.waktu, mapel: item.mapel, ruang: item.ruang || '—' });
+                    hasil[hari].push({ kelas: kelasId, waktu: item.waktu, mapel: item.mapel, ruang: item.ruang || '-' });
                 }
             });
         });
@@ -1573,7 +1573,7 @@ function renderJadwalHari(hari) {
         tr.innerHTML = `
             <td data-label="Waktu">${item.waktu}</td>
             <td data-label="Mapel">${item.mapel}</td>
-            <td data-label="Guru">${item.guru || '—'}</td>
+            <td data-label="Guru">${item.guru || '-'}</td>
             <td data-label="Ruang">${item.ruang}</td>
         `;
         tbody.appendChild(tr);
@@ -1789,7 +1789,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // GURU — tombol lihat jadwal (delegated)
+    // GURU - tombol lihat jadwal (delegated)
     document.addEventListener('click', function (e) {
         const btn = e.target.closest('.guru-jadwal-btn');
         if (!btn) return;
@@ -1804,7 +1804,7 @@ document.addEventListener('DOMContentLoaded', function () {
         renderJadwalGuru('senin');
     });
 
-    // GURU — tab hari
+    // GURU - tab hari
     const guruTabs = document.querySelector('.guru-jadwal-tabs');
     if (guruTabs) {
         guruTabs.addEventListener('click', function (e) {
@@ -2092,7 +2092,7 @@ function onLoginSuccess() {
         renderDashboardNav();
         // Update dashboard title
         var titleEl = document.getElementById('dashboardTitle');
-        if (titleEl) titleEl.textContent = 'Dashboard — ' + (currentUser.namaGuru || currentUser.label);
+        if (titleEl) titleEl.textContent = 'Dashboard - ' + (currentUser.namaGuru || currentUser.label);
         // Tampilkan pesan login berhasil (menggantikan status Firebase teknis)
         var fbBar = document.getElementById('fbStatusBar');
         if (fbBar) {
@@ -2109,7 +2109,7 @@ function onLoginSuccess() {
         renderTodaySchedule();
         showSection('jadwal-hari-ini');
         var titleEl2 = document.getElementById('todayScheduleTitle');
-        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini — Kelas ' + displayId;
+        if (titleEl2) titleEl2.textContent = 'Jadwal Hari Ini - Kelas ' + displayId;
         subscribeHwSiswa(displayId);
     }
 }
@@ -2136,7 +2136,7 @@ function updateAuthUI() {
 
         var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : currentUser.role === 'admin' ? '🔑 Admin' : '📚 Siswa';
         userBar.style.display = 'block';
-        userBarLbl.textContent = roleTag + ' — ' + shortLabel;
+        userBarLbl.textContent = roleTag + ' - ' + shortLabel;
         document.body.classList.add('has-userbar');
     } else {
         navLoginBtn.innerHTML =
@@ -2221,14 +2221,14 @@ function showFbStatus(state, msg) {
         bar.className = 'fb-status-bar fb-status-ok';
         bar.innerHTML =
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.92a16 16 0 0 0 6 6l1.27-.84a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>' +
-            '<span>Firebase terhubung — Data real-time aktif ✓</span>';
+            '<span>Firebase terhubung - Data real-time aktif ✓</span>';
     } else {
         bar.style.display = 'flex';
         bar.className = 'fb-status-bar fb-status-error';
         bar.innerHTML =
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
             '<span>Firebase error: ' + escapeHtml(msg || 'Tidak dapat terhubung') +
-            ' — Periksa konfigurasi di script.js</span>';
+            ' - Periksa konfigurasi di script.js</span>';
     }
 }
 
@@ -2246,7 +2246,7 @@ function escapeHtml(str) {
 }
 
 function formatTanggal(isoStr) {
-    if (!isoStr) return '—';
+    if (!isoStr) return '-';
     var d = new Date(isoStr + 'T00:00:00');
     var days   = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
     var months = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'];
@@ -2254,7 +2254,7 @@ function formatTanggal(isoStr) {
 }
 
 // ===================================================
-// FIREBASE — ADD HOMEWORK
+// FIREBASE - ADD HOMEWORK
 // ===================================================
 
 function addHomeworkToFirebase(data, onSuccess, onError) {
@@ -2275,7 +2275,7 @@ function addHomeworkToFirebase(data, onSuccess, onError) {
 }
 
 // ===================================================
-// FIREBASE — UPDATE HOMEWORK
+// FIREBASE - UPDATE HOMEWORK
 // ===================================================
 
 function updateHomeworkInFirebase(docId, data, onSuccess, onError) {
@@ -2294,7 +2294,7 @@ function updateHomeworkInFirebase(docId, data, onSuccess, onError) {
 }
 
 // ===================================================
-// FIREBASE — DELETE HOMEWORK
+// FIREBASE - DELETE HOMEWORK
 // ===================================================
 
 function deleteHomeworkFromFirebase(docId, onSuccess, onError) {
@@ -2308,7 +2308,7 @@ function deleteHomeworkFromFirebase(docId, onSuccess, onError) {
 }
 
 // ===================================================
-// FIREBASE — REAL-TIME LISTENER: TEACHER (all classes)
+// FIREBASE - REAL-TIME LISTENER: TEACHER (all classes)
 // ===================================================
 
 function subscribeHwGuru(filterKelas) {
@@ -2363,7 +2363,7 @@ function subscribeHwGuru(filterKelas) {
 }
 
 // ===================================================
-// FIREBASE — REAL-TIME LISTENER: STUDENT (filtered by class)
+// FIREBASE - REAL-TIME LISTENER: STUDENT (filtered by class)
 // ===================================================
 
 function subscribeHwSiswa(kelasFilter) {
@@ -2423,13 +2423,13 @@ function subscribeHwSiswa(kelasFilter) {
 function buildClassFilterList(kelasFilter) {
     // If kelasFilter is a specific class (e.g. "7A", "8F"), return just that one
     if (kelasFilter && kelasFilter.length > 1) return [kelasFilter];
-    // Otherwise it's a grade level ("7", "8", "9") — return all 9 classes
+    // Otherwise it's a grade level ("7", "8", "9") - return all 9 classes
     var suffix = ['A','B','C','D','E','F','G','H','I'];
     return suffix.map(function(s) { return kelasFilter + s; });
 }
 
 // ===================================================
-// RENDER — TEACHER HOMEWORK LIST
+// RENDER - TEACHER HOMEWORK LIST
 // ===================================================
 
 function renderHwListGuruData(list, hasError, errMsg) {
@@ -2477,7 +2477,7 @@ function renderHwListGuruData(list, hasError, errMsg) {
 }
 
 // ===================================================
-// RENDER — STUDENT HOMEWORK LIST
+// RENDER - STUDENT HOMEWORK LIST
 // ===================================================
 
 function renderHwListSiswaData(list, kelasLevel, hasError, errMsg) {
@@ -2553,14 +2553,14 @@ function renderTodaySchedule(homeworkList) {
         labelEl.textContent = days[today.getDay()] + ', ' + today.getDate() + ' ' + months[today.getMonth()] + ' ' + today.getFullYear();
     }
     if (titleEl) {
-        titleEl.textContent = 'Jadwal Hari Ini — Kelas ' + displayKelas;
+        titleEl.textContent = 'Jadwal Hari Ini - Kelas ' + displayKelas;
     }
 
     var hariKey = getTodayHariKey();
     tbody.innerHTML = '';
 
     if (!hariKey) {
-        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Hari ini libur — tidak ada jadwal pelajaran.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" class="no-data">Hari ini libur - tidak ada jadwal pelajaran.</td></tr>';
         return;
     }
 
@@ -2597,13 +2597,13 @@ function renderTodaySchedule(homeworkList) {
                     '</span> ';
             });
         } else {
-            hwCell = '<span class="no-hw-badge">—</span>';
+            hwCell = '<span class="no-hw-badge">-</span>';
         }
 
         tr.innerHTML =
             '<td data-label="Waktu">' + escapeHtml(item.waktu)       + '</td>' +
             '<td data-label="Mapel">' + escapeHtml(item.mapel)       + '</td>' +
-            '<td data-label="Guru">' + escapeHtml(item.guru || '—') + '</td>' +
+            '<td data-label="Guru">' + escapeHtml(item.guru || '-') + '</td>' +
             '<td data-label="Ruang">' + escapeHtml(item.ruang)       + '</td>' +
             '<td data-label="Tugas">' + hwCell                        + '</td>';
         tbody.appendChild(tr);
@@ -2698,7 +2698,7 @@ function initHomeworkForm() {
                     successEl.style.display = 'inline';
                     setTimeout(function() { successEl.style.display = 'none'; }, 2500);
                     resetHwForm();
-                    // Real-time listener will auto-update the list — no manual refresh needed
+                    // Real-time listener will auto-update the list - no manual refresh needed
                 },
                 function(errMsg) {
                     submitBtn.disabled = false;
