@@ -296,10 +296,6 @@ body.dark .loading-logo {
     100% { transform: translateX(-100%); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .announce-bar-track { animation: none; padding-left: 16px; }
-}
-
 /* Garis identitas dua warna (biru logo + hijau gedung sekolah) */
 .school-stripe {
     position: fixed;
@@ -501,14 +497,15 @@ body.dark .header {
         height: 56px;
         border-radius: 50%;
         margin-top: -26px;
-        background: var(--navy);
-        color: #fff;
-        box-shadow: 0 4px 10px var(--navy-dim2), 0 0 0 5px var(--bg);
+        background: var(--bg-card);
+        border: 1.5px solid var(--border-strong);
+        color: var(--navy);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.12), 0 0 0 5px var(--bg);
         gap: 0;
     }
 
     body.dark .bottom-tabbar .bottom-tab-fab {
-        box-shadow: 0 8px 18px var(--navy-dim2), 0 0 0 5px var(--bg-card);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3), 0 0 0 5px var(--bg-card);
     }
 
     .bottom-tabbar .bottom-tab-fab .bottom-tab-icon {
@@ -522,6 +519,17 @@ body.dark .header {
 
     .bottom-tabbar .bottom-tab-fab:active {
         transform: scale(0.92);
+    }
+
+    .bottom-tabbar .bottom-tab-fab.active {
+        background: var(--navy);
+        border-color: var(--navy);
+        color: #fff;
+        box-shadow: 0 4px 12px var(--navy-dim2), 0 0 0 5px var(--bg);
+    }
+
+    body.dark .bottom-tabbar .bottom-tab-fab.active {
+        box-shadow: 0 4px 12px var(--navy-dim2), 0 0 0 5px var(--bg-card);
     }
 }
 
