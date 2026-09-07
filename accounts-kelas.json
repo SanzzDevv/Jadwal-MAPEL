@@ -163,6 +163,282 @@
       "kelas": "9I"
     },
     {
+      "username": "a_sutisna",
+      "password": "f5sbLJIj",
+      "role": "guru",
+      "namaGuru": "A. SUTISNA, S.Pd"
+    },
+    {
+      "username": "ahmad_rahmat",
+      "password": "ZneWCs8T",
+      "role": "guru",
+      "namaGuru": "AHMAD RAHMAT, S.Sn, M.Pd"
+    },
+    {
+      "username": "ai_rika",
+      "password": "E87fp8Wa",
+      "role": "guru",
+      "namaGuru": "AI RIKA ISMAHANI, S.Psi"
+    },
+    {
+      "username": "alda_aldila",
+      "password": "EVavb2XN",
+      "role": "guru",
+      "namaGuru": "ALDA ALDILA RIYADI, S.Pd"
+    },
+    {
+      "username": "andri_sunanto",
+      "password": "11AEWaYW",
+      "role": "guru",
+      "namaGuru": "ANDRI SUNANTO, S. Pd., M. Pd"
+    },
+    {
+      "username": "annisa_haelwani",
+      "password": "a3AypPwy",
+      "role": "guru",
+      "namaGuru": "ANNISA HAELWANI, S. KOM"
+    },
+    {
+      "username": "ari_nugraha",
+      "password": "MYhnqki9",
+      "role": "guru",
+      "namaGuru": "ARI NUGRAHA, S. Pd"
+    },
+    {
+      "username": "arif_maulana",
+      "password": "bq9FZtqQ",
+      "role": "guru",
+      "namaGuru": "ARIF MAULANA GUNAWAN, S.T"
+    },
+    {
+      "username": "candita_reksa",
+      "password": "6PRJRMWi",
+      "role": "guru",
+      "namaGuru": "CANDITA REKSA RIYADI, S. Pd"
+    },
+    {
+      "username": "deden_kurnia",
+      "password": "kAUEg4W8",
+      "role": "guru",
+      "namaGuru": "DEDEN KURNIA S, S. Pd"
+    },
+    {
+      "username": "diah_soepliah",
+      "password": "L6lYRWda",
+      "role": "guru",
+      "namaGuru": "DIAH SOEPLIAH, S. Sos"
+    },
+    {
+      "username": "dian_rahmawati",
+      "password": "PGLxye6R",
+      "role": "guru",
+      "namaGuru": "DIAN RAHMAWATI, S. Pd"
+    },
+    {
+      "username": "agus_masruq",
+      "password": "i981iEXo",
+      "role": "guru",
+      "namaGuru": "Drs. AGUS MASRUQ, M.Pd"
+    },
+    {
+      "username": "dwi_prihanto",
+      "password": "1W11wt8D",
+      "role": "guru",
+      "namaGuru": "DWI PRIHANTO K, S.Pd"
+    },
+    {
+      "username": "eha_julaeha",
+      "password": "pukXfqc7",
+      "role": "guru",
+      "namaGuru": "EHA JULAEHA, S.S"
+    },
+    {
+      "username": "elli_kemalawati",
+      "password": "m4peOVV9",
+      "role": "guru",
+      "namaGuru": "ELLI KEMALAWATI, S.Pd"
+    },
+    {
+      "username": "endah_nurjanah",
+      "password": "GY0NhhwX",
+      "role": "guru",
+      "namaGuru": "ENDAH NURJANAH, S. Pd"
+    },
+    {
+      "username": "faijul_arifin",
+      "password": "vH8SiZQx",
+      "role": "guru",
+      "namaGuru": "FAIJUL ARIFIN, S.Pd"
+    },
+    {
+      "username": "farhan_budiarto",
+      "password": "8ZXs112q",
+      "role": "guru",
+      "namaGuru": "FARHAN BUDIARTO, S.Pd"
+    },
+    {
+      "username": "firda_putri",
+      "password": "A6UyUwlh",
+      "role": "guru",
+      "namaGuru": "FIRDA PUTRI UTAMI, S. Pd"
+    },
+    {
+      "username": "fitria_agustini",
+      "password": "EavNOQA2",
+      "role": "guru",
+      "namaGuru": "FITRIA AGUSTINI, S.Pd"
+    },
+    {
+      "username": "hendra_saputra",
+      "password": "amA8nlWB",
+      "role": "guru",
+      "namaGuru": "HENDRA SAPUTRA, S.Pd"
+    },
+    {
+      "username": "iis_priatini",
+      "password": "h5MZh0lC",
+      "role": "guru",
+      "namaGuru": "IIS PRIATINI, S.Pd"
+    },
+    {
+      "username": "ika_kurnia",
+      "password": "rGUjTb78",
+      "role": "guru",
+      "namaGuru": "IKA KURNIA, S.Pd"
+    },
+    {
+      "username": "imam_adi",
+      "password": "arvXUfu7",
+      "role": "guru",
+      "namaGuru": "IMAM ADI PRASETYO, S. Pd"
+    },
+    {
+      "username": "inna_nuraini",
+      "password": "I2R08GbV",
+      "role": "guru",
+      "namaGuru": "INNA NURAINI SUJANA, S. Pd"
+    },
+    {
+      "username": "iwan_setiawan",
+      "password": "EcGBD5Xe",
+      "role": "guru",
+      "namaGuru": "IWAN SETIAWAN, S.Pd"
+    },
+    {
+      "username": "lani_mustikasari",
+      "password": "3morcDtq",
+      "role": "guru",
+      "namaGuru": "LANI MUSTIKASARI, S.Pd"
+    },
+    {
+      "username": "lela_zulkaedah",
+      "password": "k8QAem08",
+      "role": "guru",
+      "namaGuru": "LELA ZULKAEDAH, S.Pd"
+    },
+    {
+      "username": "lia_pramurtya",
+      "password": "o1MHyOKH",
+      "role": "guru",
+      "namaGuru": "LIA PRAMURTYA, S.Si"
+    },
+    {
+      "username": "luthfi_hadiansyah",
+      "password": "X4IjJZeo",
+      "role": "guru",
+      "namaGuru": "LUTHFI HADIANSYAH, S.Pd"
+    },
+    {
+      "username": "noor_fendi",
+      "password": "Vv0iEHey",
+      "role": "guru",
+      "namaGuru": "M. NOOR FENDI SAEFULOH, S.Pd"
+    },
+    {
+      "username": "mega_herliani",
+      "password": "vtSb2eDs",
+      "role": "guru",
+      "namaGuru": "MEGA HERLIANI, S.Sn"
+    },
+    {
+      "username": "muh_zaenal",
+      "password": "nQVZmsg9",
+      "role": "guru",
+      "namaGuru": "MUH. ZAENAL ARIPIN, S. Pd"
+    },
+    {
+      "username": "nidya_eka",
+      "password": "EyVCTb9v",
+      "role": "guru",
+      "namaGuru": "NIDYA EKA PRATIWI, S.Pd"
+    },
+    {
+      "username": "pipin_firmansyah",
+      "password": "rWE31IwE",
+      "role": "guru",
+      "namaGuru": "PIPIN FIRMANSYAH N, S.Pd"
+    },
+    {
+      "username": "prapti_handayani",
+      "password": "LM4sxagH",
+      "role": "guru",
+      "namaGuru": "PRAPTI HANDAYANI, S.Pd"
+    },
+    {
+      "username": "qisti_septia",
+      "password": "Y7JGedaO",
+      "role": "guru",
+      "namaGuru": "QISTI SEPTIA W. A, S. Pd"
+    },
+    {
+      "username": "rahmasari_aulia",
+      "password": "KV8Kd619",
+      "role": "guru",
+      "namaGuru": "RAHMASARI AULIA KHOTIMAH, S. Pd"
+    },
+    {
+      "username": "rd_sri",
+      "password": "gics4Bwb",
+      "role": "guru",
+      "namaGuru": "Rd. SRI REJEKI, S.Pd"
+    },
+    {
+      "username": "rini_septiani",
+      "password": "xdiliI4o",
+      "role": "guru",
+      "namaGuru": "RINI SEPTIANI, S. Pd"
+    },
+    {
+      "username": "roni_rahmansyah",
+      "password": "aVSK8MwP",
+      "role": "guru",
+      "namaGuru": "RONI RAHMANSYAH, S.KOM"
+    },
+    {
+      "username": "sariya_dewi",
+      "password": "g0f91JKh",
+      "role": "guru",
+      "namaGuru": "SARIYA DEWI SARASWATI, S. Pd"
+    },
+    {
+      "username": "setia_nur",
+      "password": "h7otJycq",
+      "role": "guru",
+      "namaGuru": "SETIA NUR PARIDAH, S.Pd"
+    },
+    {
+      "username": "silfa_agisni",
+      "password": "qa14vrFd",
+      "role": "guru",
+      "namaGuru": "SILFA AGISNI SALMA, S. Pd"
+    },
+    {
+      "username": "tata_nurhayati",
+      "password": "BuPyCw2Z",
+      "role": "guru",
+      "namaGuru": "TATA NURHAYATI, S.Pd"
+    },
+    {
       "username": "admin",
       "password": "c&|b_kpv&t}3RXKw+kUDjX?x",
       "role": "admin"

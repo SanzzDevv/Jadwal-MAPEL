@@ -5,17 +5,6 @@
 const siteStatus = "on";
 
 // ===============================
-// KONFIGURASI LOGO
-// mode: 1 = Logo SVG SIJAP (default)
-// mode: 2 = Logo gambar SMPN 24 Bandung
-// imageUrl: path ke file gambar logo (hanya dipakai jika mode = 2)
-// ===============================
-var LOGO_CONFIG = {
-    mode: 2,
-    imageUrl: "logo-smpn24.png"
-};
-
-// ===============================
 // DARK MODE
 // ===============================
 (function () {
@@ -1874,8 +1863,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // APPLY LOGO CONFIG
-    applyLogoConfig();
 });
 
 // ===================================================
@@ -2106,6 +2093,13 @@ function onLoginSuccess() {
         // Update dashboard title
         var titleEl = document.getElementById('dashboardTitle');
         if (titleEl) titleEl.textContent = 'Dashboard — ' + (currentUser.namaGuru || currentUser.label);
+        // Tampilkan pesan login berhasil (menggantikan status Firebase teknis)
+        var fbBar = document.getElementById('fbStatusBar');
+        if (fbBar) {
+            fbBar.style.display = 'flex';
+            fbBar.className = 'fb-status-bar fb-status-ok';
+            fbBar.innerHTML = '<span>Login berhasil! (' + escapeHtml(currentUser.namaGuru || currentUser.label) + ')</span>';
+        }
         showSection('dashboard-guru');
         // Start real-time listener for all homework (teacher/admin sees everything)
         subscribeHwGuru('');
@@ -2787,58 +2781,6 @@ function resetHwForm() {
 // ===================================================
 // LOGO CONFIG APPLY
 // ===================================================
-
-function applyLogoConfig() {
-    if (!LOGO_CONFIG || LOGO_CONFIG.mode !== 2 || !LOGO_CONFIG.imageUrl) return;
-
-    // Update header brand icon: hide SVG, show img
-    var brandIcons = document.querySelectorAll('.brand-icon');
-    brandIcons.forEach(function(icon) {
-        var svgEl = icon.querySelector('svg');
-        var imgEl = icon.querySelector('.logo-img-mode2');
-        if (svgEl) svgEl.style.display = 'none';
-        if (imgEl) {
-            imgEl.style.display = 'block';
-        } else {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
-            icon.appendChild(img);
-        }
-    });
-
-    // Update loading screen logo
-    var loadingLogo = document.querySelector('.loading-logo');
-    if (loadingLogo) {
-        var svgEl = loadingLogo.querySelector('svg');
-        if (svgEl) svgEl.style.display = 'none';
-        if (!loadingLogo.querySelector('.logo-img-mode2')) {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;';
-            loadingLogo.appendChild(img);
-        }
-    }
-
-    // Update login box logo
-    var loginIcon = document.querySelector('.login-box .brand-icon');
-    if (loginIcon) {
-        var svgEl = loginIcon.querySelector('svg');
-        if (svgEl) svgEl.style.display = 'none';
-        if (!loginIcon.querySelector('.logo-img-mode2')) {
-            var img = document.createElement('img');
-            img.src = LOGO_CONFIG.imageUrl;
-            img.alt = 'Logo SMP Negeri 24 Bandung';
-            img.className = 'logo-img-mode2';
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;border-radius:6px;';
-            loginIcon.appendChild(img);
-        }
-    }
-}
 
 // ===================================================
 // INIT AUTH EVENTS (called after DOMContentLoaded)

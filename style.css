@@ -161,15 +161,12 @@ body.dark .loading-screen {
 }
 
 .loading-logo {
-    width: 56px;
-    height: 56px;
-    background: var(--navy);
-    border-radius: 14px;
+    width: 68px;
+    height: 68px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    padding: 14px;
     margin-bottom: 18px;
     animation: logoPulse 1.8s ease-in-out infinite;
 }
@@ -188,9 +185,10 @@ body.dark .loading-logo {
     50%       { box-shadow: 0 0 0 10px rgba(74, 144, 217, 0); }
 }
 
-.loading-logo svg {
+.school-logo-img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .loading-brand {
@@ -350,20 +348,15 @@ body.dark .header {
 }
 
 .brand-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--navy);
-    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    padding: 7px;
     flex-shrink: 0;
     transition: var(--transition);
 }
-
-.brand-icon svg { width: 100%; height: 100%; }
 
 .brand-text {
     display: flex;
@@ -2052,6 +2045,7 @@ body.dark .grade-number { color: rgba(74, 144, 217, 0.2); }
     height: 48px;
     background: var(--bg-card);
     border-radius: 14px;
+    padding: 5px;
     color: var(--navy);
 }
 
@@ -2489,9 +2483,15 @@ body.has-userbar .footer {
 }
 
 .fb-status-ok {
-    background: var(--green-bg);
-    color: var(--green);
-    border: 1px solid var(--green-border);
+    background: var(--navy-dim);
+    color: var(--navy);
+    border: 1px solid var(--navy-dim2);
+}
+
+body.dark .fb-status-ok {
+    background: var(--navy-dim);
+    color: var(--navy-light);
+    border-color: var(--navy-dim2);
 }
 
 .fb-status-error {
