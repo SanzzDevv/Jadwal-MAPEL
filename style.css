@@ -2211,6 +2211,30 @@ select.form-input {
     gap: 12px;
 }
 
+/* On mobile, the bottom-tabbar already owns bottom:0, so lift the
+   user-bar to float just above it instead of stacking on top of it. */
+@media (max-width: 600px) {
+    .user-bar {
+        left: 12px;
+        right: 12px;
+        bottom: calc(14px + 64px + 10px);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(18, 59, 109, 0.16);
+    }
+
+    .user-bar-inner {
+        padding: 8px 14px;
+    }
+
+    .user-bar-label {
+        font-size: 0.78rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
 .user-bar-label {
     font-size: 0.83rem;
     color: rgba(255,255,255,0.85);
@@ -2394,6 +2418,27 @@ select.form-input {
     transition: var(--transition);
 }
 
+@media (max-width: 600px) {
+    .hw-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hw-item-mapel-badge {
+        align-self: flex-start;
+    }
+
+    .hw-item-body {
+        width: 100%;
+    }
+
+    .hw-item-actions {
+        align-self: flex-start;
+        width: auto;
+        margin-top: 2px;
+    }
+}
+
 .hw-edit-btn {
     background: var(--navy-dim);
     color: var(--navy);
@@ -2464,6 +2509,13 @@ body.dark .hw-badge-in-table {
 body.has-userbar main,
 body.has-userbar .footer {
     padding-bottom: 48px;
+}
+
+@media (max-width: 600px) {
+    body.has-userbar main,
+    body.has-userbar .footer {
+        padding-bottom: 132px;
+    }
 }
 
 
