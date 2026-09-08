@@ -1,4 +1,19 @@
 // ===============================
+// IKON SVG BERSAMA (feather-style, stroke-based)
+// Dipakai untuk mengganti emoji di berbagai bagian UI
+// ===============================
+const ICONS = {
+    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+    building: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v18"/><path d="M6 12H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2"/><path d="M18 12h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2"/><line x1="10" y1="6" x2="10" y2="6.01"/><line x1="14" y1="6" x2="14" y2="6.01"/><line x1="10" y1="10" x2="10" y2="10.01"/><line x1="14" y1="10" x2="14" y2="10.01"/><line x1="10" y1="14" x2="10" y2="14.01"/><line x1="14" y1="14" x2="14" y2="14.01"/><line x1="10" y1="18" x2="14" y2="18"/></svg>',
+    teacher: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5"/></svg>',
+    warning: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+    checkCircle: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+};
+function metaIcon(name) {
+    return '<span style="display:inline-flex;width:13px;height:13px;flex-shrink:0;vertical-align:-2px;margin-right:4px;">' + ICONS[name] + '</span>';
+}
+
+// ===============================
 // KONFIGURASI STATUS SITUS
 // Ganti "on" menjadi "off" untuk mengaktifkan halaman maintenance
 // ===============================
@@ -1635,18 +1650,28 @@ function updateBackButtons() {
 // ===============================
 // SAPAAN NAMA (greeting widget di Beranda)
 // ===============================
+// Ikon SVG waktu (feather-style, mengikuti ikon lain di halaman ini)
+var SAPAAN_ICONS = {
+    tengahMalam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M15 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/></svg>',
+    subuh: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="2" y1="22" x2="22" y2="22"/><polyline points="8 6 12 2 16 6"/></svg>',
+    pagi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+    siang: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 20a4 4 0 1 1 .9-7.9 5.5 5.5 0 0 1 10.6 1.9H18a3.5 3.5 0 0 1 0 7z"/><path d="M12 2v2"/><path d="M4.9 4.9l1.4 1.4"/><path d="M2 12h2"/></svg>',
+    sore: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="9" x2="12" y2="2"/><line x1="4.22" y1="10.22" x2="5.64" y2="11.64"/><line x1="1" y1="18" x2="3" y2="18"/><line x1="21" y1="18" x2="23" y2="18"/><line x1="18.36" y1="11.64" x2="19.78" y2="10.22"/><line x1="2" y1="22" x2="22" y2="22"/><polyline points="16 5 12 9 8 5"/></svg>',
+    malam: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+};
+
 function getSapaanWaktu(jam) {
-    if (jam >= 0 && jam < 3)  return { label: 'Selamat tengah malam', emoji: '🌙' };
-    if (jam >= 3 && jam < 7)  return { label: 'Selamat subuh',        emoji: '🌄' };
-    if (jam >= 7 && jam < 12) return { label: 'Selamat pagi',         emoji: '☀️' };
-    if (jam >= 12 && jam < 15) return { label: 'Selamat siang',       emoji: '🌤️' };
-    if (jam >= 15 && jam < 18) return { label: 'Selamat sore',        emoji: '🌇' };
-    return { label: 'Selamat malam', emoji: '🌃' };
+    if (jam >= 0 && jam < 3)  return { label: 'Selamat tengah malam', icon: SAPAAN_ICONS.tengahMalam };
+    if (jam >= 3 && jam < 7)  return { label: 'Selamat subuh',        icon: SAPAAN_ICONS.subuh };
+    if (jam >= 7 && jam < 12) return { label: 'Selamat pagi',         icon: SAPAAN_ICONS.pagi };
+    if (jam >= 12 && jam < 15) return { label: 'Selamat siang',       icon: SAPAAN_ICONS.siang };
+    if (jam >= 15 && jam < 18) return { label: 'Selamat sore',        icon: SAPAAN_ICONS.sore };
+    return { label: 'Selamat malam', icon: SAPAAN_ICONS.malam };
 }
 
 function tampilkanSapaan(nama) {
     var sapaan = getSapaanWaktu(new Date().getHours());
-    document.getElementById('greetingEmoji').textContent = sapaan.emoji;
+    document.getElementById('greetingEmoji').innerHTML = sapaan.icon;
     document.getElementById('greetingText').textContent = sapaan.label + ', ' + nama + '!';
     document.getElementById('greetingInputRow').style.display = 'none';
     document.getElementById('greetingMessage').style.display = 'flex';
@@ -2082,12 +2107,17 @@ function doLogout() {
         hwUnsubscribeSiswa = null;
     }
     currentUser = null;
+    document.body.classList.remove('role-admin');
     updateAuthUI();
     showSection('beranda');
 }
 
 function onLoginSuccess() {
     updateAuthUI();
+
+    // Admin dapat layout sidebar kiri di tampilan web (desktop) menggantikan nav atas
+    document.body.classList.toggle('role-admin', currentUser.role === 'admin');
+
     if (currentUser.role === 'guru' || currentUser.role === 'admin') {
         renderDashboardNav();
         // Update dashboard title
@@ -2134,9 +2164,15 @@ function updateAuthUI() {
             '<rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Dashboard';
         navLoginBtn.title = 'Dashboard';
 
-        var roleTag = currentUser.role === 'guru' ? '👨‍🏫 Guru' : currentUser.role === 'admin' ? '🔑 Admin' : '📚 Siswa';
+        var ROLE_ICONS = {
+            guru: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.1 2.7 2.5 6 2.5s6-1.4 6-2.5v-5"/></svg>',
+            admin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>',
+            kelas: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+        };
+        var roleName = currentUser.role === 'guru' ? 'Guru' : currentUser.role === 'admin' ? 'Admin' : 'Siswa';
+        var roleIcon = currentUser.role === 'guru' ? ROLE_ICONS.guru : currentUser.role === 'admin' ? ROLE_ICONS.admin : ROLE_ICONS.kelas;
         userBar.style.display = 'block';
-        userBarLbl.textContent = roleTag + ' - ' + shortLabel;
+        userBarLbl.innerHTML = '<span style="display:inline-flex;align-items:center;gap:5px;">' + roleIcon + roleName + '</span> - ' + escapeHtml(shortLabel);
         document.body.classList.add('has-userbar');
     } else {
         navLoginBtn.innerHTML =
@@ -2439,7 +2475,7 @@ function renderHwListGuruData(list, hasError, errMsg) {
     if (hasError) {
         container.innerHTML =
             '<div class="hw-empty" style="color:#dc2626;">' +
-            '⚠️ Gagal memuat data.' +
+            metaIcon('warning') + 'Gagal memuat data.' +
             (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') +
             ' Periksa konfigurasi Firebase di script.js.</div>';
         return;
@@ -2459,9 +2495,9 @@ function renderHwListGuruData(list, hasError, errMsg) {
             '<div class="hw-item-body">' +
                 '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
                 '<div class="hw-item-meta">' +
-                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
-                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
+                    '<span>' + metaIcon('calendar') + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>' + metaIcon('building') + 'Kelas ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>' + metaIcon('teacher') + escapeHtml(hw.namaGuru) + '</span>' +
                 '</div>' +
             '</div>' +
             '<div class="hw-item-actions">' +
@@ -2490,13 +2526,16 @@ function renderHwListSiswaData(list, kelasLevel, hasError, errMsg) {
     if (hasError) {
         container.innerHTML =
             '<div class="hw-empty" style="color:#dc2626;">' +
-            '⚠️ Gagal memuat tugas.' +
+            metaIcon('warning') + 'Gagal memuat tugas.' +
             (errMsg ? ' (' + escapeHtml(errMsg) + ')' : '') + '</div>';
         return;
     }
 
     if (!list.length) {
-        container.innerHTML = '<div class="hw-empty">Tidak ada PR / Tugas saat ini. 🎉</div>';
+        container.innerHTML =
+            '<div class="hw-empty">' +
+            '<span style="display:block;width:28px;height:28px;margin:0 auto 10px;color:var(--green);">' + ICONS.checkCircle + '</span>' +
+            'Tidak ada PR / Tugas saat ini.</div>';
         return;
     }
 
@@ -2509,9 +2548,9 @@ function renderHwListSiswaData(list, kelasLevel, hasError, errMsg) {
             '<div class="hw-item-body">' +
                 '<div class="hw-item-desc">' + escapeHtml(hw.deskripsi) + '</div>' +
                 '<div class="hw-item-meta">' +
-                    '<span>📅 ' + formatTanggal(hw.tanggal) + '</span>' +
-                    '<span>🏫 Kelas ' + escapeHtml(hw.kelas) + '</span>' +
-                    '<span>👨‍🏫 ' + escapeHtml(hw.namaGuru) + '</span>' +
+                    '<span>' + metaIcon('calendar') + formatTanggal(hw.tanggal) + '</span>' +
+                    '<span>' + metaIcon('building') + 'Kelas ' + escapeHtml(hw.kelas) + '</span>' +
+                    '<span>' + metaIcon('teacher') + escapeHtml(hw.namaGuru) + '</span>' +
                 '</div>' +
             '</div>';
         container.appendChild(item);

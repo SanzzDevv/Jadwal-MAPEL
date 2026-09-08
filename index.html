@@ -177,14 +177,16 @@
         <div class="hero">
             <div class="greeting-widget reveal-item" id="greetingWidget">
                 <div class="greeting-input-row" id="greetingInputRow">
-                    <span class="greeting-input-icon">👋</span>
+                    <span class="greeting-input-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M6 14v-1a2 2 0 0 0-4 0v3.5A7.5 7.5 0 0 0 9.5 24h1A7.5 7.5 0 0 0 18 16.5V13"/></svg>
+                    </span>
                     <input type="text" id="namaUserInput" class="greeting-input" placeholder="Ketik nama kamu..." maxlength="30" autocomplete="off">
                     <button id="simpanNamaBtn" class="greeting-save-btn" aria-label="Simpan nama">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
                     </button>
                 </div>
                 <div class="greeting-message" id="greetingMessage" style="display:none;">
-                    <span class="greeting-emoji" id="greetingEmoji">🌤️</span>
+                    <span class="greeting-emoji" id="greetingEmoji"></span>
                     <span class="greeting-text" id="greetingText"></span>
                     <button id="gantiNamaBtn" class="greeting-edit-btn" aria-label="Ganti nama" title="Ganti nama">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
@@ -594,21 +596,27 @@
 
             <div class="sekolah-kontak-list">
                 <div class="sekolah-kontak-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"/></svg>
+                    <span class="sekolah-kontak-icon icon-navy">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
                     <div>
                         <span class="sekolah-kontak-label">Alamat</span>
                         <span class="sekolah-kontak-value">Jl. Sukamulya No.33, Suka Asih, Kec. Bojongloa Kaler, Kota Bandung, Jawa Barat 40231</span>
                     </div>
                 </div>
                 <div class="sekolah-kontak-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span class="sekolah-kontak-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </span>
                     <div>
                         <span class="sekolah-kontak-label">Telepon</span>
                         <span class="sekolah-kontak-value">SMPN 24 BANDUNG</span>
                     </div>
                 </div>
                 <div class="sekolah-kontak-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6c0 1.1-8.9 6-10 6S2 7.1 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    <span class="sekolah-kontak-icon icon-navy-light">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6c0 1.1-8.9 6-10 6S2 7.1 2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+                    </span>
                     <div>
                         <span class="sekolah-kontak-label">Email</span>
                         <span class="sekolah-kontak-value">smpn24bandung@sekolah.sch.id</span>
