@@ -163,12 +163,6 @@
       "kelas": "9I"
     },
     {
-      "username": "a_sutisna",
-      "password": "f5sbLJIj",
-      "role": "guru",
-      "namaGuru": "A. SUTISNA, S.Pd"
-    },
-    {
       "username": "ahmad_rahmat",
       "password": "ZneWCs8T",
       "role": "guru",
@@ -289,10 +283,10 @@
       "namaGuru": "FITRIA AGUSTINI, S.Pd"
     },
     {
-      "username": "hendra_saputra",
-      "password": "amA8nlWB",
+      "username": "edward_sinaga",
+      "password": "2NkrHytY",
       "role": "guru",
-      "namaGuru": "HENDRA SAPUTRA, S.Pd"
+      "namaGuru": "EDWARD SINAGA, S.Pd"
     },
     {
       "username": "iis_priatini",
@@ -433,10 +427,16 @@
       "namaGuru": "SILFA AGISNI SALMA, S. Pd"
     },
     {
-      "username": "tata_nurhayati",
-      "password": "BuPyCw2Z",
+      "username": "kristina",
+      "password": "ZVUZ6qFP",
       "role": "guru",
-      "namaGuru": "TATA NURHAYATI, S.Pd"
+      "namaGuru": "KRISTINA"
+    },
+    {
+      "username": "fenny_puspita",
+      "password": "AT3TQIYk",
+      "role": "guru",
+      "namaGuru": "FENNY PUSPITA, S.Psi"
     },
     {
       "username": "admin",

@@ -129,7 +129,6 @@ const dataKelas9 = [
 // tingkat: "7", "8", "9", atau "semua" jika mengajar lintas tingkat
 // ===============================
 const dataGuru = [
-    { id: "guru-001", nama: "A. SUTISNA, S.Pd",                    mapel: "-",  waliKelas: "-", tingkat: "9" },
     { id: "guru-002", nama: "AHMAD RAHMAT, S.Sn, M.Pd",            mapel: "-",  waliKelas: "-", tingkat: "9" },
     { id: "guru-003", nama: "AI RIKA ISMAHANI, S.Psi",             mapel: "-",         waliKelas: "-", tingkat: "9" },
     { id: "guru-004", nama: "ALDA ALDILA RIYADI, S.Pd",            mapel: "-",           waliKelas: "-", tingkat: "8" },
@@ -152,7 +151,7 @@ const dataGuru = [
     { id: "guru-021", nama: "FARHAN BUDIARTO, S.Pd",               mapel: "-",    waliKelas: "-", tingkat: "8" },
     { id: "guru-022", nama: "FIRDA PUTRI UTAMI, S. Pd",            mapel: "-",    waliKelas: "-", tingkat: "7" },
     { id: "guru-023", nama: "FITRIA AGUSTINI, S.Pd",               mapel: "-",  waliKelas: "-", tingkat: "8" },
-    { id: "guru-024", nama: "HENDRA SAPUTRA, S.Pd",                mapel: "-",           waliKelas: "-", tingkat: "8" },
+    { id: "guru-024", nama: "EDWARD SINAGA, S.Pd",                 mapel: "-",  waliKelas: "-", tingkat: "semua" },
     { id: "guru-025", nama: "IIS PRIATINI, S.Pd",                  mapel: "-",           waliKelas: "-", tingkat: "9" },
     { id: "guru-026", nama: "IKA KURNIA, S.Pd",                    mapel: "-",    waliKelas: "-", tingkat: "9" },
     { id: "guru-027", nama: "IMAM ADI PRASETYO, S. Pd",            mapel: "-",           waliKelas: "-", tingkat: "7" },
@@ -177,7 +176,8 @@ const dataGuru = [
     { id: "guru-046", nama: "SARIYA DEWI SARASWATI, S. Pd",        mapel: "-",          waliKelas: "-", tingkat: "7" },
     { id: "guru-047", nama: "SETIA NUR PARIDAH, S.Pd",             mapel: "-",  waliKelas: "-", tingkat: "8" },
     { id: "guru-048", nama: "SILFA AGISNI SALMA, S. Pd",           mapel: "-",         waliKelas: "-", tingkat: "7" },
-    { id: "guru-049", nama: "TATA NURHAYATI, S.Pd",                mapel: "-",  waliKelas: "-", tingkat: "8" }
+    { id: "guru-049", nama: "KRISTINA",                            mapel: "-",  waliKelas: "-", tingkat: "semua" },
+    { id: "guru-050", nama: "FENNY PUSPITA, S.Psi",                mapel: "-",  waliKelas: "-", tingkat: "semua" }
 ];
 
 // ===============================
@@ -1898,7 +1898,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Generated automatically. Do NOT edit manually.
 // For the full credential list see: accounts.txt
 var ACCOUNTS = {
-    "a_sutisna": { password: "f5sbLJIj", role: "guru",  label: "A. SUTISNA, S.Pd", namaGuru: "A. SUTISNA, S.Pd" },
     "ahmad_rahmat": { password: "ZneWCs8T", role: "guru",  label: "AHMAD RAHMAT, S.Sn, M.Pd", namaGuru: "AHMAD RAHMAT, S.Sn, M.Pd" },
     "ai_rika": { password: "E87fp8Wa", role: "guru",  label: "AI RIKA ISMAHANI, S.Psi", namaGuru: "AI RIKA ISMAHANI, S.Psi" },
     "alda_aldila": { password: "EVavb2XN", role: "guru",  label: "ALDA ALDILA RIYADI, S.Pd", namaGuru: "ALDA ALDILA RIYADI, S.Pd" },
@@ -1919,7 +1918,7 @@ var ACCOUNTS = {
     "farhan_budiarto": { password: "8ZXs112q", role: "guru",  label: "FARHAN BUDIARTO, S.Pd", namaGuru: "FARHAN BUDIARTO, S.Pd" },
     "firda_putri": { password: "A6UyUwlh", role: "guru",  label: "FIRDA PUTRI UTAMI, S. Pd", namaGuru: "FIRDA PUTRI UTAMI, S. Pd" },
     "fitria_agustini": { password: "EavNOQA2", role: "guru",  label: "FITRIA AGUSTINI, S.Pd", namaGuru: "FITRIA AGUSTINI, S.Pd" },
-    "hendra_saputra": { password: "amA8nlWB", role: "guru",  label: "HENDRA SAPUTRA, S.Pd", namaGuru: "HENDRA SAPUTRA, S.Pd" },
+    "edward_sinaga": { password: "2NkrHytY", role: "guru",  label: "EDWARD SINAGA, S.Pd", namaGuru: "EDWARD SINAGA, S.Pd" },
     "iis_priatini": { password: "h5MZh0lC", role: "guru",  label: "IIS PRIATINI, S.Pd", namaGuru: "IIS PRIATINI, S.Pd" },
     "ika_kurnia": { password: "rGUjTb78", role: "guru",  label: "IKA KURNIA, S.Pd", namaGuru: "IKA KURNIA, S.Pd" },
     "imam_adi": { password: "arvXUfu7", role: "guru",  label: "IMAM ADI PRASETYO, S. Pd", namaGuru: "IMAM ADI PRASETYO, S. Pd" },
@@ -1943,7 +1942,8 @@ var ACCOUNTS = {
     "sariya_dewi": { password: "g0f91JKh", role: "guru",  label: "SARIYA DEWI SARASWATI, S. Pd", namaGuru: "SARIYA DEWI SARASWATI, S. Pd" },
     "setia_nur": { password: "h7otJycq", role: "guru",  label: "SETIA NUR PARIDAH, S.Pd", namaGuru: "SETIA NUR PARIDAH, S.Pd" },
     "silfa_agisni": { password: "qa14vrFd", role: "guru",  label: "SILFA AGISNI SALMA, S. Pd", namaGuru: "SILFA AGISNI SALMA, S. Pd" },
-    "tata_nurhayati": { password: "BuPyCw2Z", role: "guru",  label: "TATA NURHAYATI, S.Pd", namaGuru: "TATA NURHAYATI, S.Pd" },
+    "kristina": { password: "ZVUZ6qFP", role: "guru",  label: "KRISTINA", namaGuru: "KRISTINA" },
+    "fenny_puspita": { password: "AT3TQIYk", role: "guru",  label: "FENNY PUSPITA, S.Psi", namaGuru: "FENNY PUSPITA, S.Psi" },
     "kelas7": { password: "Bjl15rCR", role: "siswa", label: "Siswa Kelas 7", kelasLevel: "7" },
     "kelas8": { password: "7UWFfTnF", role: "siswa", label: "Siswa Kelas 8", kelasLevel: "8" },
     "kelas9": { password: "cw8Q72A7", role: "siswa", label: "Siswa Kelas 9", kelasLevel: "9" },
